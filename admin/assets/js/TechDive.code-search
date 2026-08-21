@@ -1,0 +1,840 @@
+# Query: TechDive
+# ContextLines: 1
+
+184 results - 100 files
+
+admin\activities.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  24  				<a href="index-2.html" class="logo">
+  25: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  26  				</a>
+
+admin\add-appointment.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  26  				<a href="index-2.html" class="logo">
+  27: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  28  				</a>
+
+admin\add-asset.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  25  				<a href="index-2.html" class="logo">
+  26: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  27  				</a>
+
+admin\add-blog.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  26  				<a href="index-2.html" class="logo">
+  27: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  28  				</a>
+
+admin\add-department.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  25  				<a href="index-2.html" class="logo">
+  26: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  27  				</a>
+
+admin\add-doctor.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  26  				<a href="index-2.html" class="logo">
+  27: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  28  				</a>
+
+admin\add-employee.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  26  				<a href="index-2.html" class="logo">
+  27: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  28  				</a>
+
+admin\add-expense.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  26  				<a href="index-2.html" class="logo">
+  27: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  28  				</a>
+
+admin\add-holiday.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  26  				<a href="index-2.html" class="logo">
+  27: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  28  				</a>
+
+admin\add-leave-type.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+admin\add-leave.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  26  				<a href="index-2.html" class="logo">
+  27: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  28  				</a>
+
+admin\add-patient.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  26  				<a href="index-2.html" class="logo">
+  27: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  28  				</a>
+
+admin\add-provident-fund.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  26  				<a href="index-2.html" class="logo">
+  27: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  28  				</a>
+
+admin\add-role.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+admin\add-salary.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  25  				<a href="index-2.html" class="logo">
+  26: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  27  				</a>
+
+admin\add-schedule.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  26  				<a href="index-2.html" class="logo">
+  27: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  28  				</a>
+
+admin\add-tax.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  25  				<a href="index-2.html" class="logo">
+  26: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  27  				</a>
+
+admin\appointments.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  25  				<a href="index-2.html" class="logo">
+  26: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  27  				</a>
+
+admin\assets.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  27  				<a href="index-2.html" class="logo">
+  28: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  29  				</a>
+
+admin\attendance.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  25  				<a href="index-2.html" class="logo">
+  26: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  27  				</a>
+
+admin\blank-page.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  24  				<a href="index-2.html" class="logo">
+  25: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  26  				</a>
+
+admin\blog-details.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  24  				<a href="index-2.html" class="logo">
+  25: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  26  				</a>
+
+admin\blog.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  24  				<a href="index-2.html" class="logo">
+  25: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  26  				</a>
+
+admin\calendar.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  27  				<a href="index-2.html" class="logo">
+  28: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  29  				</a>
+
+admin\change-password.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+admin\change-password2.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  52                          </div>
+  53:                         <form action="http://dreamguys.co.in/TechDive/template/index.html">
+  54                              <div class="form-group form-focus">
+
+admin\chat.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  25                  <a href="index-2.html" class="logo">
+  26:                     <img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  27                  </a>
+
+admin\compose.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  25                  <a href="index-2.html" class="logo">
+  26:                     <img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  27                  </a>
+
+admin\create-invoice.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  26  				<a href="index-2.html" class="logo">
+  27: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  28  				</a>
+
+admin\departments.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  25  				<a href="index-2.html" class="logo">
+  26: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  27  				</a>
+
+admin\doctors.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  26  				<a href="index-2.html" class="logo">
+  27: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  28  				</a>
+
+admin\edit-appointment.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  26  				<a href="index-2.html" class="logo">
+  27: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  28  				</a>
+
+admin\edit-asset.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  25  				<a href="index-2.html" class="logo">
+  26: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  27  				</a>
+
+admin\edit-blog.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  26  				<a href="index-2.html" class="logo">
+  27: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  28  				</a>
+
+admin\edit-department.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  25  				<a href="index-2.html" class="logo">
+  26: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  27  				</a>
+
+admin\edit-doctor.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  26  				<a href="index-2.html" class="logo">
+  27: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  28  				</a>
+
+admin\edit-employee.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  26  				<a href="index-2.html" class="logo">
+  27: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  28  				</a>
+
+admin\edit-expense.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  26  				<a href="index-2.html" class="logo">
+  27: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  28  				</a>
+
+admin\edit-holiday.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  26  				<a href="index-2.html" class="logo">
+  27: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  28  				</a>
+
+admin\edit-invoice.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  26  				<a href="index-2.html" class="logo">
+  27: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  28  				</a>
+
+admin\edit-leave-type.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+admin\edit-leave.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  26  				<a href="index-2.html" class="logo">
+  27: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  28  				</a>
+
+admin\edit-patient.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  26  				<a href="index-2.html" class="logo">
+  27: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  28  				</a>
+
+admin\edit-profile.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  26  				<a href="index-2.html" class="logo">
+  27: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  28  				</a>
+
+admin\edit-provident-fund.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  25  				<a href="index-2.html" class="logo">
+  26: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  27  				</a>
+
+admin\edit-role.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+admin\edit-salary.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  25  				<a href="index-2.html" class="logo">
+  26: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  27  				</a>
+
+admin\edit-schedule.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  26  				<a href="index-2.html" class="logo">
+  27: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  28  				</a>
+
+admin\edit-tax.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  25  				<a href="index-2.html" class="logo">
+  26: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  27  				</a>
+
+admin\email-settings.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+admin\employees.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  27  				<a href="index-2.html" class="logo">
+  28: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  29  				</a>
+
+admin\error-404.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+admin\error-500.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+admin\expense-reports.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  27  				<a href="index-2.html" class="logo">
+  28: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  29  				</a>
+
+admin\expenses.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  27  				<a href="index-2.html" class="logo">
+  28: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  29  				</a>
+
+admin\forgot-password.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+admin\form-basic-inputs.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  24  				<a href="index-2.html" class="logo">
+  25: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  26  				</a>
+
+admin\form-horizontal.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  25  				<a href="index-2.html" class="logo">
+  26: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  27  				</a>
+
+admin\form-input-groups.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  24  				<a href="index-2.html" class="logo">
+  25: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  26  				</a>
+
+admin\form-vertical.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  27  				<a href="index-2.html" class="logo">
+  28: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  29  				</a>
+
+admin\gallery.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  25  				<a href="index-2.html" class="logo">
+  26: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  27  				</a>
+
+admin\holidays.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  25  				<a href="index-2.html" class="logo">
+  26: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  27  				</a>
+
+admin\inbox.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  24                  <a href="index-2.html" class="logo">
+  25:                     <img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  26                  </a>
+
+admin\incoming-call.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  25                  <a href="index-2.html" class="logo">
+  26:                     <img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  27                  </a>
+
+admin\index-2.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  25  				<a href="index-2.html" class="logo">
+  26: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  27  				</a>
+
+admin\index.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.jpg">
+  10:     <title>TechDive.com - Admin Panel</title>
+  11      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  25  				<a href="index-2.html" class="logo">
+  26: 					<img src="assets/img/favicon.jpg" width="35" height="35" alt=""> <span>TechDive</span>
+  27  				</a>
+
+admin\invoice-reports.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  27  				<a href="index-2.html" class="logo">
+  28: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  29  				</a>
+
+admin\invoice-settings.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+admin\invoice-view.html:
+    9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+   10:     <title>TechDive - Home</title>
+   11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+   24  				<a href="index-2.html" class="logo">
+   25: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+   26  				</a>
+
+  314                                          <ul class="list-unstyled">
+  315:                                             <li>TechDive</li>
+  316                                              <li>3864 Quiet Valley Lane,</li>
+
+admin\invoices.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  27  				<a href="index-2.html" class="logo">
+  28: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  29  				</a>
+
+admin\leave-type.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+admin\leaves.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  27  				<a href="index-2.html" class="logo">
+  28: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  29  				</a>
+
+admin\localization.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+admin\lock-screen.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  22          <div class="error-box">
+  23:             <form action="http://dreamguys.co.in/TechDive/template/index.html">
+  24                  <div class="lock-user">
+
+admin\login.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  24  				<div class="account-box">
+  25:                     <form action="http://dreamguys.co.in/TechDive/template/index.html" class="form-signin">
+  26  						<div class="account-logo">
+
+admin\mail-view.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  25                  <a href="index-2.html" class="logo">
+  26:                     <img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  27                  </a>
+
+admin\notifications-settings.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+admin\patients.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  27  				<a href="index-2.html" class="logo">
+  28: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  29  				</a>
+
+admin\payments.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  25  				<a href="index-2.html" class="logo">
+  26: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  27  				</a>
+
+admin\profile.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  24  				<a href="index-2.html" class="logo">
+  25: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  26  				</a>
+
+admin\provident-fund.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  26  				<a href="index-2.html" class="logo">
+  27: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  28  				</a>
+
+admin\register.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  24                  <div class="account-box">
+  25:                     <form action="http://dreamguys.co.in/TechDive/template/index.html" class="form-signin">
+  26  						<div class="account-logo">
+
+admin\roles-permissions.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+admin\salary-settings.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+admin\salary-view.html:
+    9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+   10:     <title>TechDive - Home</title>
+   11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+   25  				<a href="index-2.html" class="logo">
+   26: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+   27  				</a>
+
+  315                                      <ul class="list-unstyled mb-0">
+  316:                                         <li>TechDive</li>
+  317                                          <li>3864 Quiet Valley Lane,</li>
+
+admin\salary.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  27  				<a href="index-2.html" class="logo">
+  28: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  29  				</a>
+
+admin\schedule.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  26  				<a href="index-2.html" class="logo">
+  27: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  28  				</a>
+
+admin\settings.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  30  			<div class="page-title-box float-left">
+  31: 				<h3>TechDive</h3>
+  32  			</div>
+
+admin\tables-basic.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  24  				<a href="index-2.html" class="logo">
+  25: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  26  				</a>
+
+admin\tables-datatables.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  25  				<a href="index-2.html" class="logo">
+  26: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  27  				</a>
+
+admin\tabs.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  24  				<a href="index-2.html" class="logo">
+  25: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  26  				</a>
+
+admin\taxes.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  25  				<a href="index-2.html" class="logo">
+  26: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  27  				</a>
+
+admin\theme-settings.html:
+    9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+   10:     <title>TechDive - Home</title>
+   11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  180                                  <div class="col-lg-9">
+  181:                                     <input name="website_name" class="form-control" value="TechDive" type="text">
+  182                                  </div>
+
+admin\typography.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  24  				<a href="index-2.html" class="logo">
+  25: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  26  				</a>
+
+admin\uikit.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  24  				<a href="index-2.html" class="logo">
+  25: 					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  26  				</a>
+
+admin\video-call.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  25                  <a href="index-2.html" class="logo">
+  26:                     <img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  27                  </a>
+
+admin\voice-call.html:
+   9      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  10:     <title>TechDive - Home</title>
+  11      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  25                  <a href="index-2.html" class="logo">
+  26:                     <img src="assets/img/logo.png" width="35" height="35" alt=""> <span>TechDive</span>
+  27                  </a>
+
+admin\assets\css\style.css:
+  2  Author       : FredKenya
+  3: Template Name: TechDive - Admin Panel Template
+  4  Version      : 1.0
+
+admin\assets\js\app.js:
+  2  Author       : Dreamguys
+  3: Template Name: TechDive - Admin Panel Template
+  4  Version      : 1.0
+
+admin\assets\js\jquery-ui.min.html:
+  11    <script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+  12: <title>Nothing found for  TechDive Template Assets Js Jquery Ui Min Js</title>
+  13  
