@@ -12,10 +12,10 @@ include "sidebar.php";
      <div class="content">
         <div class="row">
             <div class="col-sm-4 col-3">
-                <h4 class="page-title">Services</h4>
+                <h4 class="page-title">Service</h4>
             </div>
             <div class="col-sm-8 col-9 text-right m-b-20">
-                <a href="services-add.php" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Add Service</a>
+                <a href="add-Services.php" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Edit Service</a>
             </div>
         </div>
      </div>
@@ -177,7 +177,7 @@ include "sidebar.php";
 
     </div>
 
-</main>
+</div>
 
 
 <?php

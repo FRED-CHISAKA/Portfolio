@@ -1,742 +1,817 @@
 <?php
+
+include "../include/config.php";
 include "header.php";
+include "sidebar.php";
+
+
+// ==========================================
+// GET ALL PORTFOLIO PROJECTS
+// ==========================================
+
+$portfolio_sql = "
+    SELECT 
+        portfolio.*,
+        portfolio.title AS category_name
+    FROM portfolio
+    LEFT JOIN category 
+        ON portfolio.category = category.id
+    ORDER BY portfolio.id DESC
+";
+
+$portfolio_result = mysqli_query($conn, $portfolio_sql);
+
+
+// ==========================================
+// TOTAL PROJECTS
+// ==========================================
+
+$total_projects_sql = "
+    SELECT COUNT(*) AS total
+    FROM portfolio
+";
+
+$total_projects_result = mysqli_query($conn, $total_projects_sql);
+$total_projects_data = mysqli_fetch_assoc($total_projects_result);
+
+$total_projects = $total_projects_data['total'];
+
+
+// ==========================================
+// CLOUD SYSTEMS
+// ==========================================
+
+$cloud_sql = "
+    SELECT COUNT(*) AS total
+    FROM portfolio p
+    INNER JOIN portfolio c 
+        ON p.category = c.id
+    WHERE LOWER(c.title) LIKE '%cloud%'
+";
+
+$cloud_result = mysqli_query($conn, $cloud_sql);
+$cloud_data = mysqli_fetch_assoc($cloud_result);
+
+$cloud_projects = $cloud_data['total'];
+
+
+// ==========================================
+// CYBERSECURITY
+// ==========================================
+
+$cybersecurity_sql = "
+    SELECT COUNT(*) AS total
+    FROM portfolio p
+    INNER JOIN portfolio c 
+        ON p.category = c.id
+    WHERE LOWER(c.title) LIKE '%cyber%'
+";
+
+$cybersecurity_result = mysqli_query($conn, $cybersecurity_sql);
+$cybersecurity_data = mysqli_fetch_assoc($cybersecurity_result);
+
+$cybersecurity_projects = $cybersecurity_data['total'];
+
+
+// ==========================================
+// IT INFRASTRUCTURE / ACTIVE SYSTEMS
+// ==========================================
+
+$systems_sql = "
+    SELECT COUNT(*) AS total
+    FROM portfolio p
+    INNER JOIN portfolio c 
+        ON p.category = c.id
+    WHERE LOWER(c.title) LIKE '%infrastructure%'
+";
+
+$systems_result = mysqli_query($conn, $systems_sql);
+$systems_data = mysqli_fetch_assoc($systems_result);
+
+$active_systems = $systems_data['total'];
+
+
+// ==========================================
+// GET CATEGORIES
+// ==========================================
+
+$categories_sql = "
+    SELECT *
+    FROM portfolio
+    ORDER BY title ASC
+";
+
+$categories_result = mysqli_query($conn, $categories_sql);
+
 ?>
 
-        <div class="sidebar" id="sidebar">
-            <div class="sidebar-inner slimscroll">
-                <div id="sidebar-menu" class="sidebar-menu">
-                    <ul>
-                        
-                        <li>
-                            <a href="index.php">
-                                <i class="fa fa-home"></i>
-                                <span>Dashboard</span>
-                            </a>
-                        </li>
 
-                        <li class="submenu">
-                            <a href="#">
-                                <i class="fa fa-globe"></i>
-                                <span>Website Management</span>
-                                <span class="menu-arrow"></span>
-                            </a>
-
-                            <ul style="display:none;">
-                                <li><a href="services.php">Services</a></li>
-                                <li><a href="projects.php">Projects</a></li>
-                                <li><a class="active" href="portfolio.php">Portfolio</a></li>
-                                <li><a href="team.php">Team</a></li>
-                                <li><a href="clients.php">Clients</a></li>
-                                <li><a href="blog.php">Insights</a></li>
-                                <li><a href="media.php">Media Library</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="submenu">
-                            <a href="#">
-                                <i class="fa fa-users"></i>
-                                <span>HR Management</span>
-                                <span class="menu-arrow"></span>
-                            </a>
-
-                            <ul style="display:none;">
-                                <li><a href="employees.php">Employees</a></li>
-                                <li><a href="attendance.php">Attendance</a></li>
-                                <li><a href="leaves.php">Leaves</a></li>
-                                <li><a href="holidays.php">Holidays</a></li>
-                                <li>
-                                    <a href="#">
-                                        <span>Payroll</span>
-                                        <span class="menu-arrow"></span>
-                                    </a>
-                                    <ul style="display:none;">
-                                        <li><a href="salary.php">Salary</a></li>
-                                        <li><a href="taxes.php">Taxes</a></li>
-                                        <li><a href="salary-view.php">Payslips</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="submenu">
-                            <a href="#">
-                                <i class="fa fa-cogs"></i>
-                                <span>Operations</span>
-                                <span class="menu-arrow"></span>
-                            </a>
-
-                            <ul style="display:none;">
-                                <li><a href="calendar.php">Calender</a></li>
-                                <li><a href="schedule.php">Schedule</a></li>
-                                <li><a href="appointments.php">Appointments</a></li>
-                                <li><a href="activities.php">Activities</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="submenu">
-                            <a href="#">
-                                <i class="fa fa-money"></i>
-                                <span>Finance</span>
-                                <span class="menu-arrow"></span>
-                            </a>
-
-                            <ul style="display:none;">
-                                <li><a href="invoices.php">Invoices</a></li>
-                                <li><a href="expenses.php">Expenses</a></li>
-                                <li><a href="payments.php">Payments</a></li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a href="assets.php">
-                                <i class="fa fa-cube"></i>
-                                <span>Assets</span>
-                            </a>
-                        </li>
-
-                        <li class="submenu">
-                            <a href="#">
-                                <i class="fa fa-phone"></i>
-                                <span>Communication</span>
-                            <span class="menu-arrow"></span>
-                            </a>
-
-                            <ul style="display:none;">
-                                <li>
-                                    <a href="#">
-                                        <span>Calls</span>
-                                        <span class="menu-arrow"></span>
-                                    </a>
-                                    <ul style="display:none;">
-                                        <li><a href="voice-call.php">Voice Call</a></li>
-                                        <li><a href="video-call.php">Video Call</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="mail-view.php">Emails</a></li>
-                            </ul>
-                        </li>
-
-                       <li class="submenu">
-                            <a href="#">
-                                <i class="fa fa-lock"></i>
-                                <span>Administration</span>
-                            <span class="menu-arrow"></span>
-                            </a>
-
-                            <ul style="display:none;">
-                                <li><a href="roles-permissions.php">Roles & Permissions</a></li>
-                                <li>
-                                    <a href="#">
-                                        <span>User Accounts</span>
-                                        <span class="menu-arrow"></span>
-                                    </a>
-                                    <ul style="display:none;">
-                                        <li><a href="login.php">Login</a></li>
-                                        <li><a href="register.php">Register</a></li>
-                                        <li><a href="users.php">Registered Users</a></li>
-                                        <li><a href="admins.php">System Admins</a></li>
-                                        <li><a href="forgot-password.php">Forgot Password</a></li>
-                                        <li><a href="change-password.php">Change Password</a></li>
-                                        <li><a href="lock-screen.php">Lock Screen</a></li>
-                                        <li><a href="error-404.php">Error 404</a></li>
-                                        <li><a href="error-500.php">Error 500</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        
-
-                        <li class="submenu">
-                            <a href="#">
-                                <i class="fa fa-line-chart"></i>
-                                <span>Analytics</span>
-                            <span class="menu-arrow"></span>
-                            </a>
-
-                            <ul style="display:none;">
-                                <li><a href="charts.php">All Charts</a></li>
-                                <li><a href="tables.php">All Tables</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="submenu">
-                            <a href="#">
-                                <i class="fa fa-briefcase"></i>
-                                <span>Customer Relations</span>
-                                <span class="menu-arrow"></span>
-                            </a>
-
-                            <ul style="display:none;">
-                                <li><a href="leads.php">Leads</a></li>
-                                <li><a href="prospects.php">Prospects</a></li>
-                                <li><a href="follow-ups.php">Follow-ups</a></li>
-                                <li><a href="contracts.php">Contracts</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="submenu">
-                            <a href="#">
-                                <i class="fa fa-cog"></i>
-                                <span>Settings</span>
-                                <span class="menu-arrow"></span>
-                            </a>
-
-                            <ul style="display:none;">
-                                <li><a href="settings.php">General Settings</a></li>
-                                <li><a href="profile.php">Profile Settings</a></li>
-                            </ul>
-                        </li>
-
-                        <!-- <li>
-                            <a href="logout.php">
-                                <i class="fa fa-sign-out"></i>
-                                <span>Logout</span>
-                            </a>
-                        </li> -->
-                    </ul>
-                </div>
+<!-- Main Content -->
+<div class="page-wrapper">
+    <!-- Page Header -->
+     <div class="content">
+        <div class="row">
+            <div class="col-sm-4 col-3">
+                <h4 class="page-title">Portfolio</h4>
+            </div>
+            <div class="col-sm-8 col-9 text-right m-b-20">
+                <a href="portfolio-add.php" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Add Portfolio</a>
             </div>
         </div>
-        <div class="page-wrapper projects">
-            <div class="content">
-                <div class="row">
-                    <div class="col-sm-8 col-4">
-                        <h4 class="page-title">Projects Management</h4>
-                    </div>
-                    <div class="col-sm-4 col-8 text-right m-b-30">
-                        <a href="add-project.php" class="btn btn-primary btn-rounded float-right">
-                            <i class="fa fa-plus"></i> Add Project
-                        </a>
-                    </div>
-                </div>
+     </div>
 
-                <!-- Project Stats -->
-                <div class="row">
-                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                        <div class="dash-widget">
-                            <span class="dash-widget-bg1">
-                                <i class="fa fa-code" aria-hidden="true"></i>
-                            </span>
 
-                            <div class="dash-widget-info text-right">
-                                <h3>24</h3>
-                                <span class="widget-title1">
-                                    Total Projects
-                                    <i class="fa fa-code" aria-hidden="true"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+    <!-- ========================================== -->
+    <!-- PROJECT STATISTICS -->
+    <!-- ========================================== -->
 
-                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                        <div class="dash-widget">
-                            <span class="dash-widget-bg2">
-                                <i class="fa fa-cloud" aria-hidden="true"></i>
-                            </span>
+    <div class="row g-3 mb-4">
 
-                            <div class="dash-widget-info text-right">
-                                <h3>12</h3>
-                                <span class="widget-title2">
-                                    Cloud Systems
-                                    <i class="fa fa-cloud" aria-hidden="true"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                        <div class="dash-widget">
-                            <span class="dash-widget-bg3">
-                                <i class="fa fa-shield" aria-hidden="true"></i>
-                            </span>
-                            <div class="dash-widget-info text-right">
-                                <h3>9</h3>
-                                <span class="widget-title3">
-                                    Cybersecurity
-                                    <i class="fa fa-shield" aria-hidden="true"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+        <!-- Total Projects -->
+        <div class="col-md-6 col-lg-6 col-xl-3">
 
-                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                        <div class="dash-widget">
-                            <span class="dash-widget-bg4">
-                                <i class="fa fa-laptop" aria-hidden="true"></i>
-                            </span>
-                            <div class="dash-widget-info text-right">
-                                <h3>18</h3>
-                                <span class="widget-title4">
-                                    Active Systems
-                                    <i class="fa fa-laptop" aria-hidden="true"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="card shadow-sm border-0 h-100">
 
-                <!-- Project Cards -->
-                <div class="row">
+                <div class="card-body">
 
-                    <!-- Project 1 -->
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="card-box project-box">
+                    <div class="d-flex align-items-center justify-content-between">
 
-                            <div class="dropdown profile-action">
-                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-ellipsis-v"></i>
-                                </a>
+                        <div>
 
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fa fa-pencil m-r-5"></i> Edit
-                                    </a>
+                            <p class="text-muted mb-1">
+                                Total Projects
+                            </p>
 
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fa fa-trash-o m-r-5"></i> Delete
-                                    </a>
-                                </div>
-                            </div>
+                            <h3 class="mb-1">
+                                <?= $total_projects ?>
+                            </h3>
 
-                            <h4 class="project-title">
-                                <a href="project-detail.php">Agriculture Smartfarming</a>
-                            </h4>
-
-                            <small class="block text-ellipsis m-b-15">
-                                <span class="text-xs">PHP</span>
-                                <span class="text-muted"> • MySQL • Cloud</span>
+                            <small class="text-muted">
+                                Portfolio projects
                             </small>
 
-                            <p class="text-muted">
-                                Cloud-based agricultural management system for smart farming operations and automation.
-                            </p>
+                        </div>
 
-                            <div class="pro-deadline m-b-15">
-                                <div class="sub-title">
-                                    Project Status
-                                </div>
 
-                                <div class="text-muted">
-                                    Active Development
-                                </div>
-                            </div>
+                        <div
+                            class="bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 55px; height: 55px;"
+                        >
 
-                            <div class="project-members m-b-15">
-                                <div>Team</div>
-
-                                <ul class="team-members">
-                                    <li>
-                                        <a href="#">
-                                            <img alt="" src="assets/img/projects/1.jpg">
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#">
-                                            <img alt="" src="assets/img/projects/2.jpg">
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#">
-                                            <img alt="" src="assets/img/projects/3.jpg">
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <p class="m-b-5">
-                                Progress
-                                <span class="text-success float-right">82%</span>
-                            </p>
-
-                            <div class="progress progress-xs mb-0">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 82%"></div>
-                            </div>
+                            <i class="bi bi-code-slash text-primary fs-4"></i>
 
                         </div>
-                    </div>
 
-                    <!-- Project 2 -->
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="card-box project-box">
-
-                            <div class="dropdown profile-action">
-                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-ellipsis-v"></i>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fa fa-pencil m-r-5"></i> Edit
-                                    </a>
-
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fa fa-trash-o m-r-5"></i> Delete
-                                    </a>
-                                </div>
-                            </div>
-
-                            <h4 class="project-title">
-                                <a href="project-detail.php">School ERP System</a>
-                            </h4>
-
-                            <small class="block text-ellipsis m-b-15">
-                                <span class="text-xs">Java STS</span>
-                                <span class="text-muted"> • MongoDB • Cloud</span>
-                            </small>
-
-                            <p class="text-muted">
-                                Full educational ERP platform for managing school operations and student activities.
-                            </p>
-
-                            <div class="pro-deadline m-b-15">
-                                <div class="sub-title">
-                                    Project Status
-                                </div>
-
-                                <div class="text-muted">
-                                    Maintenance
-                                </div>
-                            </div>
-
-                            <div class="project-members m-b-15">
-                                <div>Team</div>
-
-                                <ul class="team-members">
-                                    <li>
-                                        <a href="#">
-                                            <img alt="" src="assets/img/projects/2.jpg">
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#">
-                                            <img alt="" src="assets/img/projects/1.jpg">
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <p class="m-b-5">
-                                Progress
-                                <span class="text-success float-right">95%</span>
-                            </p>
-
-                            <div class="progress progress-xs mb-0">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 95%"></div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="card-box project-box">
-                            <div class="dropdown profile-action">
-                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-ellipsis-v"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fa fa-pencil m-r-5"></i> Edit
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fa fa-trash-o m-r-5"></i> Delete
-                                    </a>
-                                </div>
-                            </div>
-
-                            <h4 class="project-title">
-                                <a href="project-detail.php">Flood Prediction System</a>
-                            </h4>
-                            <small class="block text-ellipsis m-b-15">
-                                <span class="text-xs">Python</span>
-                                <span class="text-muted"> • Machine Learning • AI</span>
-                            </small>
-                            <p class="text-muted">
-                                AI-powered flood prediction and monitoring platform using machine learning algorithms.
-                            </p>
-
-                            <div class="pro-deadline m-b-15">
-                                <div class="sub-title">
-                                    Project Status
-                                </div>
-
-                                <div class="text-muted">
-                                    Testing Phase
-                                </div>
-                            </div>
-
-                            <div class="project-members m-b-15">
-                                <div>Team</div>
-
-                                <ul class="team-members">
-                                    <li>
-                                        <a href="#">
-                                            <img alt="" src="assets/img/projects/3.jpg">
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#">
-                                            <img alt="" src="assets/img/projects/2.jpg">
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#">
-                                            <img alt="" src="assets/img/projects/1.jpg">
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <p class="m-b-5">
-                                Progress
-                                <span class="text-success float-right">70%</span>
-                            </p>
-
-                            <div class="progress progress-xs mb-0">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 70%"></div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- Project 4 -->
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="card-box project-box">
-
-                            <div class="dropdown profile-action">
-                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-ellipsis-v"></i>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fa fa-pencil m-r-5"></i> Edit
-                                    </a>
-
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fa fa-trash-o m-r-5"></i> Delete
-                                    </a>
-                                </div>
-                            </div>
-
-                            <h4 class="project-title">
-                                <a href="project-detail.php">Email Security System</a>
-                            </h4>
-
-                            <small class="block text-ellipsis m-b-15">
-                                <span class="text-xs">SPF</span>
-                                <span class="text-muted"> • DKIM • DMARC</span>
-                            </small>
-
-                            <p class="text-muted">
-                                Advanced email authentication and protection platform for enterprise security.
-                            </p>
-
-                            <div class="pro-deadline m-b-15">
-                                <div class="sub-title">
-                                    Project Status
-                                </div>
-
-                                <div class="text-muted">
-                                    Completed
-                                </div>
-                            </div>
-
-                            <div class="project-members m-b-15">
-                                <div>Team</div>
-
-                                <ul class="team-members">
-                                    <li>
-                                        <a href="#">
-                                            <img alt="" src="assets/img/projects/3.jpg">
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#">
-                                            <img alt="" src="assets/img/projects/5.jpg">
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <p class="m-b-5">
-                                Progress
-                                <span class="text-success float-right">100%</span>
-                            </p>
-
-                            <div class="progress progress-xs mb-0">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 100%"></div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- Project 5 -->
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="card-box project-box">
-
-                            <div class="dropdown profile-action">
-                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-ellipsis-v"></i>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fa fa-pencil m-r-5"></i> Edit
-                                    </a>
-
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fa fa-trash-o m-r-5"></i> Delete
-                                    </a>
-                                </div>
-                            </div>
-
-                            <h4 class="project-title">
-                                <a href="project-detail.php">Hosting Platform</a>
-                            </h4>
-
-                            <small class="block text-ellipsis m-b-15">
-                                <span class="text-xs">Node JS</span>
-                                <span class="text-muted"> • Cloud • MySQL</span>
-                            </small>
-
-                            <p class="text-muted">
-                                Fast and scalable hosting infrastructure platform for business and client websites.
-                            </p>
-
-                            <div class="pro-deadline m-b-15">
-                                <div class="sub-title">
-                                    Project Status
-                                </div>
-
-                                <div class="text-muted">
-                                    Deployment
-                                </div>
-                            </div>
-
-                            <div class="project-members m-b-15">
-                                <div>Team</div>
-
-                                <ul class="team-members">
-                                    <li>
-                                        <a href="#">
-                                            <img alt="" src="assets/img/projects/4.jpg">
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#">
-                                            <img alt="" src="assets/img/projects/1.jpg">
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#">
-                                            <img alt="" src="assets/img/projects/4.jpg">
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <p class="m-b-5">
-                                Progress
-                                <span class="text-success float-right">88%</span>
-                            </p>
-
-                            <div class="progress progress-xs mb-0">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 88%"></div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- Project 6 -->
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="card-box project-box">
-
-                            <div class="dropdown profile-action">
-                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-ellipsis-v"></i>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fa fa-pencil m-r-5"></i> Edit
-                                    </a>
-
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fa fa-trash-o m-r-5"></i> Delete
-                                    </a>
-                                </div>
-                            </div>
-
-                            <h4 class="project-title">
-                                <a href="project-detail.php">Enterprise System</a>
-                            </h4>
-
-                            <small class="block text-ellipsis m-b-15">
-                                <span class="text-xs">C++</span>
-                                <span class="text-muted"> • MariaDB • Cloud</span>
-                            </small>
-
-                            <p class="text-muted">
-                                Enterprise-grade management system tailored for large scale organizations and operations.
-                            </p>
-
-                            <div class="pro-deadline m-b-15">
-                                <div class="sub-title">
-                                    Project Status
-                                </div>
-
-                                <div class="text-muted">
-                                    Ongoing
-                                </div>
-                            </div>
-
-                            <div class="project-members m-b-15">
-                                <div>Team</div>
-
-                                <ul class="team-members">
-                                    <li>
-                                        <a href="#">
-                                            <img alt="" src="assets/img/projects/6.jpg">
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#">
-                                            <img alt="" src="assets/img/projects/2.jpg">
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <p class="m-b-5">
-                                Progress
-                                <span class="text-success float-right">76%</span>
-                            </p>
-
-                            <div class="progress progress-xs mb-0">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 76%"></div>
-                            </div>
-
-                        </div>
                     </div>
 
                 </div>
 
             </div>
 
-            <?php
-            include "footer.php";
-            ?>
+        </div>
 
-</body>
 
-</html>
+        <!-- Cloud Systems -->
+        <div class="col-md-6 col-lg-6 col-xl-3">
+
+            <div class="card shadow-sm border-0 h-100">
+
+                <div class="card-body">
+
+                    <div class="d-flex align-items-center justify-content-between">
+
+                        <div>
+
+                            <p class="text-muted mb-1">
+                                Cloud Systems
+                            </p>
+
+                            <h3 class="mb-1">
+                                <?= $cloud_projects ?>
+                            </h3>
+
+                            <small class="text-muted">
+                                Cloud & DevOps projects
+                            </small>
+
+                        </div>
+
+
+                        <div
+                            class="bg-info bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 55px; height: 55px;"
+                        >
+
+                            <i class="bi bi-cloud text-info fs-4"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Cybersecurity -->
+        <div class="col-md-6 col-lg-6 col-xl-3">
+
+            <div class="card shadow-sm border-0 h-100">
+
+                <div class="card-body">
+
+                    <div class="d-flex align-items-center justify-content-between">
+
+                        <div>
+
+                            <p class="text-muted mb-1">
+                                Cybersecurity
+                            </p>
+
+                            <h3 class="mb-1">
+                                <?= $cybersecurity_projects ?>
+                            </h3>
+
+                            <small class="text-muted">
+                                Security projects
+                            </small>
+
+                        </div>
+
+
+                        <div
+                            class="bg-danger bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 55px; height: 55px;"
+                        >
+
+                            <i class="bi bi-shield-lock text-danger fs-4"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Active Systems -->
+        <div class="col-md-6 col-lg-6 col-xl-3">
+
+            <div class="card shadow-sm border-0 h-100">
+
+                <div class="card-body">
+
+                    <div class="d-flex align-items-center justify-content-between">
+
+                        <div>
+
+                            <p class="text-muted mb-1">
+                                Active Systems
+                            </p>
+
+                            <h3 class="mb-1">
+                                <?= $active_systems ?>
+                            </h3>
+
+                            <small class="text-muted">
+                                IT infrastructure projects
+                            </small>
+
+                        </div>
+
+
+                        <div
+                            class="bg-success bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 55px; height: 55px;"
+                        >
+
+                            <i class="bi bi-laptop text-success fs-4"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- PORTFOLIO PROJECTS -->
+    <!-- ========================================== -->
+
+    <div class="card shadow-sm border-0 mb-4">
+
+        <!-- Card Header -->
+
+        <div class="card-header bg-white py-3">
+
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+
+                <div>
+
+                    <h3 class="h5 mb-1">
+
+                        <i class="bi bi-briefcase me-2"></i>
+
+                        Portfolio Projects
+
+                    </h3>
+
+                    <p class="text-muted small mb-0">
+                        View and manage all projects displayed on your portfolio.
+                    </p>
+
+                </div>
+
+
+                <span class="badge bg-primary">
+
+                    <?= $total_projects ?>
+
+                    Projects
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- Card Body -->
+
+        <div class="card-body p-0">
+
+
+            <?php if ($portfolio_result && mysqli_num_rows($portfolio_result) > 0) { ?>
+
+
+                <div class="table-responsive">
+
+                    <table class="table table-hover align-middle mb-0">
+
+
+                        <thead class="table-light">
+
+                            <tr>
+
+                                <th style="width: 60px;">
+                                    #
+                                </th>
+
+                                <th style="width: 90px;">
+                                    Image
+                                </th>
+
+                                <th>
+                                    Project
+                                </th>
+
+                                <th>
+                                    Category
+                                </th>
+
+                                <th>
+                                    Technology
+                                </th>
+
+                                <th>
+                                    URL
+                                </th>
+
+                                <th class="text-end">
+                                    Actions
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+
+                            <?php
+
+                            $number = 1;
+
+                            while ($portfolio = mysqli_fetch_assoc($portfolio_result)) {
+
+                            ?>
+
+
+                                <tr>
+
+
+                                    <!-- Number -->
+
+                                    <td>
+
+                                        <?= $number++ ?>
+
+                                    </td>
+
+
+                                    <!-- Image -->
+
+                                    <td>
+
+                                        <?php if (!empty($portfolio['img'])) { ?>
+
+                                            <img
+                                                src="../<?= htmlspecialchars($portfolio['img']) ?>"
+                                                alt="<?= htmlspecialchars($portfolio['title']) ?>"
+                                                class="rounded"
+                                                style="width: 65px; height: 50px; object-fit: cover;"
+                                            >
+
+                                        <?php } else { ?>
+
+                                            <div
+                                                class="bg-light rounded d-flex align-items-center justify-content-center"
+                                                style="width: 65px; height: 50px;"
+                                            >
+
+                                                <i class="bi bi-image text-muted"></i>
+
+                                            </div>
+
+                                        <?php } ?>
+
+                                    </td>
+
+
+                                    <!-- Project -->
+
+                                    <td>
+
+                                        <strong>
+                                            <?= htmlspecialchars($portfolio['title']) ?>
+                                        </strong>
+
+                                        <div class="small text-muted mt-1">
+
+                                            <?= htmlspecialchars($portfolio['description']) ?>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <!-- Category -->
+
+                                    <td>
+
+                                        <?php if (!empty($portfolio['category_name'])) { ?>
+
+                                            <span class="badge bg-secondary">
+
+                                                <?= htmlspecialchars($portfolio['category_name']) ?>
+
+                                            </span>
+
+                                        <?php } else { ?>
+
+                                            <span class="text-muted">
+                                                Uncategorized
+                                            </span>
+
+                                        <?php } ?>
+
+                                    </td>
+
+
+                                    <!-- Technology -->
+
+                                    <td>
+
+                                        <span class="text-muted">
+
+                                            <?= htmlspecialchars($portfolio['technology']) ?>
+
+                                        </span>
+
+                                    </td>
+
+
+                                    <!-- URL -->
+
+                                    <td>
+
+                                        <?php if (!empty($portfolio['url'])) { ?>
+
+                                            <a
+                                                href="<?= htmlspecialchars($portfolio['url']) ?>"
+                                                target="_blank"
+                                                class="text-decoration-none"
+                                            >
+
+                                                <i class="bi bi-box-arrow-up-right me-1"></i>
+
+                                                View
+
+                                            </a>
+
+                                        <?php } else { ?>
+
+                                            <span class="text-muted">
+                                                N/A
+                                            </span>
+
+                                        <?php } ?>
+
+                                    </td>
+
+
+                                    <!-- Actions -->
+
+                                    <td class="text-end">
+
+                                        <div class="btn-group">
+
+
+                                            <!-- Edit -->
+
+                                            <a
+                                                href="portfolio-edit.php?id=<?= $portfolio['id'] ?>"
+                                                class="btn btn-sm btn-outline-primary"
+                                                title="Edit Project"
+                                            >
+
+                                                <i class="bi bi-pencil"></i>
+
+                                            </a>
+
+
+                                            <!-- Delete -->
+
+                                            <a
+                                                href="portfolio-delete.php?id=<?= $portfolio['id'] ?>"
+                                                class="btn btn-sm btn-outline-danger"
+                                                title="Delete Project"
+                                                onclick="return confirm('Are you sure you want to delete this project?')"
+                                            >
+
+                                                <i class="bi bi-trash"></i>
+
+                                            </a>
+
+                                        </div>
+
+                                    </td>
+
+
+                                </tr>
+
+
+                            <?php } ?>
+
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+            <?php } else { ?>
+
+
+                <!-- Empty State -->
+
+                <div class="text-center py-5">
+
+                    <i class="bi bi-briefcase fs-1 text-muted"></i>
+
+                    <h5 class="mt-3">
+                        No Projects Found
+                    </h5>
+
+                    <p class="text-muted mb-3">
+                        You have not added any portfolio projects yet.
+                    </p>
+
+
+                    <a
+                        href="portfolio-add.php"
+                        class="btn btn-primary"
+                    >
+
+                        <i class="bi bi-plus-lg me-1"></i>
+
+                        Add Your First Project
+
+                    </a>
+
+                </div>
+
+
+            <?php } ?>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- CATEGORIES -->
+    <!-- ========================================== -->
+
+    <div class="card shadow-sm border-0">
+
+        <div class="card-header bg-white py-3">
+
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+
+                <div>
+
+                    <h3 class="h5 mb-1">
+
+                        <i class="bi bi-tags me-2"></i>
+
+                        Portfolio Categories
+
+                    </h3>
+
+                    <p class="text-muted small mb-0">
+                        Manage the categories used to organize your projects.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="category-add.php"
+                    class="btn btn-outline-primary btn-sm"
+                >
+
+                    <i class="bi bi-plus-lg me-1"></i>
+
+                    Add Category
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="card-body">
+
+
+            <?php if ($categories_result && mysqli_num_rows($categories_result) > 0) { ?>
+
+
+                <div class="row g-3">
+
+
+                    <?php while ($category = mysqli_fetch_assoc($categories_result)) { ?>
+
+
+                        <?php
+
+                        // Count projects in this category
+
+                        $category_id = $category['id'];
+
+                        $category_count_sql = "
+                            SELECT COUNT(*) AS total
+                            FROM portfolio
+                            WHERE category = '$category_id'
+                        ";
+
+                        $category_count_result =
+                            mysqli_query($conn, $category_count_sql);
+
+                        $category_count_data =
+                            mysqli_fetch_assoc($category_count_result);
+
+                        $category_count =
+                            $category_count_data['total'];
+
+                        ?>
+
+
+                        <div class="col-md-6 col-lg-4">
+
+
+                            <div class="border rounded p-3 h-100">
+
+
+                                <div class="d-flex justify-content-between align-items-start">
+
+
+                                    <div>
+
+                                        <h6 class="mb-1">
+
+                                            <?= htmlspecialchars($category['title']) ?>
+
+                                        </h6>
+
+                                        <span class="text-muted small">
+
+                                            <?= $category_count ?>
+
+                                            project<?= $category_count == 1 ? '' : 's' ?>
+
+                                        </span>
+
+                                    </div>
+
+
+                                    <div>
+
+                                        <a
+                                            href="category-edit.php?id=<?= $category['id'] ?>"
+                                            class="btn btn-sm btn-outline-primary"
+                                            title="Edit Category"
+                                        >
+
+                                            <i class="bi bi-pencil"></i>
+
+                                        </a>
+
+
+                                        <a
+                                            href="category-delete.php?id=<?= $category['id'] ?>"
+                                            class="btn btn-sm btn-outline-danger"
+                                            title="Delete Category"
+                                            onclick="return confirm('Delete this category? Projects using this category may be affected. Continue?')"
+                                        >
+
+                                            <i class="bi bi-trash"></i>
+
+                                        </a>
+
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    <?php } ?>
+
+
+                </div>
+
+
+            <?php } else { ?>
+
+
+                <div class="text-center py-4">
+
+                    <i class="bi bi-tags fs-1 text-muted"></i>
+
+                    <p class="text-muted mt-3 mb-3">
+                        No portfolio categories have been created yet.
+                    </p>
+
+
+                    <a
+                        href="category-add.php"
+                        class="btn btn-primary"
+                    >
+
+                        <i class="bi bi-plus-lg me-1"></i>
+
+                        Add Category
+
+                    </a>
+
+                </div>
+
+
+            <?php } ?>
+
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+<?php
+
+include "footer.php";
+
+?>
