@@ -23,7 +23,7 @@
                                 <li><a href="services.php">Services</a></li>
                                 <li><a href="portfolio.php">Portfolio</a></li>
                                 <li><a href="certifications.php">Certifications</a></li>
-                                <li><a href="about.php">Contact Details</a></li>
+                                <li><a href="contact.php">Contact Details</a></li>
                                 <li><a href="media.php">Media Library</a></li>
                             </ul>
                         </li>
