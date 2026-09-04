@@ -1,205 +1,30 @@
 <?php
 
+include "../include/config.php";
+
+$media_query = "
+    SELECT *
+    FROM media
+    ORDER BY uploaded_at DESC
+";
+
+$media_result = mysqli_query(
+    $conn,
+    $media_query
+);
+
+?>
+
+
+
+<?php
+
 include "header.php";
+include "sidebar.php";
 
 ?>
         
-        <div class="sidebar" id="sidebar">
-            <div class="sidebar-inner slimscroll">
-                <div id="sidebar-menu" class="sidebar-menu">
-                    <ul>
-                        
-                        <li>
-                            <a href="index.html">
-                                <i class="fa fa-home"></i>
-                                <span>Dashboard</span>
-                            </a>
-                        </li>
-
-                        <li class="submenu">
-                            <a href="#">
-                                <i class="fa fa-globe"></i>
-                                <span>Website Management</span>
-                                <span class="menu-arrow"></span>
-                            </a>
-
-                            <ul style="display:none;">
-                                <li><a href="services.html">Services</a></li>
-                                <li><a href="projects.html">Projects</a></li>
-                                <li><a href="portfolio.html">Portfolio</a></li>
-                                <li><a href="team.html">Team</a></li>
-                                <li><a href="clients.html">Clients</a></li>
-                                <li><a href="blog.html">Insights</a></li>
-                                <li><a class="active" href="media.html">Media Library</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="submenu">
-                            <a href="#">
-                                <i class="fa fa-users"></i>
-                                <span>HR Management</span>
-                                <span class="menu-arrow"></span>
-                            </a>
-
-                            <ul style="display:none;">
-                                <li><a href="employees.html">Employees</a></li>
-                                <li><a href="attendance.html">Attendance</a></li>
-                                <li><a href="leaves.html">Leaves</a></li>
-                                <li><a href="holidays.html">Holidays</a></li>
-                                <li>
-                                    <a href="#">
-                                        <span>Payroll</span>
-                                        <span class="menu-arrow"></span>
-                                    </a>
-                                    <ul style="display:none;">
-                                        <li><a href="salary.html">Salary</a></li>
-                                        <li><a href="taxes.html">Taxes</a></li>
-                                        <li><a href="salary-view.html">Payslips</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="submenu">
-                            <a href="#">
-                                <i class="fa fa-cogs"></i>
-                                <span>Operations</span>
-                                <span class="menu-arrow"></span>
-                            </a>
-
-                            <ul style="display:none;">
-                                <li><a href="calendar.html">Calender</a></li>
-                                <li><a href="schedule.html">Schedule</a></li>
-                                <li><a href="appointments.html">Appointments</a></li>
-                                <li><a href="activities.html">Activities</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="submenu">
-                            <a href="#">
-                                <i class="fa fa-money"></i>
-                                <span>Finance</span>
-                                <span class="menu-arrow"></span>
-                            </a>
-
-                            <ul style="display:none;">
-                                <li><a href="invoices.html">Invoices</a></li>
-                                <li><a href="expenses.html">Expenses</a></li>
-                                <li><a href="payments.html">Payments</a></li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a href="assets.html">
-                                <i class="fa fa-cube"></i>
-                                <span>Assets</span>
-                            </a>
-                        </li>
-
-                        <li class="submenu">
-                            <a href="#">
-                                <i class="fa fa-phone"></i>
-                                <span>Communication</span>
-                            <span class="menu-arrow"></span>
-                            </a>
-
-                            <ul style="display:none;">
-                                <li><a href="messages.html">Messages</a></li>
-                                <li>
-                                    <a href="#">
-                                        <span>Calls</span>
-                                        <span class="menu-arrow"></span>
-                                    </a>
-                                    <ul style="display:none;">
-                                        <li><a href="voice-call.html">Voice Call</a></li>
-                                        <li><a href="video-call.html">Video Call</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="mail-view.html">Emails</a></li>
-                            </ul>
-                        </li>
-
-                       <li class="submenu">
-                            <a href="#">
-                                <i class="fa fa-lock"></i>
-                                <span>Administration</span>
-                            <span class="menu-arrow"></span>
-                            </a>
-
-                            <ul style="display:none;">
-                                <li><a href="roles-permissions.html">Roles & Permissions</a></li>
-                                <li>
-                                    <a href="#">
-                                        <span>User Accounts</span>
-                                        <span class="menu-arrow"></span>
-                                    </a>
-                                    <ul style="display:none;">
-                                        <li><a href="login.html">Login</a></li>
-                                        <li><a href="register.html">Register</a></li>
-                                        <li><a href="users.html">Registered Users</a></li>
-                                        <li><a href="admins.html">System Admins</a></li>
-                                        <li><a href="forgot-password.html">Forgot Password</a></li>
-                                        <li><a href="change-password.html">Change Password</a></li>
-                                        <li><a href="lock-screen.html">Lock Screen</a></li>
-                                        <li><a href="error-404.html">Error 404</a></li>
-                                        <li><a href="error-500.html">Error 500</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        
-
-                        <li class="submenu">
-                            <a href="#">
-                                <i class="fa fa-line-chart"></i>
-                                <span>Analytics</span>
-                            <span class="menu-arrow"></span>
-                            </a>
-
-                            <ul style="display:none;">
-                                <li><a href="charts.html">All Charts</a></li>
-                                <li><a href="tables.html">All Tables</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="submenu">
-                            <a href="#">
-                                <i class="fa fa-briefcase"></i>
-                                <span>Customer Relations</span>
-                                <span class="menu-arrow"></span>
-                            </a>
-
-                            <ul style="display:none;">
-                                <li><a href="leads.html">Leads</a></li>
-                                <li><a href="prospects.html">Prospects</a></li>
-                                <li><a href="follow-ups.html">Follow-ups</a></li>
-                                <li><a href="contracts.html">Contracts</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="submenu">
-                            <a href="#">
-                                <i class="fa fa-cog"></i>
-                                <span>Settings</span>
-                                <span class="menu-arrow"></span>
-                            </a>
-
-                            <ul style="display:none;">
-                                <li><a href="settings.html">General Settings</a></li>
-                                <li><a href="profile.html">Profile Settings</a></li>
-                            </ul>
-                        </li>
-
-                        <!-- <li>
-                            <a href="logout.html">
-                                <i class="fa fa-sign-out"></i>
-                                <span>Logout</span>
-                            </a>
-                        </li> -->
-                    </ul>
-                </div>
-            </div>
-        </div>
+        
         <div class="page-wrapper">
             <div class="content">
 
@@ -211,11 +36,87 @@ include "header.php";
                     </div>
 
                     <div class="col-sm-6 col-6 text-right">
-                        <a href="add-media.html" class="btn btn-primary btn-rounded">
+                        <a href="add-media.php" class="btn btn-primary btn-rounded">
                             <i class="fa fa-upload"></i> Upload Media
                         </a>
                     </div>
                 </div>
+
+                <?php
+
+                    $total_images_query = "
+                        SELECT COUNT(*) AS total
+                        FROM media
+                        WHERE media_type = 'image'
+                    ";
+
+                    $total_images_result = mysqli_query(
+                        $conn,
+                        $total_images_query
+                    );
+
+                    $total_images = mysqli_fetch_assoc(
+                        $total_images_result
+                    )['total'];
+
+
+
+                    $total_videos_query = "
+                        SELECT COUNT(*) AS total
+                        FROM media
+                        WHERE media_type = 'video'
+                    ";
+
+                    $total_videos_result = mysqli_query(
+                        $conn,
+                        $total_videos_query
+                    );
+
+                    $total_videos = mysqli_fetch_assoc(
+                        $total_videos_result
+                    )['total'];
+
+
+
+                    $total_documents_query = "
+                        SELECT COUNT(*) AS total
+                        FROM media
+                        WHERE media_type = 'document'
+                    ";
+
+                    $total_documents_result = mysqli_query(
+                        $conn,
+                        $total_documents_query
+                    );
+
+                    $total_documents = mysqli_fetch_assoc(
+                        $total_documents_result
+                    )['total'];
+
+
+
+                    $storage_query = "
+                        SELECT SUM(file_size) AS total_size
+                        FROM media
+                    ";
+
+                    $storage_result = mysqli_query(
+                        $conn,
+                        $storage_query
+                    );
+
+                    $storage_data = mysqli_fetch_assoc(
+                        $storage_result
+                    );
+
+                    $total_storage = $storage_data['total_size'] ?? 0;
+
+                    $storage_mb = round(
+                        $total_storage / 1024 / 1024,
+                        2
+                    );
+
+                ?>
 
                 <!-- Statistics -->
                 <div class="row mt-4">
@@ -224,7 +125,7 @@ include "header.php";
                         <div class="card dash-widget">
                             <div class="card-body text-center">
                                 <i class="fa fa-picture-o fa-3x text-primary mb-2"></i>
-                                <h3>245</h3>
+                                <h3><?=$total_images?></h3>
                                 <p>Total Images</p>
                             </div>
                         </div>
@@ -234,7 +135,7 @@ include "header.php";
                         <div class="card dash-widget">
                             <div class="card-body text-center">
                                 <i class="fa fa-video-camera fa-3x text-success mb-2"></i>
-                                <h3>38</h3>
+                                <h3><?=$total_images?></h3>
                                 <p>Videos</p>
                             </div>
                         </div>
@@ -244,7 +145,7 @@ include "header.php";
                         <div class="card dash-widget">
                             <div class="card-body text-center">
                                 <i class="fa fa-file-pdf-o fa-3x text-danger mb-2"></i>
-                                <h3>52</h3>
+                                <h3><?=$total_documents?></h3>
                                 <p>Documents</p>
                             </div>
                         </div>
@@ -254,7 +155,7 @@ include "header.php";
                         <div class="card dash-widget">
                             <div class="card-body text-center">
                                 <i class="fa fa-database fa-3x text-warning mb-2"></i>
-                                <h3>4.8 GB</h3>
+                                <h3><?=$storage_mb?> MB</h3>
                                 <p>Storage Used</p>
                             </div>
                         </div>
@@ -305,141 +206,137 @@ include "header.php";
                 <!-- Media Grid -->
                 <div class="row mt-4">
 
-                    <!-- Media Item -->
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="card media-card">
-                            <img src="assets/img/gallery/project1.jpg"
-                                class="card-img-top"
-                                alt="Media">
+                    <?php
+                    if(mysqli_num_rows($media_result) > 0){
+                        while($media = mysqli_fetch_assoc($media_result)){
 
-                            <div class="card-body">
-                                <h6 class="mb-1">TechDive Banner</h6>
-                                <small class="text-muted">
-                                    JPG • 1.8 MB
-                                </small>
+                    ?>
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                <div class="card media-card">
 
-                                <div class="mt-3 text-center">
-                                    <a href="#" class="btn btn-sm btn-info">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
+                                    <!-- IMAGE -->
+                                    <?php if($media['media_type'] == 'image'){ ?>
+                                        <img
+                                            src="../<?=$media['file_path']?>"
+                                            class="card-img-top"
+                                            alt="<?=$media['title']?>"
+                                            style="
+                                                height: 200px;
+                                                object-fit: cover;
+                                            "
+                                        >
+                                    <?php } ?>
 
-                                    <a href="#" class="btn btn-sm btn-success">
-                                        <i class="fa fa-download"></i>
-                                    </a>
+                                    <!-- VIDEO -->
+                                    <?php if($media['media_type'] == 'video'){ ?>
+                                        <video
+                                            class="card-img-top"
+                                            style="
+                                                height: 200px;
+                                                object-fit: cover;
+                                            "
+                                            controls
+                                        >
+                                            <source
+                                                src="../<?=$media['file_path']?>"
+                                                type="<?=$media['file_type']?>"
+                                            >
+                                        </video>
+                                    <?php } ?>
 
-                                    <a href="#" class="btn btn-sm btn-warning">
-                                        <i class="fa fa-pencil"></i>
-                                    </a>
+                                    <!-- DOCUMENT -->
+                                    <?php if($media['media_type'] == 'document'){ ?>
+                                        <div
+                                            class="text-center p-5"
+                                        >
+                                            <i class="
+                                                fa fa-file-pdf-o
+                                                fa-5x
+                                                text-danger
+                                            "></i>
+                                        </div>
+                                    <?php } ?>
 
-                                    <a href="#" class="btn btn-sm btn-danger">
-                                        <i class="fa fa-trash"></i>
-                                    </a>
+                                    <div class="card-body">
+
+                                        <!-- Title -->
+                                        <h6 class="mb-1">
+                                            <?=$media['title']?>
+                                        </h6>
+
+                                        <!-- File Information -->
+                                        <small class="text-muted">
+                                            <?=strtoupper($media['media_type'])?>
+                                            •
+                                            <?=round(
+                                                $media['file_size']
+                                                / 1024 / 1024,
+                                                2
+                                            )?>
+                                            MB
+                                        </small>
+
+                                        <!-- Actions -->
+                                        <div class="mt-3 text-center">
+
+                                            <!-- VIEW -->
+                                            <a
+                                                href="../<?=$media['file_path']?>"
+                                                target="_blank"
+                                                class="btn btn-sm btn-info"
+                                            >
+                                                <i class="fa fa-eye"></i>
+                                            </a>
+
+                                            <!-- DOWNLOAD -->
+                                            <a
+                                                href="../<?=$media['file_path']?>"
+                                                download
+                                                class="btn btn-sm btn-success"
+                                            >
+                                                <i class="fa fa-download"></i>
+                                            </a>
+
+                                            <!-- EDIT -->
+                                            <a
+                                                href="edit-media.php?id=<?=$media['id']?>"
+                                                class="btn btn-sm btn-warning"
+                                            >
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+
+                                            <!-- DELETE -->
+                                            <a
+                                                href="delete-media.php?id=<?=$media['id']?>"
+                                                class="btn btn-sm btn-danger"
+                                                onclick="
+                                                    return confirm(
+                                                        'Are you sure you want to delete this media?'
+                                                    )
+                                                "
+                                            >
+                                                <i class="fa fa-trash"></i>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                    <?php
+                        }
+                    }
 
-                    <!-- Media Item -->
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="card media-card">
-                            <img src="assets/img/gallery/project2.jpg"
-                                class="card-img-top"
-                                alt="Media">
-
-                            <div class="card-body">
-                                <h6 class="mb-1">Cloud Services</h6>
-                                <small class="text-muted">
-                                    PNG • 2.4 MB
-                                </small>
-
-                                <div class="mt-3 text-center">
-                                    <a href="#" class="btn btn-sm btn-info">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-
-                                    <a href="#" class="btn btn-sm btn-success">
-                                        <i class="fa fa-download"></i>
-                                    </a>
-
-                                    <a href="#" class="btn btn-sm btn-warning">
-                                        <i class="fa fa-pencil"></i>
-                                    </a>
-
-                                    <a href="#" class="btn btn-sm btn-danger">
-                                        <i class="fa fa-trash"></i>
-                                    </a>
-                                </div>
+                    else{
+                    ?>
+                        <div class="col-12">
+                            <div class="alert alert-info text-center">
+                                No media files found.
                             </div>
                         </div>
-                    </div>
+                    <?php
 
-                    <!-- Media Item -->
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="card media-card">
-                            <img src="assets/img/gallery/project3.jpg"
-                                class="card-img-top"
-                                alt="Media">
+                    }
 
-                            <div class="card-body">
-                                <h6 class="mb-1">Mobile App Mockup</h6>
-                                <small class="text-muted">
-                                    JPG • 3.2 MB
-                                </small>
-
-                                <div class="mt-3 text-center">
-                                    <a href="#" class="btn btn-sm btn-info">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-
-                                    <a href="#" class="btn btn-sm btn-success">
-                                        <i class="fa fa-download"></i>
-                                    </a>
-
-                                    <a href="#" class="btn btn-sm btn-warning">
-                                        <i class="fa fa-pencil"></i>
-                                    </a>
-
-                                    <a href="#" class="btn btn-sm btn-danger">
-                                        <i class="fa fa-trash"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Media Item -->
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="card media-card">
-                            <img src="assets/img/gallery/project4.jpg"
-                                class="card-img-top"
-                                alt="Media">
-
-                            <div class="card-body">
-                                <h6 class="mb-1">IoT Dashboard</h6>
-                                <small class="text-muted">
-                                    PNG • 1.5 MB
-                                </small>
-
-                                <div class="mt-3 text-center">
-                                    <a href="#" class="btn btn-sm btn-info">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-
-                                    <a href="#" class="btn btn-sm btn-success">
-                                        <i class="fa fa-download"></i>
-                                    </a>
-
-                                    <a href="#" class="btn btn-sm btn-warning">
-                                        <i class="fa fa-pencil"></i>
-                                    </a>
-
-                                    <a href="#" class="btn btn-sm btn-danger">
-                                        <i class="fa fa-trash"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    ?>
 
                 </div>
 
@@ -468,52 +365,182 @@ include "header.php";
 
                                 <tbody>
 
+                                    <?php
+                                    $table_query = "
+                                        SELECT *
+                                        FROM media
+                                        ORDER BY uploaded_at DESC
+                                    ";
+
+                                    $table_result = mysqli_query(
+                                        $conn,
+                                        $table_query
+                                    );
+
+
+                                    if(
+                                        mysqli_num_rows(
+                                            $table_result
+                                        ) > 0
+                                    ){
+
+                                        while(
+                                            $media =
+                                            mysqli_fetch_assoc(
+                                                $table_result
+                                            )
+                                        ){
+
+                                    ?>
+
                                     <tr>
+
+                                        <!-- Preview -->
                                         <td>
-                                            <img src="assets/img/gallery/project1.jpg"
-                                                width="60">
+
+                                            <?php
+                                            if(
+                                                $media['media_type']
+                                                == 'image'
+                                            ){
+                                            ?>
+                                                <img
+                                                    src="../<?=$media['file_path']?>"
+                                                    width="60"
+                                                    height="50"
+                                                    style="object-fit:cover;"
+                                                >
+
+                                            <?php
+                                            }
+                                            elseif(
+                                                $media['media_type']
+                                                == 'video'
+                                            ){
+                                            ?>
+                                                <i
+                                                    class="
+                                                        fa fa-video-camera
+                                                        fa-2x
+                                                    "
+                                                ></i>
+                                            <?php
+                                            }
+                                            else{
+                                            ?>
+                                                <i
+                                                    class="
+                                                        fa fa-file
+                                                        fa-2x
+                                                        text-danger
+                                                    "
+                                                ></i>
+
+                                            <?php
+                                            }
+                                            ?>
+
                                         </td>
-                                        <td>techdive-banner.jpg</td>
-                                        <td>Image</td>
-                                        <td>1.8 MB</td>
-                                        <td>10 Jun 2026</td>
+
+                                        <!-- File Name -->
                                         <td>
-                                            <button class="btn btn-sm btn-info">
-                                                View
-                                            </button>
+                                            <?=$media['file_name']?>
+                                        </td>
 
-                                            <button class="btn btn-sm btn-warning">
-                                                Edit
-                                            </button>
+                                        <!-- Type -->
 
-                                            <button class="btn btn-sm btn-danger">
-                                                Delete
-                                            </button>
+                                        <td>
+                                            <?=ucfirst(
+                                                $media['media_type']
+                                            )?>
+                                        </td>
+
+                                        <!-- Size -->
+
+                                        <td>
+                                            <?=round(
+                                                $media['file_size']
+                                                / 1024 / 1024,
+                                                2
+                                            )?>
+                                            MB
+                                        </td>
+
+                                        <!-- Upload Date -->
+                                        <td>
+                                            <?=date(
+                                                "d M Y",
+                                                strtotime(
+                                                    $media['uploaded_at']
+                                                )
+                                            )?>
+                                        </td>
+
+                                        <!-- Actions -->
+                                        <td>
+                                            <a
+                                                href="../<?=$media['file_path']?>"
+                                                target="_blank"
+                                                class="
+                                                    btn
+                                                    btn-sm
+                                                    btn-info
+                                                "
+                                            >
+                                                <i class="fa fa-eye"></i>
+                                            </a>
+
+                                            <a
+                                                href="edit-media.php?id=<?=$media['id']?>"
+                                                class="
+                                                    btn
+                                                    btn-sm
+                                                    btn-warning
+                                                "
+                                            >
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+
+                                            <a
+                                                href="delete-media.php?id=<?=$media['id']?>"
+                                                class="
+                                                    btn
+                                                    btn-sm
+                                                    btn-danger
+                                                "
+                                                onclick="
+                                                    return confirm(
+                                                        'Delete this file?'
+                                                    )
+                                                "
+                                            >
+                                                <i class="fa fa-trash"></i>
+                                            </a>
                                         </td>
                                     </tr>
 
+                                    <?php
+
+                                        }
+                                    }
+                                    else{
+
+                                    ?>
+
                                     <tr>
-                                        <td>
-                                            <i class="fa fa-file-pdf-o fa-2x text-danger"></i>
-                                        </td>
-                                        <td>company-profile.pdf</td>
-                                        <td>PDF</td>
-                                        <td>5.4 MB</td>
-                                        <td>12 Jun 2026</td>
-                                        <td>
-                                            <button class="btn btn-sm btn-info">
-                                                View
-                                            </button>
-
-                                            <button class="btn btn-sm btn-warning">
-                                                Edit
-                                            </button>
-
-                                            <button class="btn btn-sm btn-danger">
-                                                Delete
-                                            </button>
+                                        <td
+                                            colspan="6"
+                                            class="text-center"
+                                        >
+                                            No media files found.
                                         </td>
                                     </tr>
+
+                                    <?php
+
+                                    }
+
+                                    ?>
 
                                 </tbody>
 
@@ -535,7 +562,7 @@ include "header.php";
                 <div class="drop-scroll msg-list-scroll" id="msg_list">
                     <ul class="list-box">
                         <li>
-                            <a href="messages.html">
+                            <a href="messages.php">
                                 <div class="list-item">
                                     <div class="list-left">
                                         <span class="avatar">R</span>
@@ -550,7 +577,7 @@ include "header.php";
                             </a>
                         </li>
                         <li>
-                            <a href="messages.html">
+                            <a href="messages.php">
                                 <div class="list-item new-message">
                                     <div class="list-left">
                                         <span class="avatar">J</span>
@@ -565,7 +592,7 @@ include "header.php";
                             </a>
                         </li>
                         <li>
-                            <a href="messages.html">
+                            <a href="messages.php">
                                 <div class="list-item">
                                     <div class="list-left">
                                         <span class="avatar">T</span>
@@ -580,7 +607,7 @@ include "header.php";
                             </a>
                         </li>
                         <li>
-                            <a href="messages.html">
+                            <a href="messages.php">
                                 <div class="list-item">
                                     <div class="list-left">
                                         <span class="avatar">M</span>
@@ -595,7 +622,7 @@ include "header.php";
                             </a>
                         </li>
                         <li>
-                            <a href="messages.html">
+                            <a href="messages.php">
                                 <div class="list-item">
                                     <div class="list-left">
                                         <span class="avatar">C</span>
@@ -610,7 +637,7 @@ include "header.php";
                             </a>
                         </li>
                         <li>
-                            <a href="messages.html">
+                            <a href="messages.php">
                                 <div class="list-item">
                                     <div class="list-left">
                                         <span class="avatar">D</span>
@@ -625,7 +652,7 @@ include "header.php";
                             </a>
                         </li>
                         <li>
-                            <a href="messages.html">
+                            <a href="messages.php">
                                 <div class="list-item">
                                     <div class="list-left">
                                         <span class="avatar">B</span>
@@ -640,7 +667,7 @@ include "header.php";
                             </a>
                         </li>
                         <li>
-                            <a href="messages.html">
+                            <a href="messages.php">
                                 <div class="list-item">
                                     <div class="list-left">
                                         <span class="avatar">R</span>
@@ -655,7 +682,7 @@ include "header.php";
                             </a>
                         </li>
                         <li>
-                            <a href="messages.html">
+                            <a href="messages.php">
                                 <div class="list-item">
                                     <div class="list-left">
                                         <span class="avatar">C</span>
@@ -670,7 +697,7 @@ include "header.php";
                             </a>
                         </li>
                         <li>
-                            <a href="messages.html">
+                            <a href="messages.php">
                                 <div class="list-item">
                                     <div class="list-left">
                                         <span class="avatar">M</span>
@@ -685,7 +712,7 @@ include "header.php";
                             </a>
                         </li>
                         <li>
-                            <a href="messages.html">
+                            <a href="messages.php">
                                 <div class="list-item">
                                     <div class="list-left">
                                         <span class="avatar">J</span>
@@ -700,7 +727,7 @@ include "header.php";
                             </a>
                         </li>
                         <li>
-                            <a href="messages.html">
+                            <a href="messages.php">
                                 <div class="list-item">
                                     <div class="list-left">
                                         <span class="avatar">L</span>
@@ -715,7 +742,7 @@ include "header.php";
                             </a>
                         </li>
                         <li>
-                            <a href="messages.html">
+                            <a href="messages.php">
                                 <div class="list-item">
                                     <div class="list-left">
                                         <span class="avatar">T</span>
@@ -732,7 +759,7 @@ include "header.php";
                     </ul>
                 </div>
                 <div class="topnav-dropdown-footer">
-                    <a href="messages.html">See all messages</a>
+                    <a href="messages.php">See all messages</a>
                 </div>
             </div>
         </div>
