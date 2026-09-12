@@ -24,7 +24,7 @@ include "header.php";
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                    <div class="col-12 col-md-6 col-lg-6 col-xl-6">
                         <div class="dash-widget">
 							<span class="dash-widget-bg1"><i class="fa fa-code" aria-hidden="true"></i></span>
 							<div class="dash-widget-info text-right">
@@ -33,7 +33,7 @@ include "header.php";
 							</div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                    <div class="col-12 col-md-6 col-lg-6 col-xl-6">
                         <div class="dash-widget">
                             <span class="dash-widget-bg2"><i class="fa fa-cogs"></i></span>
                             <div class="dash-widget-info text-right">
@@ -42,7 +42,7 @@ include "header.php";
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                    <div class="col-12 col-md-6 col-lg-6 col-xl-6">
                         <div class="dash-widget">
                             <span class="dash-widget-bg3"><i class="fa fa-users" aria-hidden="true"></i></span>
                             <div class="dash-widget-info text-right">
@@ -51,7 +51,7 @@ include "header.php";
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                    <div class="col-12 col-md-6 col-lg-6 col-xl-6">
                         <div class="dash-widget">
                             <span class="dash-widget-bg4"><i class="fa fa-comments" aria-hidden="true"></i></span>
                             <div class="dash-widget-info text-right">

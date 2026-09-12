@@ -76,7 +76,7 @@ $data = mysqli_fetch_assoc($result);
           <div class="row d-flex justify-content-center text-center">
             <div class="col-lg-8">
               <h1>Portfolio</h1>
-              <p class="mb-0">Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat ipsum dolorem.</p>
+              <p class="mb-0">Get a glimpse of some of the best solutions I have provided to many reputable firms across the world over the years.</p>
             </div>
           </div>
         </div>

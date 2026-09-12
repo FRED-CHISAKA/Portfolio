@@ -23,9 +23,7 @@ include "sidebar.php";
 
     <!-- Service Form -->
     <div class="card shadow-sm border-0">
-
         <div class="card-header bg-white py-3">
-
             <h3 class="h5 mb-1">
                 <i class="bi bi-plus-circle me-2"></i>
                 Service Information
@@ -34,39 +32,26 @@ include "sidebar.php";
             <p class="text-muted small mb-0">
                 Enter the details for the new service.
             </p>
-
         </div>
 
-
         <div class="card-body p-4">
-
             <form action="service-store.php" method="POST">
-
 
                 <!-- Service Information -->
                 <div class="border-bottom pb-2 mb-4">
-
                     <h5 class="mb-0">
-
                         <i class="bi bi-grid me-2"></i>
-
                         Service Details
-
                     </h5>
-
                 </div>
-
 
                 <div class="row g-3 mb-4">
 
-
                     <!-- Title -->
                     <div class="col-md-6">
-
                         <label for="title" class="form-label">
                             Service Title
                         </label>
-
                         <input
                             type="text"
                             name="title"
@@ -75,13 +60,10 @@ include "sidebar.php";
                             placeholder="e.g. Web Development"
                             required
                         >
-
                     </div>
-
 
                     <!-- Icon -->
                     <div class="col-md-6">
-
                         <label for="icon" class="form-label">
                             Bootstrap Icon Class
                         </label>
@@ -98,13 +80,10 @@ include "sidebar.php";
                         <div class="form-text">
                             Example: <code>bi bi-code-slash</code>
                         </div>
-
                     </div>
-
 
                     <!-- URL -->
                     <div class="col-md-6">
-
                         <label for="url" class="form-label">
                             Service URL
                         </label>
@@ -117,13 +96,10 @@ include "sidebar.php";
                             placeholder="e.g. web-development.php"
                             required
                         >
-
                     </div>
-
 
                     <!-- Description -->
                     <div class="col-12">
-
                         <label for="description" class="form-label">
                             Description
                         </label>
@@ -136,52 +112,26 @@ include "sidebar.php";
                             placeholder="Describe the service..."
                             required
                         ></textarea>
-
                     </div>
-
                 </div>
-
 
                 <!-- Buttons -->
                 <div class="d-flex gap-2 pt-3 border-top">
-
-                    <button
-                        type="submit"
-                        class="btn btn-primary"
-                    >
-
+                    <button type="submit" class="btn btn-primary">
                         <i class="bi bi-check-lg me-1"></i>
-
                         Save Service
-
                     </button>
 
-
-                    <a
-                        href="services.php"
-                        class="btn btn-secondary"
-                    >
-
+                    <a href="services.php" class="btn btn-secondary">
                         <i class="bi bi-x-lg me-1"></i>
-
                         Cancel
-
                     </a>
-
                 </div>
-
-
             </form>
-
         </div>
-
     </div>
-
 </main>
 
-
 <?php
-
 include "footer.php";
-
 ?>

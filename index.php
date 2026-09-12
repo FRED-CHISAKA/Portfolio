@@ -37,6 +37,7 @@ $data = mysqli_fetch_assoc($result);
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/custom.css" rel="stylesheet">
 
 </head>
 
@@ -57,7 +58,8 @@ $data = mysqli_fetch_assoc($result);
           <li><a href="resume.php">Resume</a></li>
           <li><a href="services.php">Services</a></li>
           <li><a href="portfolio.php">Portfolio</a></li>
-          <li class="dropdown"><a href="#"><span>Certifications</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li><a href="certifications.php">Certifications</a></li>
+          <!-- <li class="dropdown"><a href="#"><span>Certifications</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="#">Certifications</a></li>
               <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -73,7 +75,7 @@ $data = mysqli_fetch_assoc($result);
               <li><a href="#">Dropdown 3</a></li>
               <li><a href="#">Dropdown 4</a></li>
             </ul>
-          </li>
+          </li> -->
           <li><a href="contact.php">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -147,6 +149,236 @@ $data = mysqli_fetch_assoc($result);
 
     </section>
     <!-- /Hero Section -->
+
+    <div class="more-sections">
+      <section id="about">
+          <p class="section_text_p1">Get To Know More</p>
+          <h1 class="title">About Me</h1>
+          <div class="section-container">
+              <div class="section_pic-container">
+                  <img src="assets/img/projects/1.jpg" style="width: 400px; height: 100%;" alt="Profile picture" class="about-pic">
+              </div>
+              <div class="about-details-container">
+                  <div class="about-containers">
+                      <div class="details-container">
+                          <img src="assets/img/experience.jpg" alt="Experience icon" class="icon">
+                          <h3>Experience</h3>
+                          <p>2+ years <br/> Software Development</p>
+                      </div>
+                      <div class="details-container">
+                          <img src="assets/img/education.jpg" alt="Education icon" class="icon">
+                          <h3>Education</h3>
+                          <p>B.Sc. Degree<br/> Software Engineering</p>
+                      </div>
+                  </div>
+                  <div class="text-container">
+                      <p>Innovative and dedicated software engineer with a strong foundation in software development, system analysis, and cybersecurity. Eager to apply my skills in creating efficient and scalable IT solutions while contributing to organizational growth. Passionate about leveraging emerging technologies such as Huawei storage solutions to solve real-world problems and drive technological advancement.</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <section id="experience">
+          <p class="section_text_p1">Explore My</p>
+          <h1 class="title">Experience</h1>
+          <div class="experience-details-container">
+              <div class="about-containers">
+                  <div class="details-container">
+                      <h2 class="experience-sub-title">Frontend Development</h2>
+                      <div class="article-container">
+                          <article>
+                              <img src="assets/img/checkmark.PNG" alt="Experience icon" class="icon">
+                              <div>
+                                  <h3>HTML</h3>
+                                  <p>Experienced</p>
+                              </div>
+                          </article>
+
+                          <article>
+                              <img src="assets/img/checkmark.PNG" alt="Experience icon" class="icon">
+                              <div>
+                                  <h3>CSS</h3>
+                                  <p>Experienced</p>
+                              </div>
+                          </article>
+
+                          <article>
+                              <img src="assets/img/checkmark.PNG" alt="Experience icon" class="icon">
+                              <div>
+                                  <h3>JavaScript</h3>
+                                  <p>Experienced</p>
+                              </div>
+                          </article>
+
+                          <article>
+                              <img src="assets/img/checkmark.PNG" alt="Experience icon" class="icon">
+                              <div>
+                                  <h3>ReactJS</h3>
+                                  <p>Intermediate</p>
+                              </div>
+                          </article>
+
+                          <article>
+                              <img src="assets/img/checkmark.PNG" alt="Experience icon" class="icon">
+                              <div>
+                                  <h3>Python(Django)</h3>
+                                  <p>Experienced</p>
+                              </div>
+                          </article>
+
+                          <article>
+                              <img src="assets/img/checkmark.PNG" alt="Experience icon" class="icon">
+                              <div>
+                                  <h3>Java(STS)</h3>
+                                  <p>Experienced</p>
+                              </div>
+                          </article>
+                      </div>
+                  </div>
+                  <div class="details-container">
+                      <h2 class="experience-sub-title">Backend Development</h2>
+                      <div class="article-container">
+                          <article>
+                              <img src="assets/img/checkmark.PNG" alt="Experience icon" class="icon">
+                              <div>
+                                  <h3>PHP(Laravel)</h3>
+                                  <p>Experienced</p>
+                              </div>
+                          </article>
+
+                          <article>
+                              <img src="assets/img/checkmark.PNG" alt="Experience icon" class="icon">
+                              <div>
+                                  <h3>MySQL</h3>
+                                  <p>Experienced</p>
+                              </div>
+                          </article>
+
+                          <article>
+                              <img src="assets/img/checkmark.PNG" alt="Experience icon" class="icon">
+                              <div>
+                                  <h3>Mongo DB</h3>
+                                  <p>Experienced</p>
+                              </div>
+                          </article>
+
+                          <article>
+                              <img src="assets/img/checkmark.PNG" alt="Experience icon" class="icon">
+                              <div>
+                                  <h3>Node JS</h3>
+                                  <p>Intermediate</p>
+                              </div>
+                          </article>
+
+                          <article>
+                              <img src="assets/img/checkmark.PNG" alt="Experience icon" class="icon">
+                              <div>
+                                  <h3>Express JS</h3>
+                                  <p>Experienced</p>
+                              </div>
+                          </article>
+
+                          <article>
+                              <img src="assets/img/checkmark.PNG" alt="Experience icon" class="icon">
+                              <div>
+                                  <h3>Git</h3>
+                                  <p>Intermediate</p>
+                              </div>
+                          </article>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <section id="projects">
+          <p class="section_text_p1">Browse My Recent</p>
+          <h1 class="title">Projects</h1>
+          <div class="experience-details-container">
+              <div class="about-containers">
+                  <div class="details-container color-container">
+                      <div class="article-container">
+                          <img src="assets/img/projects/1.jpg" style="height: 270px;" alt="Project 1" class="project-img">
+                      </div>
+                      <h2 class="experience-sub-title project-title">Project One</h2>
+                      <div class="btn-container">
+                          <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">Github</button>
+                          <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">Live Demo</button>
+                      </div>
+                  </div>
+
+                  <div class="details-container color-container">
+                      <div class="article-container">
+                          <img src="assets/img/projects/1.jpg" style="height: 270px;" alt="Project 2" class="project-img">
+                      </div>
+                      <h2 class="experience-sub-title project-title">Project Two</h2>
+                      <div class="btn-container">
+                          <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">Github</button>
+                          <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">Live Demo</button>
+                      </div>
+                  </div>
+
+                  <div class="details-container color-container">
+                      <div class="article-container">
+                          <img src="assets/img/projects/1.jpg" style="height: 270px;" alt="Project 3" class="project-img">
+                      </div>
+                      <h2 class="experience-sub-title project-title">Project Three</h2>
+                      <div class="btn-container">
+                          <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">Github</button>
+                          <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">Live Demo</button>
+                      </div>
+                  </div>
+              </div>
+              <div class="about-containers">
+                  <div class="details-container color-container">
+                      <div class="article-container">
+                          <img src="assets/img/projects/1.jpg" style="height: 270px;" alt="Project 4" class="project-img">
+                      </div>
+                      <h2 class="experience-sub-title project-title">Project Four</h2>
+                      <div class="btn-container">
+                          <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">Github</button>
+                          <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">Live Demo</button>
+                      </div>
+                  </div>
+
+                  <div class="details-container color-container">
+                      <div class="article-container">
+                          <img src="assets/img/projects/1.jpg" style="height: 270px;" alt="Project 5" class="project-img">
+                      </div>
+                      <h2 class="experience-sub-title project-title">Project Five</h2>
+                      <div class="btn-container">
+                          <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">Github</button>
+                          <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">Live Demo</button>
+                      </div>
+                  </div>
+
+                  <div class="details-container color-container">
+                      <div class="article-container">
+                          <img src="assets/img/projects/1.jpg" style="height: 270px;" alt="Project 6" class="project-img">
+                      </div>
+                      <h2 class="experience-sub-title project-title">Project Six</h2>
+                      <div class="btn-container">
+                          <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">Github</button>
+                          <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">Live Demo</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <section id="contact">
+          <p class="section_text_p1">Get In Touch</p>
+          <h1 class="title">Contact Me</h1>
+          <div class="contact-info-upper-container">
+              <div class="contact-info-container">
+                  <p><a href="mailto:chisakamusumba@gmail.com"><i class="icon bi bi-envelope flex-shrink-0"></i>Chisakamusumba@gmail.com</a></p>
+              </div>
+              <div class="contact-info-container">
+                  <p><a href="https://www.linkedin.com/"><i class="bi bi-linkedin"></i>Linkedin</a></p>
+              </div>
+          </div>
+      </section>
+    </div>
 
   </main>
 

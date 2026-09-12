@@ -130,12 +130,12 @@ $awards = mysqli_query($conn,
 
             <h3 class="h5 mb-1">
                 <i class="bi bi-file-person me-2"></i>
-                Professional Summary
+                My Career Objective
             </h3>
 
-            <p class="text-muted small mb-0">
+            <!-- <p class="text-muted small mb-0">
                 Information displayed in the summary section of your resume.
-            </p>
+            </p> -->
 
         </div>
 
@@ -154,7 +154,7 @@ $awards = mysqli_query($conn,
                 <div class="mb-3">
 
                     <label for="summary" class="form-label">
-                        Professional Summary
+                        Main Ojective
                     </label>
 
                     <textarea
@@ -165,10 +165,10 @@ $awards = mysqli_query($conn,
                         placeholder="Write a brief professional summary..."
                     ><?= htmlspecialchars($data['slogan'] ?? '') ?></textarea>
 
-                    <div class="form-text">
+                    <!-- <div class="form-text">
                         Keep this concise and focused on your professional background,
                         strengths and career objectives.
-                    </div>
+                    </div> -->
 
                 </div>
 
@@ -180,7 +180,7 @@ $awards = mysqli_query($conn,
 
                     <i class="bi bi-check-lg me-1"></i>
 
-                    Save Summary
+                    Save Objective
 
                 </button>
 
@@ -705,16 +705,16 @@ $awards = mysqli_query($conn,
 
                                     <td>
                                         <strong>
-                                            <?= htmlspecialchars($cert['name']) ?>
+                                            <?= htmlspecialchars($cert['title']) ?>
                                         </strong>
                                     </td>
 
                                     <td>
-                                        <?= htmlspecialchars($cert['organization']) ?>
+                                        <?= htmlspecialchars($cert['issuer']) ?>
                                     </td>
 
                                     <td>
-                                        <?= htmlspecialchars($cert['year']) ?>
+                                        <?= htmlspecialchars($cert['issue_date']) ?>
                                     </td>
 
                                     <td>
