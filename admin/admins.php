@@ -91,7 +91,6 @@ include "header.php";
                                 <i class="fa fa-cube"></i>
                                 <span>Assets</span>
                             </a>
-
                         </li>
 
                         <li class="submenu">

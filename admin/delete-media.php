@@ -1,80 +1,40 @@
 <?php
 
-include "../include/config.php";
+    include "../include/config.php";
 
-
-if(!isset($_GET['id'])){
-
-    header("Location: media.php");
-    exit();
-
-}
-
-
-$id = intval($_GET['id']);
-
-
-/*
-Retrieve media
-*/
-
-$query = "
-    SELECT *
-    FROM media
-    WHERE id = '$id'
-";
-
-$result = mysqli_query(
-    $conn,
-    $query
-);
-
-$media = mysqli_fetch_assoc(
-    $result
-);
-
-
-if($media){
-
-
-    /*
-    Delete physical file
-    */
-
-    $file_path =
-        "../"
-        . $media['file_path'];
-
-
-    if(file_exists($file_path)){
-
-        unlink($file_path);
-
+    if(!isset($_GET['id'])){
+        header("Location: media.php");
+        exit();
     }
 
+    $id = intval($_GET['id']);
 
-    /*
-    Delete database record
-    */
+    /* Retrieve media */
+    $query = "SELECT * FROM media WHERE id = '$id' ";
+    
+    $result = mysqli_query($conn, $query);
+    $media = mysqli_fetch_assoc($result);
 
-    $delete = "
-        DELETE FROM media
-        WHERE id = '$id'
-    ";
+    if($media){
 
+        /* Delete physical file */
+        $file_path =
+            "../"
+            . $media['file_path'];
 
-    mysqli_query(
-        $conn,
-        $delete
+        if(file_exists($file_path)){
+            unlink($file_path);
+        }
+
+        /* Delete database record */
+        $delete = "DELETE FROM media WHERE id = '$id'";
+        mysqli_query($conn, $delete);
+    }
+
+    header(
+        "Location: media.php?deleted=1"
     );
 
-}
-
-
-header(
-    "Location: media.php?deleted=1"
-);
-
-exit();
+    exit();
 
 ?>

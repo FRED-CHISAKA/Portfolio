@@ -1,54 +1,52 @@
 <?php
 
-include "../include/config.php";
+    include "../include/config.php";
 
-if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    header("Location: add-counter.php");
-    exit;
-}
+    if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+        header("Location: add-counter.php");
+        exit;
+    }
 
-$icon  = trim($_POST["icon"] ?? "");
-$title = trim($_POST["title"] ?? "");
-$pre   = trim($_POST["pre"] ?? "");
-$post  = trim($_POST["post"] ?? "");
+    $icon  = trim($_POST["icon"] ?? "");
+    $title = trim($_POST["title"] ?? "");
+    $pre   = trim($_POST["pre"] ?? "");
+    $post  = trim($_POST["post"] ?? "");
 
-// Validate required fields
-if ($icon === "" || $title === "") {
-    header("Location: add-counter.php?error=required");
-    exit;
-}
+    // Validate required fields
+    if ($icon === "" || $title === "") {
+        header("Location: add-counter.php?error=required");
+        exit;
+    }
 
-$sql = "INSERT INTO counter (icon, title, pre, post)
-        VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO counter (icon, title, pre, post)
+            VALUES (?, ?, ?, ?)";
 
-$stmt = mysqli_prepare($conn, $sql);
+    $stmt = mysqli_prepare($conn, $sql);
 
-if (!$stmt) {
-    header("Location: add-counter.php?error=database");
-    exit;
-}
+    if (!$stmt) {
+        header("Location: add-counter.php?error=database");
+        exit;
+    }
 
-mysqli_stmt_bind_param(
-    $stmt,
-    "ssss",
-    $icon,
-    $title,
-    $pre,
-    $post
-);
+    mysqli_stmt_bind_param(
+        $stmt,
+        "ssss",
+        $icon,
+        $title,
+        $pre,
+        $post
+    );
 
-if (mysqli_stmt_execute($stmt)) {
+    if (mysqli_stmt_execute($stmt)) {
 
-    mysqli_stmt_close($stmt);
+        mysqli_stmt_close($stmt);
+        header("Location: about.php?success=statistic_added");
+        exit;
 
-    header("Location: about.php?success=statistic_added");
-    exit;
+    } else {
 
-} else {
-
-    mysqli_stmt_close($stmt);
-
-    header("Location: add-counter.php?error=failed");
-    exit;
-}
+        mysqli_stmt_close($stmt);
+        header("Location: add-counter.php?error=failed");
+        exit;
+    }
 ?>

@@ -1,14 +1,12 @@
 <?php 
+    include "../include/config.php"; 
+    include "header.php"; 
+    include "sidebar.php"; 
 
-include "../include/config.php"; 
-include "header.php"; 
-include "sidebar.php"; 
-
-// Get current user/profile information
-$sql = "SELECT * FROM users WHERE id = 1"; 
-$result = mysqli_query($conn, $sql); 
-$data = mysqli_fetch_assoc($result); 
-
+    // Get current user information
+    $sql = "SELECT * FROM users WHERE id = 1"; 
+    $result = mysqli_query($conn, $sql); 
+    $data = mysqli_fetch_assoc($result); 
 ?>
 
 <!-- Main Content -->
@@ -81,34 +79,24 @@ $data = mysqli_fetch_assoc($result);
                             Professional Title
                         </label>
 
-                        <input 
-                            type="text" 
-                            id="title" 
-                            name="title" 
-                            class="form-control"
+                        <input type="text" id="title" name="title" class="form-control"
                             value="<?= htmlspecialchars($data['title']) ?>" 
-                            placeholder="e.g. Software Engineer"
-                            required
+                            placeholder="e.g. Software Engineer" required
                         >
                     </div>
 
                     <!-- Slogan -->
                     <div class="col-12">
                         <label for="slogan" class="form-label">
-                            Professional Slogan
+                            Career Objective
                         </label>
 
-                        <textarea 
-                            id="slogan" 
-                            name="slogan" 
-                            class="form-control"
-                            rows="4"
-                            placeholder="Write your professional introduction..."
-                        ><?= htmlspecialchars($data['slogan']) ?></textarea>
+                        <textarea id="slogan" name="slogan" class="form-control" rows="4" placeholder="Write your professional introduction...">
+                            <?= htmlspecialchars($data['slogan']) ?>
+                        </textarea>
 
                         <div class="form-text">
-                            This will appear as your introductory statement
-                            on the About page.
+                            This will appear as your introductory statement on the About page.
                         </div>
                     </div>
                 </div>
@@ -128,11 +116,7 @@ $data = mysqli_fetch_assoc($result);
                             Email Address
                         </label>
 
-                        <input 
-                            type="email" 
-                            id="email" 
-                            name="email" 
-                            class="form-control"
+                        <input type="email" id="email" name="email" class="form-control"
                             value="<?= htmlspecialchars($data['email']) ?>"
                         >
                     </div>
@@ -143,11 +127,7 @@ $data = mysqli_fetch_assoc($result);
                             Phone Number
                         </label>
 
-                        <input 
-                            type="text" 
-                            id="phone" 
-                            name="phone" 
-                            class="form-control"
+                        <input type="text" id="phone" name="phone" class="form-control"
                             value="<?= htmlspecialchars($data['phone']) ?>"
                         >
                     </div>
@@ -158,11 +138,7 @@ $data = mysqli_fetch_assoc($result);
                             Website
                         </label>
 
-                        <input 
-                            type="url" 
-                            id="website" 
-                            name="website" 
-                            class="form-control"
+                        <input type="url" id="website" name="website" class="form-control"
                             value="<?= htmlspecialchars($data['website']) ?>"
                             placeholder="https://example.com"
                         >
@@ -174,11 +150,7 @@ $data = mysqli_fetch_assoc($result);
                             City
                         </label>
 
-                        <input 
-                            type="text" 
-                            id="city" 
-                            name="city" 
-                            class="form-control"
+                        <input type="text" id="city" name="city" class="form-control"
                             value="<?= htmlspecialchars($data['city']) ?>"
                         >
                     </div>
@@ -199,11 +171,7 @@ $data = mysqli_fetch_assoc($result);
                             Birthday
                         </label>
 
-                        <input 
-                            type="date" 
-                            id="birthday" 
-                            name="birthday" 
-                            class="form-control"
+                        <input type="date" id="birthday" name="birthday" class="form-control"
                             value="<?= htmlspecialchars($data['birthday']) ?>"
                         >
                     </div>
@@ -214,14 +182,9 @@ $data = mysqli_fetch_assoc($result);
                             Age
                         </label>
 
-                        <input 
-                            type="number" 
-                            id="age" 
-                            name="age" 
-                            class="form-control"
+                        <input type="number" id="age" name="age" class="form-control"
                             value="<?= htmlspecialchars($data['age']) ?>"
-                            min="1"
-                            max="120"
+                            min="1" max="120"
                         >
                     </div>
 
@@ -231,11 +194,7 @@ $data = mysqli_fetch_assoc($result);
                             Degree
                         </label>
 
-                        <input 
-                            type="text" 
-                            id="degree" 
-                            name="degree" 
-                            class="form-control"
+                        <input type="text" id="degree" name="degree" class="form-control"
                             value="<?= htmlspecialchars($data['degree']) ?>"
                             placeholder="e.g. BSc Software Engineering"
                         >
@@ -247,11 +206,7 @@ $data = mysqli_fetch_assoc($result);
                             Certifications
                         </label>
 
-                        <input 
-                            type="text" 
-                            id="certification" 
-                            name="certification" 
-                            class="form-control"
+                        <input type="text" id="certification" name="certification" class="form-control"
                             value="<?= htmlspecialchars($data['certification']) ?>"
                         >
                     </div>
@@ -271,21 +226,14 @@ $data = mysqli_fetch_assoc($result);
                             Freelance Availability
                         </label>
 
-                        <select 
-                            name="freelance" 
-                            id="freelance" 
-                            class="form-select"
-                        >
-
-                            <option 
-                                value="1"
+                        <select name="freelance" id="freelance" class="form-select">
+                            <option value="1"
                                 <?= ($data['freelance'] == 1) ? 'selected' : '' ?>
                             >
                                 Available
                             </option>
 
-                            <option 
-                                value="0"
+                            <option value="0"
                                 <?= ($data['freelance'] == 0) ? 'selected' : '' ?>
                             >
                                 Not Available
@@ -319,8 +267,8 @@ $data = mysqli_fetch_assoc($result);
 
                     <div class="card-body">
                         <?php
-                        $counter_sql = "SELECT * FROM `counter` ORDER BY `id` ASC";
-                        $counter_result = mysqli_query($conn, $counter_sql);
+                            $counter_sql = "SELECT * FROM `counter` ORDER BY `id` ASC";
+                            $counter_result = mysqli_query($conn, $counter_sql);
                         ?>
 
                         <div class="table-responsive">
@@ -338,65 +286,64 @@ $data = mysqli_fetch_assoc($result);
                                 </thead>
 
                                 <tbody>
+                                    <?php if(mysqli_num_rows($counter_result) > 0){ ?>
+                                        <?php while($counter = mysqli_fetch_assoc($counter_result)){ ?>
 
-                                <?php if(mysqli_num_rows($counter_result) > 0){ ?>
-                                    <?php while($counter = mysqli_fetch_assoc($counter_result)){ ?>
+                                            <tr>
+                                                <td>
+                                                    <?= $counter['id'] ?>
+                                                </td>
+                                                <td>
+                                                    <i class="<?= htmlspecialchars($counter['icon']) ?>"></i>
+                                                    <small class="text-muted ml-2">
+                                                        <?= htmlspecialchars($counter['icon']) ?>
+                                                    </small>
+                                                </td>
+                                                <td>
+                                                    <strong>
+                                                        <?= htmlspecialchars($counter['title']) ?>
+                                                    </strong>
+                                                </td>
 
-                                        <tr>
-                                            <td>
-                                                <?= $counter['id'] ?>
-                                            </td>
-                                            <td>
-                                                <i class="<?= htmlspecialchars($counter['icon']) ?>"></i>
-                                                <small class="text-muted ml-2">
-                                                    <?= htmlspecialchars($counter['icon']) ?>
-                                                </small>
-                                            </td>
-                                            <td>
-                                                <strong>
-                                                    <?= htmlspecialchars($counter['title']) ?>
-                                                </strong>
-                                            </td>
-
-                                            <td>
-                                                <?= htmlspecialchars($counter['pre']) ?>
-                                            </td>
-
-                                            <td>
-                                                <?= htmlspecialchars($counter['post']) ?>
-                                            </td>
-
-                                            <td>
-                                                <strong>
+                                                <td>
                                                     <?= htmlspecialchars($counter['pre']) ?>
+                                                </td>
+
+                                                <td>
                                                     <?= htmlspecialchars($counter['post']) ?>
-                                                </strong>
-                                                <br>
-                                                <small class="text-muted">
-                                                    <?= htmlspecialchars($counter['title']) ?>
-                                                </small>
-                                            </td>
+                                                </td>
 
-                                            <td class="text-right">
+                                                <td>
+                                                    <strong>
+                                                        <?= htmlspecialchars($counter['pre']) ?>
+                                                        <?= htmlspecialchars($counter['post']) ?>
+                                                    </strong>
+                                                    <br>
+                                                    <small class="text-muted">
+                                                        <?= htmlspecialchars($counter['title']) ?>
+                                                    </small>
+                                                </td>
 
-                                                <a href="edit-counter.php?id=<?= $counter['id'] ?>"
-                                                class="btn btn-sm btn-info"
-                                                title="Edit">
-                                                    <i class="fa fa-pencil"></i>
-                                                </a>
+                                                <td class="text-right">
 
-                                                <a href="delete-counter.php?id=<?= $counter['id'] ?>"
-                                                class="btn btn-sm btn-danger"
-                                                title="Delete"
-                                                onclick="return confirm('Are you sure you want to delete this statistic?');">
-                                                    <i class="fa fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
+                                                    <a href="edit-counter.php?id=<?= $counter['id'] ?>"
+                                                    class="btn btn-sm btn-info"
+                                                    title="Edit">
+                                                        <i class="fa fa-pencil"></i>
+                                                    </a>
 
-                                    <?php } ?>
+                                                    <a href="delete-counter.php?id=<?= $counter['id'] ?>"
+                                                    class="btn btn-sm btn-danger"
+                                                    title="Delete"
+                                                    onclick="return confirm('Are you sure you want to delete this statistic?');">
+                                                        <i class="fa fa-trash"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
 
-                                <?php } else { ?>
+                                        <?php } ?>
+
+                                    <?php } else { ?>
 
                                     <tr>
                                         <td colspan="7" class="text-center text-muted">
@@ -404,7 +351,7 @@ $data = mysqli_fetch_assoc($result);
                                         </td>
                                     </tr>
 
-                                <?php } ?>
+                                    <?php } ?>
 
                                 </tbody>
                             </table>
@@ -439,8 +386,8 @@ $data = mysqli_fetch_assoc($result);
                     <div class="card-body">
 
                         <?php
-                        $skills_sql = "SELECT * FROM `skills` ORDER BY `id` ASC";
-                        $skills_result = mysqli_query($conn, $skills_sql);
+                            $skills_sql = "SELECT * FROM `skills` ORDER BY `id` ASC";
+                            $skills_result = mysqli_query($conn, $skills_sql);
                         ?>
 
                         <div class="table-responsive">
@@ -457,69 +404,68 @@ $data = mysqli_fetch_assoc($result);
                                 </thead>
 
                                 <tbody>
+                                    <?php if(mysqli_num_rows($skills_result) > 0){ ?>
 
-                                <?php if(mysqli_num_rows($skills_result) > 0){ ?>
+                                        <?php while($skill = mysqli_fetch_assoc($skills_result)){ ?>
 
-                                    <?php while($skill = mysqli_fetch_assoc($skills_result)){ ?>
+                                            <tr>
+                                                <td>
+                                                    <?= $skill['id'] ?>
+                                                </td>
 
-                                        <tr>
-                                            <td>
-                                                <?= $skill['id'] ?>
-                                            </td>
-
-                                            <td>
-                                                <i class="<?= htmlspecialchars($skill['icon']) ?>"
-                                                style="color: <?= htmlspecialchars($skill['color']) ?>; font-size:20px;">
-                                                </i>
-
-                                                <small class="text-muted ml-2">
-                                                    <?= htmlspecialchars($skill['icon']) ?>
-                                                </small>
-                                            </td>
-
-                                            <td>
-                                                <strong>
-                                                    <?= htmlspecialchars($skill['title']) ?>
-                                                </strong>
-                                            </td>
-
-                                            <td>
-                                                <span class="badge badge-light">
-                                                    <?= htmlspecialchars($skill['color']) ?>
-                                                </span>
-                                            </td>
-
-                                            <td>
-                                                <div class="d-flex align-items-center">
+                                                <td>
                                                     <i class="<?= htmlspecialchars($skill['icon']) ?>"
-                                                    style="color: <?= htmlspecialchars($skill['color']) ?>; font-size:24px;">
+                                                    style="color: <?= htmlspecialchars($skill['color']) ?>; font-size:20px;">
                                                     </i>
 
-                                                    <span class="ml-2">
+                                                    <small class="text-muted ml-2">
+                                                        <?= htmlspecialchars($skill['icon']) ?>
+                                                    </small>
+                                                </td>
+
+                                                <td>
+                                                    <strong>
                                                         <?= htmlspecialchars($skill['title']) ?>
+                                                    </strong>
+                                                </td>
+
+                                                <td>
+                                                    <span class="badge badge-light">
+                                                        <?= htmlspecialchars($skill['color']) ?>
                                                     </span>
-                                                </div>
-                                            </td>
+                                                </td>
 
-                                            <td class="text-right">
-                                                <a href="edit-skill.php?id=<?= $skill['id'] ?>"
-                                                class="btn btn-sm btn-info"
-                                                title="Edit">
-                                                    <i class="fa fa-pencil"></i>
-                                                </a>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="<?= htmlspecialchars($skill['icon']) ?>"
+                                                        style="color: <?= htmlspecialchars($skill['color']) ?>; font-size:24px;">
+                                                        </i>
 
-                                                <a href="delete-skill.php?id=<?= $skill['id'] ?>"
-                                                class="btn btn-sm btn-danger"
-                                                title="Delete"
-                                                onclick="return confirm('Are you sure you want to delete this skill?');">
-                                                    <i class="fa fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
+                                                        <span class="ml-2">
+                                                            <?= htmlspecialchars($skill['title']) ?>
+                                                        </span>
+                                                    </div>
+                                                </td>
 
-                                    <?php } ?>
+                                                <td class="text-right">
+                                                    <a href="edit-skill.php?id=<?= $skill['id'] ?>"
+                                                    class="btn btn-sm btn-info"
+                                                    title="Edit">
+                                                        <i class="fa fa-pencil"></i>
+                                                    </a>
 
-                                <?php } else { ?>
+                                                    <a href="delete-skill.php?id=<?= $skill['id'] ?>"
+                                                    class="btn btn-sm btn-danger"
+                                                    title="Delete"
+                                                    onclick="return confirm('Are you sure you want to delete this skill?');">
+                                                        <i class="fa fa-trash"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+
+                                        <?php } ?>
+
+                                    <?php } else { ?>
 
                                     <tr>
                                         <td colspan="6" class="text-center text-muted">
@@ -527,7 +473,7 @@ $data = mysqli_fetch_assoc($result);
                                         </td>
                                     </tr>
 
-                                <?php } ?>
+                                    <?php } ?>
 
                                 </tbody>
                             </table>
@@ -562,8 +508,8 @@ $data = mysqli_fetch_assoc($result);
                     <div class="card-body">
 
                         <?php
-                        $quotes_sql = "SELECT * FROM `quotes` ORDER BY `id` DESC";
-                        $quotes_result = mysqli_query($conn, $quotes_sql);
+                            $quotes_sql = "SELECT * FROM `quotes` ORDER BY `id` DESC";
+                            $quotes_result = mysqli_query($conn, $quotes_sql);
                         ?>
 
                         <div class="table-responsive">
@@ -581,87 +527,68 @@ $data = mysqli_fetch_assoc($result);
                                 </thead>
 
                                 <tbody>
-                                <?php if(mysqli_num_rows($quotes_result) > 0){ ?>
+                                    <?php if(mysqli_num_rows($quotes_result) > 0){ ?>
+                                        <?php while($quote = mysqli_fetch_assoc($quotes_result)){ ?>
+                                            <tr>
+                                                <td>
+                                                    <?= $quote['id'] ?>
+                                                </td>
 
-                                    <?php while($quote = mysqli_fetch_assoc($quotes_result)){ ?>
+                                                <td>
+                                                    <?php if(!empty($quote['img'])){ ?>
+                                                        <img
+                                                            src="<?= htmlspecialchars($quote['img']) ?>"
+                                                            alt="<?= htmlspecialchars($quote['name']) ?>"
+                                                            style="width:45px; height:45px; object-fit:cover; border-radius:50%;"
+                                                        >
 
-                                        <tr>
-                                            <td>
-                                                <?= $quote['id'] ?>
-                                            </td>
+                                                    <?php } else { ?>
 
-                                            <td>
-                                                <?php if(!empty($quote['img'])){ ?>
-                                                    <img
-                                                        src="<?= htmlspecialchars($quote['img']) ?>"
-                                                        alt="<?= htmlspecialchars($quote['name']) ?>"
-                                                        style="
-                                                            width:45px;
-                                                            height:45px;
-                                                            object-fit:cover;
-                                                            border-radius:50%;
-                                                        "
-                                                    >
+                                                        <div
+                                                            style="width:45px; height:45px; border-radius:50%; background:#f1f1f1; display:flex; align-items:center; justify-content:center;"
+                                                        >
+                                                            <i class="fa fa-user text-muted"></i>
+                                                        </div>
 
-                                                <?php } else { ?>
+                                                    <?php } ?>
+                                                </td>
 
-                                                    <div
-                                                        style="
-                                                            width:45px;
-                                                            height:45px;
-                                                            border-radius:50%;
-                                                            background:#f1f1f1;
-                                                            display:flex;
-                                                            align-items:center;
-                                                            justify-content:center;
-                                                        "
-                                                    >
-                                                        <i class="fa fa-user text-muted"></i>
-                                                    </div>
+                                                <td>
+                                                    <strong>
+                                                        <?= htmlspecialchars($quote['name']) ?>
+                                                    </strong>
 
-                                                <?php } ?>
-                                            </td>
+                                                </td>
 
-                                            <td>
-                                                <strong>
-                                                    <?= htmlspecialchars($quote['name']) ?>
-                                                </strong>
+                                                <td>
+                                                    <?= htmlspecialchars($quote['title']) ?>
+                                                </td>
 
-                                            </td>
+                                                <td>
+                                                    <?= htmlspecialchars($quote['company']) ?>
+                                                </td>
 
-                                            <td>
-                                                <?= htmlspecialchars($quote['title']) ?>
-                                            </td>
+                                                <td style="max-width:350px;">
+                                                    <span>
+                                                        <?= htmlspecialchars($quote['quote']) ?>
+                                                    </span>
+                                                </td>
 
-                                            <td>
-                                                <?= htmlspecialchars($quote['company']) ?>
-                                            </td>
+                                                <td class="text-right">
+                                                    <a href="edit-quote.php?id=<?= $quote['id'] ?>" class="btn btn-sm btn-info" title="Edit">
+                                                        <i class="fa fa-pencil"></i>
+                                                    </a>
 
-                                            <td style="max-width:350px;">
-                                                <span>
-                                                    <?= htmlspecialchars($quote['quote']) ?>
-                                                </span>
-                                            </td>
+                                                    <a href="delete-quote.php?id=<?= $quote['id'] ?>" class="btn btn-sm btn-danger" title="Delete"
+                                                    onclick="return confirm('Are you sure you want to delete this testimonial?');">
+                                                        <i class="fa fa-trash"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
 
-                                            <td class="text-right">
-                                                <a href="edit-quote.php?id=<?= $quote['id'] ?>"
-                                                class="btn btn-sm btn-info"
-                                                title="Edit">
-                                                    <i class="fa fa-pencil"></i>
-                                                </a>
+                                        <?php } ?>
 
-                                                <a href="delete-quote.php?id=<?= $quote['id'] ?>"
-                                                class="btn btn-sm btn-danger"
-                                                title="Delete"
-                                                onclick="return confirm('Are you sure you want to delete this testimonial?');">
-                                                    <i class="fa fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-
-                                    <?php } ?>
-
-                                <?php } else { ?>
+                                    <?php } else { ?>
 
                                     <tr>
                                         <td colspan="7" class="text-center text-muted">
@@ -669,7 +596,7 @@ $data = mysqli_fetch_assoc($result);
                                         </td>
                                     </tr>
 
-                                <?php } ?>
+                                    <?php } ?>
 
                                 </tbody>
                             </table>

@@ -1,6 +1,5 @@
 <?php
     include "../include/config.php";
-
     include "header.php";
     include "sidebar.php";
 ?>
@@ -56,19 +55,14 @@
                     </div>
 
                     <div class="card-body">
-
                         <form method="POST" action="counter-store.php">
-
                             <!-- Icon -->
                             <div class="form-group">
                                 <label>
                                     Icon <span class="text-danger">*</span>
                                 </label>
 
-                                <input
-                                    type="text"
-                                    name="icon"
-                                    class="form-control"
+                                <input type="text" name="icon" class="form-control"
                                     placeholder="e.g. fa fa-code"
                                     value="<?php echo htmlspecialchars($_POST["icon"] ?? ""); ?>"
                                     required
@@ -85,10 +79,7 @@
                                     Title <span class="text-danger">*</span>
                                 </label>
 
-                                <input
-                                    type="text"
-                                    name="title"
-                                    class="form-control"
+                                <input type="text" name="title" class="form-control"
                                     placeholder="e.g. Projects Completed"
                                     value="<?php echo htmlspecialchars($_POST["title"] ?? ""); ?>"
                                     required
@@ -99,11 +90,7 @@
                             <div class="form-group">
                                 <label>Prefix</label>
 
-                                <input
-                                    type="text"
-                                    name="pre"
-                                    class="form-control"
-                                    placeholder="e.g. +"
+                                <input type="text" name="pre" class="form-control" placeholder="e.g. +"
                                     value="<?php echo htmlspecialchars($_POST["pre"] ?? ""); ?>"
                                 >
 
@@ -116,10 +103,7 @@
                             <div class="form-group">
                                 <label>Suffix</label>
 
-                                <input
-                                    type="text"
-                                    name="post"
-                                    class="form-control"
+                                <input type="text" name="post" class="form-control"
                                     placeholder="e.g. +"
                                     value="<?php echo htmlspecialchars($_POST["post"] ?? ""); ?>"
                                 >
@@ -131,7 +115,6 @@
 
                             <!-- Buttons -->
                             <div class="text-right">
-
                                 <a href="about.php" class="btn btn-secondary">
                                     Cancel
                                 </a>
@@ -140,16 +123,12 @@
                                     <i class="fa fa-save"></i>
                                     Add Statistic
                                 </button>
-
                             </div>
-
                         </form>
-
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 

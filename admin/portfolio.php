@@ -5,10 +5,42 @@ include "header.php";
 include "sidebar.php";
 
 
-// ==========================================
-// GET ALL PORTFOLIO PROJECTS
-// ==========================================
 
+
+
+
+$delete_message = "";
+$delete_error = "";
+
+if (isset($_GET['deleted'])) {
+
+    if ($_GET['deleted'] === 'success') {
+
+        $delete_message =
+            "Portfolio project deleted successfully.";
+
+    } elseif ($_GET['deleted'] === 'error') {
+
+        $delete_error =
+            "Failed to delete the portfolio project.";
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// GET ALL PORTFOLIO PROJECTS
 $portfolio_sql = "
     SELECT 
         portfolio.*,
@@ -110,6 +142,78 @@ $categories_result = mysqli_query($conn, $categories_sql);
 <div class="page-wrapper">
     <!-- Page Header -->
      <div class="content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <?php if (!empty($delete_message)) { ?>
+
+    <div class="alert alert-success alert-dismissible fade show">
+
+        <i class="bi bi-check-circle me-2"></i>
+
+        <?= htmlspecialchars($delete_message) ?>
+
+        <button
+            type="button"
+            class="close"
+            data-dismiss="alert"
+        >
+            <span>&times;</span>
+        </button>
+
+    </div>
+
+<?php } ?>
+
+
+<?php if (!empty($delete_error)) { ?>
+
+    <div class="alert alert-danger alert-dismissible fade show">
+
+        <i class="bi bi-exclamation-triangle me-2"></i>
+
+        <?= htmlspecialchars($delete_error) ?>
+
+        <button
+            type="button"
+            class="close"
+            data-dismiss="alert"
+        >
+            <span>&times;</span>
+        </button>
+
+    </div>
+
+<?php } ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div class="row">
             <div class="col-sm-4 col-3">
                 <h4 class="page-title">Portfolio</h4>

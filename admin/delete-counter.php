@@ -1,50 +1,37 @@
 <?php
 
-include "../include/config.php";
+    include "../include/config.php";
 
-/*
-|--------------------------------------------------------------------------
-| Validate ID
-|--------------------------------------------------------------------------
-*/
+    /* Validate ID */
+    if (!isset($_GET["id"]) || !is_numeric($_GET["id"])) {
+        header("Location: about.php?error=invalid_id");
+        exit;
+    }
 
-if (!isset($_GET["id"]) || !is_numeric($_GET["id"])) {
-    header("Location: about.php?error=invalid_id");
-    exit;
-}
+    $id = (int) $_GET["id"];
 
-$id = (int) $_GET["id"];
+    /* Delete Statistic */
+    $sql = "DELETE FROM counter WHERE id = ?";
+    $stmt = mysqli_prepare($conn, $sql);
 
-/*
-|--------------------------------------------------------------------------
-| Delete Statistic
-|--------------------------------------------------------------------------
-*/
+    if (!$stmt) {
+        header("Location: about.php?error=database");
+        exit;
+    }
 
-$sql = "DELETE FROM counter WHERE id = ?";
+    mysqli_stmt_bind_param($stmt, "i", $id);
 
-$stmt = mysqli_prepare($conn, $sql);
+    if (mysqli_stmt_execute($stmt)) {
 
-if (!$stmt) {
-    header("Location: about.php?error=database");
-    exit;
-}
+        mysqli_stmt_close($stmt);
+        header("Location: about.php?success=statistic_deleted");
+        exit;
 
-mysqli_stmt_bind_param($stmt, "i", $id);
+    } else {
 
-if (mysqli_stmt_execute($stmt)) {
-
-    mysqli_stmt_close($stmt);
-
-    header("Location: about.php?success=statistic_deleted");
-    exit;
-
-} else {
-
-    mysqli_stmt_close($stmt);
-
-    header("Location: about.php?error=delete_failed");
-    exit;
-}
+        mysqli_stmt_close($stmt);
+        header("Location: about.php?error=delete_failed");
+        exit;
+    }
 
 ?>

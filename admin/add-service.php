@@ -1,8 +1,6 @@
 <?php
 include "header.php";
 ?>
-
-
         
         <div class="sidebar" id="sidebar">
             <div class="sidebar-inner slimscroll">
