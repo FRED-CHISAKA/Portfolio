@@ -1,239 +1,290 @@
-            <div class="notification-box">
-                <div class="msg-sidebar notifications msg-noti">
-                    <div class="topnav-dropdown-header">
-                        <span>Messages</span>
-                    </div>
-                    <div class="drop-scroll msg-list-scroll" id="msg_list">
-                        <ul class="list-box">
-                            <li>
-                                <a href="chat.php">
-                                    <div class="list-item">
-                                        <div class="list-left">
-                                            <span class="avatar">R</span>
-                                        </div>
-                                        <div class="list-body">
-                                            <span class="message-author">Richard Miles </span>
-                                            <span class="message-time">12:28 AM</span>
-                                            <div class="clearfix"></div>
-                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="chat.php">
-                                    <div class="list-item new-message">
-                                        <div class="list-left">
-                                            <span class="avatar">J</span>
-                                        </div>
-                                        <div class="list-body">
-                                            <span class="message-author">Chisaka Fred</span>
-                                            <span class="message-time">1 Aug</span>
-                                            <div class="clearfix"></div>
-                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="chat.php">
-                                    <div class="list-item">
-                                        <div class="list-left">
-                                            <span class="avatar">T</span>
-                                        </div>
-                                        <div class="list-body">
-                                            <span class="message-author"> Tarah Shropshire </span>
-                                            <span class="message-time">12:28 AM</span>
-                                            <div class="clearfix"></div>
-                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="chat.php">
-                                    <div class="list-item">
-                                        <div class="list-left">
-                                            <span class="avatar">M</span>
-                                        </div>
-                                        <div class="list-body">
-                                            <span class="message-author">Mike Litorus</span>
-                                            <span class="message-time">12:28 AM</span>
-                                            <div class="clearfix"></div>
-                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="chat.php">
-                                    <div class="list-item">
-                                        <div class="list-left">
-                                            <span class="avatar">C</span>
-                                        </div>
-                                        <div class="list-body">
-                                            <span class="message-author"> Catherine Manseau </span>
-                                            <span class="message-time">12:28 AM</span>
-                                            <div class="clearfix"></div>
-                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="chat.php">
-                                    <div class="list-item">
-                                        <div class="list-left">
-                                            <span class="avatar">D</span>
-                                        </div>
-                                        <div class="list-body">
-                                            <span class="message-author"> Domenic Houston </span>
-                                            <span class="message-time">12:28 AM</span>
-                                            <div class="clearfix"></div>
-                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="chat.php">
-                                    <div class="list-item">
-                                        <div class="list-left">
-                                            <span class="avatar">B</span>
-                                        </div>
-                                        <div class="list-body">
-                                            <span class="message-author"> Buster Wigton </span>
-                                            <span class="message-time">12:28 AM</span>
-                                            <div class="clearfix"></div>
-                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="chat.php">
-                                    <div class="list-item">
-                                        <div class="list-left">
-                                            <span class="avatar">R</span>
-                                        </div>
-                                        <div class="list-body">
-                                            <span class="message-author"> Rolland Webber </span>
-                                            <span class="message-time">12:28 AM</span>
-                                            <div class="clearfix"></div>
-                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="chat.php">
-                                    <div class="list-item">
-                                        <div class="list-left">
-                                            <span class="avatar">C</span>
-                                        </div>
-                                        <div class="list-body">
-                                            <span class="message-author"> Claire Mapes </span>
-                                            <span class="message-time">12:28 AM</span>
-                                            <div class="clearfix"></div>
-                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="chat.php">
-                                    <div class="list-item">
-                                        <div class="list-left">
-                                            <span class="avatar">M</span>
-                                        </div>
-                                        <div class="list-body">
-                                            <span class="message-author">Melita Faucher</span>
-                                            <span class="message-time">12:28 AM</span>
-                                            <div class="clearfix"></div>
-                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="chat.php">
-                                    <div class="list-item">
-                                        <div class="list-left">
-                                            <span class="avatar">J</span>
-                                        </div>
-                                        <div class="list-body">
-                                            <span class="message-author">Jeffery Lalor</span>
-                                            <span class="message-time">12:28 AM</span>
-                                            <div class="clearfix"></div>
-                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="chat.php">
-                                    <div class="list-item">
-                                        <div class="list-left">
-                                            <span class="avatar">L</span>
-                                        </div>
-                                        <div class="list-body">
-                                            <span class="message-author">Loren Gatlin</span>
-                                            <span class="message-time">12:28 AM</span>
-                                            <div class="clearfix"></div>
-                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="chat.php">
-                                    <div class="list-item">
-                                        <div class="list-left">
-                                            <span class="avatar">T</span>
-                                        </div>
-                                        <div class="list-body">
-                                            <span class="message-author">Tarah Shropshire</span>
-                                            <span class="message-time">12:28 AM</span>
-                                            <div class="clearfix"></div>
-                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="topnav-dropdown-footer">
-                        <a href="chat.php">See all messages</a>
-                    </div>
+<!-- =========================================================
+             MESSAGE SIDEBAR
+        ========================================================== -->
+
+        <div class="notification-box">
+
+            <div class="msg-sidebar notifications msg-noti">
+
+
+                <!-- Header -->
+                <div class="topnav-dropdown-header">
+
+                    <span>
+                        Messages
+                    </span>
+
                 </div>
+
+
+                <!-- Message List -->
+                <div
+                    class="drop-scroll msg-list-scroll"
+                    id="msg_list"
+                >
+
+                    <ul class="list-box">
+
+
+                        <?php
+
+                        /*
+                        |--------------------------------------------------------------------------
+                        | GET RECENT MESSAGES
+                        |--------------------------------------------------------------------------
+                        */
+
+                        $footer_messages = [];
+
+                        if (isset($conn)) {
+
+                            $footer_sql = "
+                                SELECT
+                                    id,
+                                    name,
+                                    email,
+                                    subject,
+                                    message,
+                                    status,
+                                    created_at
+                                FROM contact
+                                ORDER BY created_at DESC, id DESC
+                                LIMIT 5
+                            ";
+
+                            $footer_result = mysqli_query(
+                                $conn,
+                                $footer_sql
+                            );
+
+                            if ($footer_result) {
+
+                                while (
+                                    $footer_message =
+                                    mysqli_fetch_assoc($footer_result)
+                                ) {
+
+                                    $footer_messages[] =
+                                        $footer_message;
+
+                                }
+
+                            }
+
+                        }
+
+                        ?>
+
+
+                        <?php if (!empty($footer_messages)) { ?>
+
+
+                            <?php foreach (
+                                $footer_messages
+                                as $footer_message
+                            ) { ?>
+
+
+                                <li>
+
+                                    <a
+                                        href="message-view.php?id=<?= $footer_message['id'] ?>"
+                                    >
+
+                                        <div
+                                            class="list-item <?= $footer_message['status'] == 0 ? 'new-message' : '' ?>"
+                                        >
+
+
+                                            <!-- Avatar -->
+                                            <div class="list-left">
+
+                                                <span class="avatar">
+
+                                                    <?= strtoupper(
+                                                        substr(
+                                                            htmlspecialchars(
+                                                                $footer_message['name']
+                                                            ),
+                                                            0,
+                                                            1
+                                                        )
+                                                    ) ?>
+
+                                                </span>
+
+                                            </div>
+
+
+                                            <!-- Message Details -->
+                                            <div class="list-body">
+
+                                                <span class="message-author">
+
+                                                    <?= htmlspecialchars(
+                                                        $footer_message['name']
+                                                    ) ?>
+
+                                                </span>
+
+
+                                                <span class="message-time">
+
+                                                    <?= timeAgo(
+                                                        $footer_message['created_at']
+                                                    ) ?>
+
+                                                </span>
+
+
+                                                <div class="clearfix"></div>
+
+
+                                                <span class="message-content">
+
+                                                    <?= htmlspecialchars(
+                                                        $footer_message['subject']
+                                                    ) ?>
+
+                                                </span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </a>
+
+                                </li>
+
+
+                            <?php } ?>
+
+
+                        <?php } else { ?>
+
+
+                            <li>
+
+                                <div class="list-item">
+
+                                    <div class="list-left">
+
+                                        <span class="avatar">
+                                            <i class="fa fa-envelope-o"></i>
+                                        </span>
+
+                                    </div>
+
+
+                                    <div class="list-body">
+
+                                        <span class="message-author">
+                                            No messages
+                                        </span>
+
+                                        <div class="clearfix"></div>
+
+                                        <span class="message-content">
+                                            You have no contact messages yet.
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            </li>
+
+
+                        <?php } ?>
+
+
+                    </ul>
+
+                </div>
+
+
+                <!-- Footer -->
+                <div class="topnav-dropdown-footer">
+
+                    <a href="messages.php">
+                        See all messages
+                    </a>
+
+                </div>
+
             </div>
+
         </div>
+
+
+        <!-- =========================================================
+             SIDEBAR OVERLAY
+        ========================================================== -->
+
+        <div
+            class="sidebar-overlay"
+            data-reff=""
+        ></div>
+
+
+        <!-- =========================================================
+             JAVASCRIPT
+        ========================================================== -->
+
+        <script src="assets/js/jquery-3.2.1.min.js"></script>
+
+        <script src="assets/js/popper.min.js"></script>
+
+        <script src="assets/js/bootstrap.min.js"></script>
+
+        <script src="assets/js/jquery.slimscroll.js"></script>
+
+        <script src="assets/js/Chart.bundle.js"></script>
+
+        <script src="assets/js/chart.js"></script>
+
+        <script src="assets/js/dataTables.bootstrap4.min.js"></script>
+
+        <script src="assets/js/select2.min.js"></script>
+
+        <script src="assets/js/moment.min.js"></script>
+
+        <script src="assets/js/tagsinput.js"></script>
+
+        <script src="assets/js/jquery-ui.min.php"></script>
+
+        <script src="assets/js/fullcalendar.min.js"></script>
+
+        <script src="assets/js/jquery.fullcalendar.js"></script>
+
+        <script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+
+        <script src="assets/js/app.js"></script>
+
+
+        <!-- =========================================================
+             DATETIME PICKERS
+        ========================================================== -->
+
+        <script>
+
+            $(function () {
+
+                $('#datetimepicker3').datetimepicker({
+                    format: 'LT'
+                });
+
+                $('#datetimepicker4').datetimepicker({
+                    format: 'LT'
+                });
+
+            });
+
+        </script>
+
     </div>
+    <!-- End main-wrapper -->
 
-    <div class="sidebar-overlay" data-reff=""></div>
-    <script src="assets/js/jquery-3.2.1.min.js"></script>
-	<script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/jquery.slimscroll.js"></script>
-    <script src="assets/js/Chart.bundle.js"></script>
-    <script src="assets/js/chart.js"></script>
-    <script src="assets/js/dataTables.bootstrap4.min.js"></script>
-    <script src="assets/js/select2.min.js"></script>
-	<script src="assets/js/moment.min.js"></script>
-    <script src="assets/js/tagsinput.js"></script>
-    <script src="assets/js/jquery-ui.min.php"></script>
-    <script src="assets/js/fullcalendar.min.js"></script>
-    <script src="assets/js/jquery.fullcalendar.js"></script>
-	<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="assets/js/app.js"></script>
+</body>
 
-    <script>
-        $(function () {
-            $('#datetimepicker3').datetimepicker({
-                format: 'LT'
-            });
-            $('#datetimepicker4').datetimepicker({
-                format: 'LT'
-            });
-        });
-     </script>
+</html>

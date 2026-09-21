@@ -44,7 +44,7 @@
                 <p>Manage messages received through your contact form.</p>
             </div>
             <div class="col-sm-8 col-9 text-right m-b-20">
-                <a href="add-Services.php" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Edit Resume</a>
+                <a href="message-view.php" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-eye"></i> View Messages</a>
             </div>
         </div>
     </div>
@@ -291,6 +291,31 @@
                                                 <i class="bi bi-eye"></i>
                                             </a>
 
+
+                                            <!-- Mark Read / Unread -->
+                                            <?php if ($message['status'] == 0) { ?>
+
+                                                <a
+                                                    href="message-status.php?id=<?= $message['id'] ?>&status=1"
+                                                    class="btn btn-sm btn-outline-success"
+                                                    title="Mark as Read"
+                                                >
+                                                    <i class="bi bi-envelope-open"></i>
+                                                </a>
+
+                                            <?php } else { ?>
+
+                                                <a
+                                                    href="message-status.php?id=<?= $message['id'] ?>&status=0"
+                                                    class="btn btn-sm btn-outline-warning"
+                                                    title="Mark as Unread"
+                                                >
+                                                    <i class="bi bi-envelope"></i>
+                                                </a>
+
+                                            <?php } ?>
+
+
                                             <!-- Delete -->
                                             <a
                                                 href="message-delete.php?id=<?= $message['id'] ?>"
@@ -300,6 +325,7 @@
                                             >
                                                 <i class="bi bi-trash"></i>
                                             </a>
+
                                         </div>
                                     </td>
                                 </tr>

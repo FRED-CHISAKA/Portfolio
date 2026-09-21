@@ -36,8 +36,8 @@
                             </a>
 
                             <ul style="display:none;">
-                                <li><a href="messages.php">Messages</a></li>
-                                <li><a href="mail-view.php">Emails</a></li>
+                                <li><a href="message-view.php">Messages</a></li>
+                                <li><a href="contact.php">Emails</a></li>
                                 <li><a href="mail-view.php">Testimonials</a></li>
                             </ul>
                         </li>

@@ -73,8 +73,7 @@
                             </small>
                         </div>
 
-                        <div
-                            class="bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
+                        <div class="bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
                             style="width: 55px; height: 55px;"
                         >
                             <i class="bi bi-award text-primary fs-4"></i>
@@ -103,8 +102,7 @@
                             </small>
                         </div>
 
-                        <div
-                            class="bg-success bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
+                        <div class="bg-success bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
                             style="width: 55px; height: 55px;"
                         >
                             <i class="bi bi-check-circle text-success fs-4"></i>
@@ -133,8 +131,7 @@
                             </small>
                         </div>
 
-                        <div
-                            class="bg-secondary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
+                        <div class="bg-secondary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
                             style="width: 55px; height: 55px;"
                         >
                             <i class="bi bi-eye-slash text-secondary fs-4"></i>
@@ -200,129 +197,72 @@
                                     <!-- Number -->
                                     <td><?= $number++ ?></td>
 
-                                    <!-- Certificate Image -->
-                                    
+                                    <!-- Certificate Image / Document -->
+                                    <td>
+                                        <?php if (!empty($certification['img'])) { ?>
 
+                                            <?php
+                                                $certificate_path =
+                                                    "../" .
+                                                    $certification['img'];
 
+                                                $extension =
+                                                    strtolower(
+                                                        pathinfo(
+                                                            $certification['img'],
+                                                            PATHINFO_EXTENSION
+                                                        )
+                                                    );
 
+                                                $image_extensions = [
+                                                    'jpg', 'jpeg', 'png', 'gif', 'webp'
+                                                ];
+                                            ?>
 
+                                            <?php if (in_array($extension, $image_extensions)) { ?>
 
+                                                <!-- IMAGE -->
+                                                <a href="<?= htmlspecialchars($certificate_path) ?>" target="_blank">
+                                                    <img src="<?= htmlspecialchars($certificate_path) ?>"
+                                                        alt="<?= htmlspecialchars($certification['title']) ?>"
+                                                        class="rounded border"
+                                                        style="width: 70px; height: 50px; object-fit: cover;"
+                                                    >
+                                                </a>
 
+                                            <?php } else { ?>
 
+                                                <!-- DOCUMENT -->
+                                                <a href="<?= htmlspecialchars($certificate_path) ?>" target="_blank"
+                                                class="text-decoration-none"
+                                                title="Open Certificate Document">
 
+                                                    <div class="bg-light rounded border d-flex align-items-center justify-content-center"
+                                                        style="width: 70px; height: 50px;"
+                                                    >
 
+                                                        <?php if ($extension == 'pdf') { ?>
+                                                            <i class="bi bi-file-earmark-pdf text-danger fs-4"></i>
 
+                                                        <?php } else { ?>
+                                                            <i class="bi bi-file-earmark-text text-primary fs-4"></i>
+                                                        <?php } ?>
+                                                    </div>
+                                                </a>
 
+                                            <?php } ?>
 
+                                        <?php } else { ?>
 
+                                            <!-- No File -->
+                                            <div class="bg-light rounded d-flex align-items-center justify-content-center"
+                                                style="width: 70px; height: 50px;"
+                                            >
+                                                <i class="bi bi-award text-muted fs-4"></i>
+                                            </div>
 
-
-<!-- Certificate Image / Document -->
-<td>
-
-    <?php if (!empty($certification['img'])) { ?>
-
-        <?php
-
-        $certificate_path =
-            "../" .
-            $certification['img'];
-
-        $extension =
-            strtolower(
-                pathinfo(
-                    $certification['img'],
-                    PATHINFO_EXTENSION
-                )
-            );
-
-        $image_extensions = [
-            'jpg',
-            'jpeg',
-            'png',
-            'gif',
-            'webp'
-        ];
-
-        ?>
-
-
-        <?php if (in_array($extension, $image_extensions)) { ?>
-
-            <!-- IMAGE -->
-
-            <a href="<?= htmlspecialchars($certificate_path) ?>"
-               target="_blank">
-
-                <img
-                    src="<?= htmlspecialchars($certificate_path) ?>"
-                    alt="<?= htmlspecialchars($certification['title']) ?>"
-                    class="rounded border"
-                    style="width: 70px; height: 50px; object-fit: cover;"
-                >
-
-            </a>
-
-
-        <?php } else { ?>
-
-            <!-- DOCUMENT -->
-
-            <a href="<?= htmlspecialchars($certificate_path) ?>"
-               target="_blank"
-               class="text-decoration-none"
-               title="Open Certificate Document">
-
-                <div
-                    class="bg-light rounded border d-flex align-items-center justify-content-center"
-                    style="width: 70px; height: 50px;"
-                >
-
-                    <?php if ($extension == 'pdf') { ?>
-
-                        <i class="bi bi-file-earmark-pdf text-danger fs-4"></i>
-
-                    <?php } else { ?>
-
-                        <i class="bi bi-file-earmark-text text-primary fs-4"></i>
-
-                    <?php } ?>
-
-                </div>
-
-            </a>
-
-        <?php } ?>
-
-
-    <?php } else { ?>
-
-        <!-- No File -->
-
-        <div
-            class="bg-light rounded d-flex align-items-center justify-content-center"
-            style="width: 70px; height: 50px;"
-        >
-
-            <i class="bi bi-award text-muted fs-4"></i>
-
-        </div>
-
-    <?php } ?>
-
-</td>
-
-
-
-
-
-
-
-
-
-
-
-
+                                        <?php } ?>
+                                    </td>
 
                                     <!-- Certification -->
                                     <td>
