@@ -1,33 +1,33 @@
 <?php
-require_once "crud-helper.php";
+    require_once "crud-helper.php";
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $v0 = post_string('job_title');
-    $v1 = post_string('company');
-    $v2 = post_string('location');
-    $v3 = post_int('start_year');
-    $v4 = post_int('end_year');
-    $v5 = isset($_POST['is_present']) ? 1 : 0;
-    $v6 = post_string('status');
-    $v7 = $user_id;
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $v0 = post_string('job_title');
+        $v1 = post_string('company');
+        $v2 = post_string('location');
+        $v3 = post_int('start_year');
+        $v4 = post_int('end_year');
+        $v5 = isset($_POST['is_present']) ? 1 : 0;
+        $v6 = post_string('status');
+        $v7 = $user_id;
 
-    $sql = "INSERT INTO experience (job_title, company, location, start_year, end_year, is_present, status, user_id) VALUES (?,?,?,?,?,?,?,?)";
-    $stmt = mysqli_prepare($conn, $sql);
+        $sql = "INSERT INTO experience (job_title, company, location, start_year, end_year, is_present, status, user_id) VALUES (?,?,?,?,?,?,?,?)";
+        $stmt = mysqli_prepare($conn, $sql);
 
-    if (!$stmt) {
-        redirect_resume("Unable to prepare the experience record.", "danger");
-    }
+        if (!$stmt) {
+            redirect_resume("Unable to prepare the experience record.", "danger");
+        }
 
-    mysqli_stmt_bind_param($stmt, "sssiiisi", $v0, $v1, $v2, $v3, $v4, $v5, $v6, $v7);
+        mysqli_stmt_bind_param($stmt, "sssiiisi", $v0, $v1, $v2, $v3, $v4, $v5, $v6, $v7);
 
-    if (mysqli_stmt_execute($stmt)) {
+        if (mysqli_stmt_execute($stmt)) {
+            mysqli_stmt_close($stmt);
+            redirect_resume("Add Experience added successfully.");
+        }
+
+        $error = mysqli_stmt_error($stmt);
         mysqli_stmt_close($stmt);
-        redirect_resume("Add Experience added successfully.");
     }
-
-    $error = mysqli_stmt_error($stmt);
-    mysqli_stmt_close($stmt);
-}
 ?>
 <?php include "header.php"; ?>
 <?php include "sidebar.php"; ?>

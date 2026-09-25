@@ -20,9 +20,9 @@
         <div class="account-page">
 			<div class="account-center">
 				<div class="account-box">
-                    <form action="index.html" class="form-signin">
+                    <form action="index.php" class="form-signin">
 						<div class="account-logo">
-                            <a href="index.html"><img src="assets/img/icon.jpg" alt="" style="border-radius: 50% !important;"></a>
+                            <a href="index.php"><img src="assets/img/icon.jpg" alt="" style="border-radius: 50% !important;"></a>
                         </div>
                         <div class="form-group">
                             <label>Username or Email</label>
@@ -33,13 +33,13 @@
                             <input type="password" class="form-control">
                         </div>
                         <div class="form-group text-right">
-                            <a href="forgot-password.html">Forgot your password?</a>
+                            <a href="forgot-password.php">Forgot your password?</a>
                         </div>
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-primary account-btn">Login</button>
                         </div>
                         <div class="text-center register-link">
-                            Don’t have an account? <a href="register.html">Register Now</a>
+                            Don’t have an account? <a href="register.php">Register Now</a>
                         </div>
                     </form>
                 </div>

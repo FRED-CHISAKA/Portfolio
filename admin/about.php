@@ -482,6 +482,7 @@
                 </div>
 
                 <!-- TESTIMONIALS -->
+                <?php include 'quote-functions.php'; ?>
 
                 <div class="border-bottom pb-2 mb-4">
                     <h5 class="mb-0">
@@ -492,23 +493,25 @@
 
                 <div class="card shadow-sm border-0 mb-4">
                     <div class="card-header bg-white d-flex justify-content-between align-items-center">
-
                         <div>
-                            <h5 class="mb-1">Client Testimonials</h5>
+                            <h5 class="mb-1">
+                                Client Testimonials
+                            </h5>
+
                             <p class="text-muted small mb-0">
                                 Manage testimonials displayed on your About page.
                             </p>
                         </div>
 
                         <a href="add-quote.php" class="btn btn-primary btn-sm btn-rounded">
-                            <i class="fa fa-plus"></i> Add Testimonial
+                            <i class="fa fa-plus"></i>
+                            Add Testimonial
                         </a>
                     </div>
 
                     <div class="card-body">
-
                         <?php
-                            $quotes_sql = "SELECT * FROM `quotes` ORDER BY `id` DESC";
+                            $quotes_sql = "SELECT * FROM quotes ORDER BY id DESC";
                             $quotes_result = mysqli_query($conn, $quotes_sql);
                         ?>
 
@@ -527,77 +530,79 @@
                                 </thead>
 
                                 <tbody>
-                                    <?php if(mysqli_num_rows($quotes_result) > 0){ ?>
-                                        <?php while($quote = mysqli_fetch_assoc($quotes_result)){ ?>
-                                            <tr>
-                                                <td>
-                                                    <?= $quote['id'] ?>
-                                                </td>
+                                <?php if (mysqli_num_rows($quotes_result) > 0): ?>
+                                    <?php while ($quote = mysqli_fetch_assoc($quotes_result)): ?>
+                                        <tr>
+                                            <td>
+                                                <?= (int)$quote['id'] ?>
+                                            </td>
 
-                                                <td>
-                                                    <?php if(!empty($quote['img'])){ ?>
-                                                        <img
-                                                            src="<?= htmlspecialchars($quote['img']) ?>"
-                                                            alt="<?= htmlspecialchars($quote['name']) ?>"
-                                                            style="width:45px; height:45px; object-fit:cover; border-radius:50%;"
-                                                        >
+                                            <td>
+                                                <?php if (!empty($quote['img'])): ?>
+                                                    <img src="<?= htmlspecialchars(quoteImagePath($quote['img'])) ?>"
+                                                        alt="<?= htmlspecialchars($quote['name']) ?>"
+                                                        style="width:45px; height:45px; object-fit:cover; border-radius:50%;"
+                                                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                                    >
 
-                                                    <?php } else { ?>
+                                                    <div
+                                                        style="width:45px; height:45px; border-radius:50%; background:#f1f1f1; display:none;
+                                                            align-items:center; justify-content:center;
+                                                        "
+                                                    >
+                                                        <i class="fa fa-user text-muted"></i>
+                                                    </div>
 
-                                                        <div
-                                                            style="width:45px; height:45px; border-radius:50%; background:#f1f1f1; display:flex; align-items:center; justify-content:center;"
-                                                        >
-                                                            <i class="fa fa-user text-muted"></i>
-                                                        </div>
+                                                <?php else: ?>
+                                                    <div
+                                                        style="width:45px; height:45px; border-radius:50%; background:#f1f1f1;
+                                                            display:flex; align-items:center; justify-content:center;
+                                                        "
+                                                    >
+                                                        <i class="fa fa-user text-muted"></i>
+                                                    </div>
+                                                <?php endif; ?>
+                                            </td>
 
-                                                    <?php } ?>
-                                                </td>
+                                            <td>
+                                                <strong>
+                                                    <?= htmlspecialchars($quote['name']) ?>
+                                                </strong>
+                                            </td>
 
-                                                <td>
-                                                    <strong>
-                                                        <?= htmlspecialchars($quote['name']) ?>
-                                                    </strong>
+                                            <td>
+                                                <?= htmlspecialchars($quote['title']) ?>
+                                            </td>
 
-                                                </td>
+                                            <td>
+                                                <?= htmlspecialchars($quote['company']) ?>
+                                            </td>
 
-                                                <td>
-                                                    <?= htmlspecialchars($quote['title']) ?>
-                                                </td>
+                                            <td style="max-width:350px;">
+                                                <?= htmlspecialchars($quote['quote']) ?>
+                                            </td>
 
-                                                <td>
-                                                    <?= htmlspecialchars($quote['company']) ?>
-                                                </td>
+                                            <td class="text-right">
 
-                                                <td style="max-width:350px;">
-                                                    <span>
-                                                        <?= htmlspecialchars($quote['quote']) ?>
-                                                    </span>
-                                                </td>
+                                                <a href="edit-quote.php?id=<?= (int)$quote['id'] ?>" class="btn btn-sm btn-info" title="Edit">
+                                                    <i class="fa fa-pencil"></i>
+                                                </a>
 
-                                                <td class="text-right">
-                                                    <a href="edit-quote.php?id=<?= $quote['id'] ?>" class="btn btn-sm btn-info" title="Edit">
-                                                        <i class="fa fa-pencil"></i>
-                                                    </a>
-
-                                                    <a href="delete-quote.php?id=<?= $quote['id'] ?>" class="btn btn-sm btn-danger" title="Delete"
-                                                    onclick="return confirm('Are you sure you want to delete this testimonial?');">
-                                                        <i class="fa fa-trash"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-
-                                        <?php } ?>
-
-                                    <?php } else { ?>
-
+                                                <a href="delete-quote.php?id=<?= (int)$quote['id'] ?>" class="btn btn-sm btn-danger" title="Delete"
+                                                    onclick="return confirm('Are you sure you want to delete this testimonial?');"
+                                                >
+                                                    <i class="fa fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    <?php endwhile; ?>
+                                <?php else: ?>
                                     <tr>
                                         <td colspan="7" class="text-center text-muted">
                                             No testimonials found.
                                         </td>
                                     </tr>
-
-                                    <?php } ?>
-
+                                <?php endif; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -622,6 +627,4 @@
     </div>
 </div>
 
-<?php 
-include "footer.php"; 
-?>
+<?php include "footer.php"; ?>

@@ -1,51 +1,51 @@
 <?php
-require_once "crud-helper.php";
+    require_once "crud-helper.php";
 
-$id = require_id();
+    $id = require_id();
 
-$sql = "SELECT * FROM awards WHERE id = ? LIMIT 1";
-$stmt = mysqli_prepare($conn, $sql);
-
-if (!$stmt) {
-    redirect_resume("Unable to load the award record.", "danger");
-}
-
-mysqli_stmt_bind_param($stmt, "i", $id);
-mysqli_stmt_execute($stmt);
-$result = mysqli_stmt_get_result($stmt);
-$record = mysqli_fetch_assoc($result);
-mysqli_stmt_close($stmt);
-
-if (!$record) {
-    redirect_resume("The requested award record was not found.", "danger");
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $v_title = post_string('title'); $v_organization = post_string('organization'); $v_year = post_int('year'); $v_description = post_string('description');
-
-    $sql = "UPDATE awards SET title = ?, organization = ?, year = ?, description = ? WHERE id = ?";
+    $sql = "SELECT * FROM awards WHERE id = ? LIMIT 1";
     $stmt = mysqli_prepare($conn, $sql);
 
     if (!$stmt) {
-        $error = "Unable to prepare the update.";
-    } else {
-        mysqli_stmt_bind_param($stmt, "ssisi", $v_title, $v_organization, $v_year, $v_description, $id);
+        redirect_resume("Unable to load the award record.", "danger");
+    }
 
-        if (mysqli_stmt_execute($stmt)) {
+    mysqli_stmt_bind_param($stmt, "i", $id);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    $record = mysqli_fetch_assoc($result);
+    mysqli_stmt_close($stmt);
+
+    if (!$record) {
+        redirect_resume("The requested award record was not found.", "danger");
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $v_title = post_string('title'); $v_organization = post_string('organization'); $v_year = post_int('year'); $v_description = post_string('description');
+
+        $sql = "UPDATE awards SET title = ?, organization = ?, year = ?, description = ? WHERE id = ?";
+        $stmt = mysqli_prepare($conn, $sql);
+
+        if (!$stmt) {
+            $error = "Unable to prepare the update.";
+        } else {
+            mysqli_stmt_bind_param($stmt, "ssisi", $v_title, $v_organization, $v_year, $v_description, $id);
+
+            if (mysqli_stmt_execute($stmt)) {
+                mysqli_stmt_close($stmt);
+                redirect_resume("Edit Achievement updated successfully.");
+            }
+
+            $error = mysqli_stmt_error($stmt);
             mysqli_stmt_close($stmt);
-            redirect_resume("Edit Achievement updated successfully.");
         }
 
-        $error = mysqli_stmt_error($stmt);
-        mysqli_stmt_close($stmt);
-    }
-
-    foreach (["title", "organization", "year", "description"] as $field) {
-        if (array_key_exists($field, $_POST)) {
-            $record[$field] = $_POST[$field];
+        foreach (["title", "organization", "year", "description"] as $field) {
+            if (array_key_exists($field, $_POST)) {
+                $record[$field] = $_POST[$field];
+            }
         }
     }
-}
 ?>
 <?php include "header.php"; ?>
 <?php include "sidebar.php"; ?>
@@ -76,21 +76,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <form method="POST">
                     <div class="mb-3">
-<label class="form-label">Achievement / Award</label>
-<input type="text" name="title" value="<?= e($record['title']) ?>" class="form-control" required>
-</div>
-<div class="mb-3">
-<label class="form-label">Organization</label>
-<input type="text" name="organization" value="<?= e($record['organization']) ?>" class="form-control">
-</div>
-<div class="mb-3">
-<label class="form-label">Year</label>
-<input type="number" name="year" value="<?= e($record['year']) ?>" class="form-control">
-</div>
-<div class="mb-3">
-<label class="form-label">Description</label>
-<textarea name="description" class="form-control" rows="4" placeholder="Brief description of the achievement"><?= e($record['description']) ?></textarea>
-</div>
+                        <label class="form-label">Achievement / Award</label>
+                        <input type="text" name="title" value="<?= e($record['title']) ?>" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Organization</label>
+                        <input type="text" name="organization" value="<?= e($record['organization']) ?>" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Year</label>
+                        <input type="number" name="year" value="<?= e($record['year']) ?>" class="form-control">
+                        </div>
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea name="description" class="form-control" rows="4" placeholder="Brief description of the achievement"><?= e($record['description']) ?></textarea>
+                    </div>
 
                     <div class="d-flex gap-2">
                         <button type="submit" class="btn btn-primary">

@@ -1,133 +1,100 @@
-```php
 <?php
-
-    include "../include/config.php";
-    include "header.php";
-    include "sidebar.php";
-
+    include 'header.php';
+    include 'sidebar.php';
 ?>
 
 <div class="page-wrapper">
     <div class="content container-fluid">
-
-        <!-- Page Header -->
         <div class="page-header">
             <div class="row align-items-center">
                 <div class="col">
-                    <h3 class="page-title">Add Testimonial</h3>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item">
-                            <a href="index.php">Dashboard</a>
-                        </li>
-
-                        <li class="breadcrumb-item">
-                            <a href="about.php">About</a>
-                        </li>
-
-                        <li class="breadcrumb-item active">
-                            Add Testimonial
-                        </li>
-                    </ul>
+                    <h4 class="page-title">Add Testimonial</h4>
                 </div>
 
                 <div class="col-auto">
                     <a href="about.php" class="btn btn-secondary">
-                        <i class="fa fa-arrow-left"></i> Back
+                        <i class="fa fa-arrow-left"></i> Back to Testimonials
                     </a>
                 </div>
             </div>
         </div>
 
-        <!-- Error Messages -->
-        <?php if (isset($_GET["error"])) { ?>
-            <?php if ($_GET["error"] === "required") { ?>
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-white">
+                <h5 class="mb-0">
+                    <i class="fa fa-quote-left me-2"></i>
+                    Add Client Testimonial
+                </h5>
+            </div>
 
-                <div class="alert alert-danger alert-dismissible fade show">
-                    Name and testimonial are required.
-                    <button type="button" class="close" data-dismiss="alert">
-                        <span>&times;</span>
-                    </button>
-                </div>
+            <div class="card-body">
+                <form action="quote-store.php" method="POST" enctype="multipart/form-data">
+                    <div class="row">
+                        <!-- Client Name -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">
+                                Client Name <span class="text-danger">*</span>
+                            </label>
 
-            <?php } elseif ($_GET["error"] === "failed") { ?>
+                            <input type="text" name="name" class="form-control" placeholder="Enter client name" required>
+                        </div>
 
-                <div class="alert alert-danger alert-dismissible fade show">
-                    Failed to add testimonial.
-                    <button type="button" class="close" data-dismiss="alert">
-                        <span>&times;</span>
-                    </button>
-                </div>
-            <?php } ?>
-        <?php } ?>
+                        <!-- Position -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">
+                                Position
+                            </label>
 
-        <!-- Add Testimonial -->
-        <div class="row">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">
-                            Testimonial Information
-                        </h4>
+                            <input type="text" name="title" class="form-control" placeholder="e.g. CEO, Manager, Director">
+                        </div>
+
+                        <!-- Company -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">
+                                Company
+                            </label>
+
+                            <input type="text" name="company" class="form-control" placeholder="Enter company name">
+                        </div>
+
+                        <!-- Image -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">
+                                Client Photo
+                            </label>
+
+                            <input type="file" name="img" class="form-control" accept="image/jpeg,image/png,image/gif,image/webp">
+
+                            <small class="text-muted">
+                                JPG, PNG, GIF or WEBP. Maximum 2MB.
+                            </small>
+                        </div>
+
+                        <!-- Testimonial -->
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label">
+                                Testimonial <span class="text-danger">*</span>
+                            </label>
+
+                            <textarea name="quote" class="form-control" rows="6" placeholder="Enter the client's testimonial..." required ></textarea>
+                        </div>
                     </div>
 
-                    <div class="card-body">
-                        <form method="POST" action="quote-store.php">
-                            <!-- Image -->
-                            <div class="form-group">
-                                <label>Image</label>
+                    <div class="mt-3">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-save"></i>
+                            Save Testimonial
+                        </button>
 
-                                <input type="text" name="img" class="form-control" placeholder="e.g. assets/img/testimonials/client.jpg">
-                                <small class="form-text text-muted">
-                                    Enter the path or filename of the client's testimonial image.
-                                </small>
-                            </div>
-
-                            <!-- Name -->
-                            <div class="form-group">
-                                <label>
-                                    Name <span class="text-danger">*</span>
-                                </label>
-                                <input type="text" ame="name" class="form-control" placeholder="e.g. John Doe" required>
-                            </div>
-
-                            <!-- Title -->
-                            <div class="form-group">
-                                <label>Title / Position</label>
-                                <input type="text" name="title" class="form-control" placeholder="e.g. Project Manager">
-                            </div>
-
-                            <!-- Company -->
-                            <div class="form-group">
-                                <label>Company</label>
-                                <input type="text" name="company" class="form-control" placeholder="e.g. ABC Technologies">
-                            </div>
-
-                            <!-- Testimonial -->
-                            <div class="form-group">
-                                <label>
-                                    Testimonial <span class="text-danger">*</span>
-                                </label>
-                                <textarea name="quote" rows="5" class="form-control" placeholder="Enter the client's testimonial..." required></textarea>
-                            </div>
-
-                            <!-- Buttons -->
-                            <div class="text-right">
-                                <a href="about.php" class="btn btn-secondary">
-                                    Cancel
-                                </a>
-
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-save"></i>
-                                    Add Testimonial
-                                </button>
-                            </div>
-                        </form>
+                        <a href="about.php" class="btn btn-secondary">
+                            Cancel
+                        </a>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
+
     </div>
 </div>
 
-<?php include "footer.php"; ?>
-
+<?php include 'footer.php'; ?>

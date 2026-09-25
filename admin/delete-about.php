@@ -29,9 +29,7 @@
     $delete_stmt = mysqli_prepare($conn, $delete_sql);
 
     mysqli_stmt_bind_param(
-        $delete_stmt,
-        "i",
-        $id
+        $delete_stmt, "i", $id
     );
 
     if (mysqli_stmt_execute($delete_stmt)) {

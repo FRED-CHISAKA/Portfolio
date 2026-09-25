@@ -73,7 +73,6 @@
             $message = "File type not allowed.";
         }
     }
-
 ?>
 
 <div class="page-wrapper">

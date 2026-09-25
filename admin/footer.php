@@ -266,7 +266,60 @@
              DATETIME PICKERS
         ========================================================== -->
 
+
+
+        
+
+
+
+
         <script>
+
+
+
+            // $(document).ready(function () {
+
+            //     var $activeItem = $('#sidebar-menu li.active').last();
+
+            //     if ($activeItem.length) {
+
+            //         setTimeout(function () {
+
+            //             var $sidebarInner = $('.sidebar-inner');
+
+            //             if ($sidebarInner.length) {
+
+            //                 var activeOffset = $activeItem.offset().top;
+            //                 var sidebarOffset = $sidebarInner.offset().top;
+
+            //                 var scrollPosition =
+            //                     $sidebarInner.scrollTop() +
+            //                     (activeOffset - sidebarOffset) -
+            //                     ($sidebarInner.height() / 2) +
+            //                     ($activeItem.outerHeight() / 2);
+
+            //                 $sidebarInner.animate({
+            //                     scrollTop: scrollPosition
+            //                 }, 500);
+
+            //             }
+
+            //         }, 300);
+
+            //     }
+
+            // });
+
+
+
+
+
+
+
+
+
+
+
 
             $(function () {
 

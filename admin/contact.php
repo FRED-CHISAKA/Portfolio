@@ -101,10 +101,8 @@
                             </small>
                         </div>
 
-                        <div
-                            class="bg-warning bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
-                            style="width: 55px; height: 55px;"
-                        >
+                        <div class="bg-warning bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 55px; height: 55px;">
                             <i class="bi bi-envelope-exclamation text-warning fs-4"></i>
                         </div>
                     </div>
@@ -131,10 +129,8 @@
                             </small>
                         </div>
 
-                        <div
-                            class="bg-success bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
-                            style="width: 55px; height: 55px;"
-                        >
+                        <div class="bg-success bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 55px; height: 55px;">
                             <i class="bi bi-envelope-open text-success fs-4"></i>
                         </div>
                     </div>
@@ -191,9 +187,7 @@
                                 while ($message = mysqli_fetch_assoc($result)) {
                             ?>
 
-                                <tr
-                                    class="<?= $message['status'] == 0 ? 'table-warning' : '' ?>"
-                                >
+                                <tr class="<?= $message['status'] == 0 ? 'table-warning' : '' ?>">
                                     <!-- Number -->
                                     <td><?= $number++ ?></td>
 
@@ -225,9 +219,7 @@
 
                                     <!-- Message -->
                                     <td>
-                                        <div
-                                            class="text-truncate"
-                                            style="max-width: 300px;"
+                                        <div class="text-truncate" style="max-width: 300px;"
                                             title="<?= htmlspecialchars(
                                                 $message['message']
                                             ) ?>"
@@ -283,49 +275,29 @@
                                         <div class="btn-group">
 
                                             <!-- View -->
-                                            <a
-                                                href="message-view.php?id=<?= $message['id'] ?>"
-                                                class="btn btn-sm btn-outline-primary"
-                                                title="View Message"
-                                            >
+                                            <a href="message-view.php?id=<?= $message['id'] ?>" class="btn btn-sm btn-outline-primary" title="View Message">
                                                 <i class="bi bi-eye"></i>
                                             </a>
 
-
                                             <!-- Mark Read / Unread -->
                                             <?php if ($message['status'] == 0) { ?>
-
-                                                <a
-                                                    href="message-status.php?id=<?= $message['id'] ?>&status=1"
-                                                    class="btn btn-sm btn-outline-success"
-                                                    title="Mark as Read"
-                                                >
+                                                <a href="message-status.php?id=<?= $message['id'] ?>&status=1" class="btn btn-sm btn-outline-success" title="Mark as Read">
                                                     <i class="bi bi-envelope-open"></i>
                                                 </a>
-
                                             <?php } else { ?>
 
-                                                <a
-                                                    href="message-status.php?id=<?= $message['id'] ?>&status=0"
-                                                    class="btn btn-sm btn-outline-warning"
-                                                    title="Mark as Unread"
-                                                >
+                                                <a href="message-status.php?id=<?= $message['id'] ?>&status=0" class="btn btn-sm btn-outline-warning" title="Mark as Unread">
                                                     <i class="bi bi-envelope"></i>
                                                 </a>
 
                                             <?php } ?>
 
-
                                             <!-- Delete -->
-                                            <a
-                                                href="message-delete.php?id=<?= $message['id'] ?>"
-                                                class="btn btn-sm btn-outline-danger"
-                                                title="Delete Message"
+                                            <a href="message-delete.php?id=<?= $message['id'] ?>" class="btn btn-sm btn-outline-danger" title="Delete Message"
                                                 onclick="return confirm('Are you sure you want to delete this message?')"
                                             >
                                                 <i class="bi bi-trash"></i>
                                             </a>
-
                                         </div>
                                     </td>
                                 </tr>

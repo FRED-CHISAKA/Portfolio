@@ -1,193 +1,165 @@
 <?php
 
-    include "../include/config.php";
+    include '../include/config.php';
+    include 'quote-functions.php';
 
-    /* Validate ID */
-    if (!isset($_GET["id"]) || !is_numeric($_GET["id"])) {
-        header("Location: about.php");
+    if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+        header("Location: about.php?id=");
         exit;
     }
 
-    $id = (int) $_GET["id"];
-
-    /* Fetch Testimonial */
+    $id = (int) $_GET['id'];
     $sql = "SELECT * FROM quotes WHERE id = ?";
-    $stmt = mysqli_prepare($conn, $sql);
 
-    if (!$stmt) {
-        header("Location: about.php?error=database");
-        exit;
-    }
+    $stmt = mysqli_prepare($conn, $sql);
 
     mysqli_stmt_bind_param($stmt, "i", $id);
     mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
 
-    if (!$result || mysqli_num_rows($result) === 0) {
-        mysqli_stmt_close($stmt);
-        header("Location: about.php?error=testimonial_not_found");
+    $result = mysqli_stmt_get_result($stmt);
+    $quoteData = mysqli_fetch_assoc($result);
+
+    if (!$quoteData) {
+        $_SESSION['error'] = "Testimonial not found.";
+        header("Location: about.php?id=");
         exit;
     }
-
-    $quote = mysqli_fetch_assoc($result);
-    mysqli_stmt_close($stmt);
-
-    /* Include Layout */
-    include "header.php";
-    include "sidebar.php";
-
 ?>
+
+<?php include 'header.php'; ?>
+<?php include 'sidebar.php'; ?>
 
 <div class="page-wrapper">
     <div class="content container-fluid">
-        <!-- Page Header -->
         <div class="page-header">
             <div class="row align-items-center">
-
                 <div class="col">
-                    <h3 class="page-title">Edit Testimonial</h3>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item">
-                            <a href="index.php">Dashboard</a>
-                        </li>
-
-                        <li class="breadcrumb-item">
-                            <a href="about.php">About</a>
-                        </li>
-
-                        <li class="breadcrumb-item active">
-                            Edit Testimonial
-                        </li>
-                    </ul>
+                    <h4 class="page-title">
+                        Edit Testimonial
+                    </h4>
                 </div>
 
                 <div class="col-auto">
                     <a href="about.php" class="btn btn-secondary">
                         <i class="fa fa-arrow-left"></i>
-                        Back
+                        Back to Testimonials
                     </a>
                 </div>
             </div>
         </div>
 
-        <!-- Error Messages -->
-        <?php if (isset($_GET["error"])) { ?>
-            <?php if ($_GET["error"] === "required") { ?>
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-white">
+                <h5 class="mb-0">
+                    <i class="fa fa-pencil me-2"></i>
+                    Edit Client Testimonial
+                </h5>
+            </div>
 
-                <div class="alert alert-danger alert-dismissible fade show">
-                    Name and testimonial are required.
+            <div class="card-body">
+                <form action="quote-update.php" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="<?= (int)$quoteData['id'] ?>">
 
-                    <button type="button" class="close" data-dismiss="alert">
-                        <span>&times;</span>
-                    </button>
-                </div>
+                    <div class="row">
+                        <!-- Name -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">
+                                Client Name <span class="text-danger">*</span>
+                            </label>
 
-            <?php } elseif ($_GET["error"] === "failed") { ?>
+                            <input type="text" name="name" class="form-control"
+                                value="<?= htmlspecialchars($quoteData['name']) ?>"
+                                required
+                            >
+                        </div>
 
-                <div class="alert alert-danger alert-dismissible fade show">
-                    Failed to update testimonial.
+                        <!-- Position -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">
+                                Position
+                            </label>
 
-                    <button type="button" class="close" data-dismiss="alert">
-                        <span>&times;</span>
-                    </button>
-                </div>
+                            <input type="text" name="title" class="form-control"
+                                value="<?= htmlspecialchars($quoteData['title']) ?>"
+                            >
+                        </div>
 
-            <?php } ?>
-        <?php } ?>
+                        <!-- Company -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">
+                                Company
+                            </label>
 
-        <!-- Edit Testimonial -->
-        <div class="row">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">
-                            Edit Testimonial Information
-                        </h4>
-                    </div>
+                            <input type="text" name="company" class="form-control"
+                                value="<?= htmlspecialchars($quoteData['company']) ?>"
+                            >
+                        </div>
 
-                    <div class="card-body">
-                        <form method="POST" action="quote-update.php">
+                        <!-- Image -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">
+                                Replace Client Photo
+                            </label>
 
-                            <!-- Hidden ID -->
-                            <input type="hidden" name="id" value="<?php echo $quote["id"]; ?>">
+                            <input type="file" name="img" class="form-control"
+                                accept="image/jpeg,image/png,image/gif,image/webp"
+                            >
 
-                            <!-- Image -->
-                            <div class="form-group">
-                                <label>Image</label>
+                            <small class="text-muted">
+                                Leave empty to keep the current image.
+                            </small>
+                        </div>
 
-                                <input type="text" name="img" class="form-control"
-                                    value="<?php echo htmlspecialchars($quote["img"]); ?>"
-                                    placeholder="e.g. assets/img/testimonials/client.jpg"
-                                >
+                        <!-- Current Image -->
+                        <?php if (!empty($quoteData['img'])): ?>
+                            <div class="col-md-12 mb-4">
 
-                                <small class="form-text text-muted">
-                                    Enter the path or filename of the testimonial image.
-                                </small>
-                            </div>
-
-                            <!-- Name -->
-                            <div class="form-group">
-                                <label>
-                                    Name
-                                    <span class="text-danger">*</span>
+                                <label class="form-label">
+                                    Current Photo
                                 </label>
 
-                                <input type="text" name="name" class="form-control"
-                                    value="<?php echo htmlspecialchars($quote["name"]); ?>"
-                                    required
-                                >
+                                <div>
+                                    <img src="<?= htmlspecialchars(quoteImagePath($quoteData['img'])) ?>"
+                                        alt="<?= htmlspecialchars($quoteData['name']) ?>"
+                                        style="
+                                            width:100px;
+                                            height:100px;
+                                            object-fit:cover;
+                                            border-radius:50%;
+                                            border:1px solid #ddd;
+                                        "
+                                    >
+                                </div>
                             </div>
 
-                            <!-- Title -->
-                            <div class="form-group">
-                                <label>Title / Position</label>
+                        <?php endif; ?>
 
-                                <input type="text" name="title" class="form-control"
-                                    value="<?php echo htmlspecialchars($quote["title"]); ?>"
-                                    placeholder="e.g. Project Manager"
-                                >
-                            </div>
+                        <!-- Testimonial -->
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label">
+                                Testimonial <span class="text-danger">*</span>
+                            </label>
 
-                            <!-- Company -->
-                            <div class="form-group">
-                                <label>Company</label>
-
-                                <input type="text" name="company" class="form-control"
-                                    value="<?php echo htmlspecialchars($quote["company"]); ?>"
-                                    placeholder="e.g. ABC Technologies"
-                                >
-                            </div>
-
-                            <!-- Testimonial -->
-                            <div class="form-group">
-                                <label>
-                                    Testimonial
-                                    <span class="text-danger">*</span>
-                                </label>
-
-                                <textarea name="quote" rows="5" class="form-control" required>
-                                    <?php echo htmlspecialchars($quote["quote"]); ?>
-                                </textarea>
-
-                            </div>
-
-                            <!-- Buttons -->
-                            <div class="text-right">
-                                <a href="about.php" class="btn btn-secondary">
-                                    Cancel
-                                </a>
-
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-save"></i>
-                                    Update Testimonial
-                                </button>
-                            </div>
-                        </form>
+                            <textarea name="quote" class="form-control" rows="6"
+                                required
+                            ><?= htmlspecialchars($quoteData['quote']) ?></textarea>
+                        </div>
                     </div>
-                </div>
+
+                    <div class="mt-3">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-save"></i>
+                            Update Testimonial
+                        </button>
+
+                        <a href="about.php" class="btn btn-secondary">
+                            Cancel
+                        </a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
 
-<?php include "footer.php"; ?>
+<?php include 'footer.php'; ?>

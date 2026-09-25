@@ -36,19 +36,8 @@
     }
 
     /* Update */
-    $sql = "UPDATE users SET
-                name = ?,
-                title = ?,
-                slogan = ?,
-                email = ?,
-                phone = ?,
-                website = ?,
-                city = ?,
-                birthday = ?,
-                age = ?,
-                degree = ?,
-                certification = ?,
-                freelance = ?
+    $sql = "UPDATE users SET name = ?, title = ?, slogan = ?, email = ?, phone = ?, website = ?, 
+                city = ?, birthday = ?, age = ?, degree = ?, certification = ?, freelance = ?
             WHERE id = ?";
 
     $stmt = mysqli_prepare($conn, $sql);
@@ -56,18 +45,8 @@
     mysqli_stmt_bind_param(
         $stmt,
         "ssssssssissii",
-        $name,
-        $title,
-        $slogan,
-        $email,
-        $phone,
-        $website,
-        $city,
-        $birthday,
-        $age,
-        $degree,
-        $certification,
-        $freelance,
+        $name, $title, $slogan, $email, $phone, $website,
+        $city, $birthday, $age, $degree, $certification, $freelance,
         $id
     );
 

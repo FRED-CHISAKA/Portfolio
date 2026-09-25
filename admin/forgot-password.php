@@ -22,7 +22,7 @@
                 <div class="account-box">
                     <form class="form-signin" action="#">
 						<div class="account-logo">
-                            <a href="index.html"><img src="assets/img/icon.jpg" alt="icon" style="border-radius: 50% !important;"> </a>
+                            <a href="index.php"><img src="assets/img/icon.jpg" alt="icon" style="border-radius: 50% !important;"> </a>
                         </div>
                         <div class="form-group">
                             <label>Enter Your Email</label>
@@ -32,7 +32,7 @@
                             <button class="btn btn-primary account-btn" type="submit">Reset Password</button>
                         </div>
                         <div class="text-center register-link">
-                            <a href="login.html">Back to Login</a>
+                            <a href="login.php">Back to Login</a>
                         </div>
                     </form>
                 </div>

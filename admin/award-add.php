@@ -54,21 +54,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <form method="POST">
                     <div class="mb-3">
-    <label class="form-label">Achievement / Award</label>
-    <input type="text" name="title" class="form-control" required>
-</div>
-<div class="mb-3">
-    <label class="form-label">Organization</label>
-    <input type="text" name="organization" class="form-control">
-</div>
-<div class="mb-3">
-    <label class="form-label">Year</label>
-    <input type="number" name="year" class="form-control">
-</div>
-<div class="mb-3">
-    <label class="form-label">Description</label>
-    <textarea name="description" class="form-control" rows="4" placeholder="Brief description of the achievement"></textarea>
-</div>
+                        <label class="form-label">Achievement / Award</label>
+                        <input type="text" name="title" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Organization</label>
+                        <input type="text" name="organization" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Year</label>
+                        <input type="number" name="year" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea name="description" class="form-control" rows="4" placeholder="Brief description of the achievement"></textarea>
+                    </div>
 
                     <div class="d-flex gap-2">
                         <button type="submit" class="btn btn-primary">

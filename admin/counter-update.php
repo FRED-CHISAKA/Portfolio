@@ -29,10 +29,7 @@
 
     /* Update Statistic */
     $sql = "UPDATE counter
-            SET icon = ?,
-                title = ?,
-                pre = ?,
-                post = ?
+            SET icon = ?, title = ?, pre = ?, post = ?
             WHERE id = ?";
 
     $stmt = mysqli_prepare($conn, $sql);
@@ -43,13 +40,8 @@
     }
 
     mysqli_stmt_bind_param(
-        $stmt,
-        "ssssi",
-        $icon,
-        $title,
-        $pre,
-        $post,
-        $id
+        $stmt, "ssssi",
+        $icon, $title, $pre, $post, $id
     );
 
     if (mysqli_stmt_execute($stmt)) {
@@ -64,5 +56,4 @@
         header("Location: edit-counter.php?id=" . $id . "&error=failed");
         exit;
     }
-
 ?>

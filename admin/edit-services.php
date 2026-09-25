@@ -9,7 +9,7 @@
                     <ul>
                         
                         <li>
-                            <a href="index.html">
+                            <a href="index.php">
                                 <i class="fa fa-home"></i>
                                 <span>Dashboard</span>
                             </a>
@@ -23,13 +23,13 @@
                             </a>
 
                             <ul style="display:none;">
-                                <li><a class="active" href="services.html">Services</a></li>
-                                <li><a href="projects.html">Projects</a></li>
-                                <li><a href="portfolio.html">Portfolio</a></li>
-                                <li><a href="team.html">Team</a></li>
-                                <li><a href="clients.html">Clients</a></li>
-                                <li><a href="blog.html">Insights</a></li>
-                                <li><a href="media.html">Media Library</a></li>
+                                <li><a class="active" href="services.php">Services</a></li>
+                                <li><a href="projects.php">Projects</a></li>
+                                <li><a href="portfolio.php">Portfolio</a></li>
+                                <li><a href="team.php">Team</a></li>
+                                <li><a href="clients.php">Clients</a></li>
+                                <li><a href="blog.php">Insights</a></li>
+                                <li><a href="media.php">Media Library</a></li>
                             </ul>
                         </li>
 
@@ -41,19 +41,19 @@
                             </a>
 
                             <ul style="display:none;">
-                                <li><a href="employees.html">Employees</a></li>
-                                <li><a href="attendance.html">Attendance</a></li>
-                                <li><a href="leaves.html">Leaves</a></li>
-                                <li><a href="holidays.html">Holidays</a></li>
+                                <li><a href="employees.php">Employees</a></li>
+                                <li><a href="attendance.php">Attendance</a></li>
+                                <li><a href="leaves.php">Leaves</a></li>
+                                <li><a href="holidays.php">Holidays</a></li>
                                 <li>
                                     <a href="#">
                                         <span>Payroll</span>
                                         <span class="menu-arrow"></span>
                                     </a>
                                     <ul style="display:none;">
-                                        <li><a href="salary.html">Salary</a></li>
-                                        <li><a href="taxes.html">Taxes</a></li>
-                                        <li><a href="salary-view.html">Payslips</a></li>
+                                        <li><a href="salary.php">Salary</a></li>
+                                        <li><a href="taxes.php">Taxes</a></li>
+                                        <li><a href="salary-view.php">Payslips</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -67,10 +67,10 @@
                             </a>
 
                             <ul style="display:none;">
-                                <li><a href="calendar.html">Calender</a></li>
-                                <li><a href="schedule.html">Schedule</a></li>
-                                <li><a href="appointments.html">Appointments</a></li>
-                                <li><a href="activities.html">Activities</a></li>
+                                <li><a href="calendar.php">Calender</a></li>
+                                <li><a href="schedule.php">Schedule</a></li>
+                                <li><a href="appointments.php">Appointments</a></li>
+                                <li><a href="activities.php">Activities</a></li>
                             </ul>
                         </li>
 
@@ -82,14 +82,14 @@
                             </a>
 
                             <ul style="display:none;">
-                                <li><a href="invoices.html">Invoices</a></li>
-                                <li><a href="expenses.html">Expenses</a></li>
-                                <li><a href="payments.html">Payments</a></li>
+                                <li><a href="invoices.php">Invoices</a></li>
+                                <li><a href="expenses.php">Expenses</a></li>
+                                <li><a href="payments.php">Payments</a></li>
                             </ul>
                         </li>
 
                         <li>
-                            <a href="assets.html">
+                            <a href="assets.php">
                                 <i class="fa fa-cube"></i>
                                 <span>Assets</span>
                             </a>
@@ -103,18 +103,18 @@
                             </a>
 
                             <ul style="display:none;">
-                                <li><a href="messages.html">Messages</a></li>
+                                <li><a href="messages.php">Messages</a></li>
                                 <li>
                                     <a href="#">
                                         <span>Calls</span>
                                         <span class="menu-arrow"></span>
                                     </a>
                                     <ul style="display:none;">
-                                        <li><a href="voice-call.html">Voice Call</a></li>
-                                        <li><a href="video-call.html">Video Call</a></li>
+                                        <li><a href="voice-call.php">Voice Call</a></li>
+                                        <li><a href="video-call.php">Video Call</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="mail-view.html">Emails</a></li>
+                                <li><a href="mail-view.php">Emails</a></li>
                             </ul>
                         </li>
 
@@ -126,28 +126,27 @@
                             </a>
 
                             <ul style="display:none;">
-                                <li><a href="roles-permissions.html">Roles & Permissions</a></li>
+                                <li><a href="roles-permissions.php">Roles & Permissions</a></li>
                                 <li>
                                     <a href="#">
                                         <span>User Accounts</span>
                                         <span class="menu-arrow"></span>
                                     </a>
                                     <ul style="display:none;">
-                                        <li><a href="login.html">Login</a></li>
-                                        <li><a href="register.html">Register</a></li>
-                                        <li><a href="users.html">Registered Users</a></li>
-                                        <li><a href="admins.html">System Admins</a></li>
-                                        <li><a href="forgot-password.html">Forgot Password</a></li>
-                                        <li><a href="change-password.html">Change Password</a></li>
-                                        <li><a href="lock-screen.html">Lock Screen</a></li>
-                                        <li><a href="error-404.html">Error 404</a></li>
-                                        <li><a href="error-500.html">Error 500</a></li>
+                                        <li><a href="login.php">Login</a></li>
+                                        <li><a href="register.php">Register</a></li>
+                                        <li><a href="users.php">Registered Users</a></li>
+                                        <li><a href="admins.php">System Admins</a></li>
+                                        <li><a href="forgot-password.php">Forgot Password</a></li>
+                                        <li><a href="change-password.php">Change Password</a></li>
+                                        <li><a href="lock-screen.php">Lock Screen</a></li>
+                                        <li><a href="error-404.php">Error 404</a></li>
+                                        <li><a href="error-500.php">Error 500</a></li>
                                     </ul>
                                 </li>
                             </ul>
                         </li>
                         
-
                         <li class="submenu">
                             <a href="#">
                                 <i class="fa fa-line-chart"></i>
@@ -156,8 +155,8 @@
                             </a>
 
                             <ul style="display:none;">
-                                <li><a href="charts.html">All Charts</a></li>
-                                <li><a href="tables.html">All Tables</a></li>
+                                <li><a href="charts.php">All Charts</a></li>
+                                <li><a href="tables.php">All Tables</a></li>
                             </ul>
                         </li>
 
@@ -169,10 +168,10 @@
                             </a>
 
                             <ul style="display:none;">
-                                <li><a href="leads.html">Leads</a></li>
-                                <li><a href="prospects.html">Prospects</a></li>
-                                <li><a href="follow-ups.html">Follow-ups</a></li>
-                                <li><a href="contracts.html">Contracts</a></li>
+                                <li><a href="leads.php">Leads</a></li>
+                                <li><a href="prospects.php">Prospects</a></li>
+                                <li><a href="follow-ups.php">Follow-ups</a></li>
+                                <li><a href="contracts.php">Contracts</a></li>
                             </ul>
                         </li>
 
@@ -184,13 +183,13 @@
                             </a>
 
                             <ul style="display:none;">
-                                <li><a href="settings.html">General Settings</a></li>
-                                <li><a href="profile.html">Profile Settings</a></li>
+                                <li><a href="settings.php">General Settings</a></li>
+                                <li><a href="profile.php">Profile Settings</a></li>
                             </ul>
                         </li>
 
                         <!-- <li>
-                            <a href="logout.html">
+                            <a href="logout.php">
                                 <i class="fa fa-sign-out"></i>
                                 <span>Logout</span>
                             </a>

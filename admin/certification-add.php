@@ -114,14 +114,7 @@
                     mysqli_stmt_bind_param(
                         $stmt,
                         "sssssssi",
-                        $title,
-                        $description,
-                        $issuer,
-                        $issue_date,
-                        $credential_id,
-                        $url,
-                        $file_path,
-                        $status
+                        $title, $description, $issuer, $issue_date, $credential_id, $url, $file_path, $status
                     );
 
                     if (mysqli_stmt_execute($stmt)) {

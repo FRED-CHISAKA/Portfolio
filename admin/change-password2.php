@@ -22,7 +22,7 @@
                 <div class="account-box">
                     <form class="form-signin" action="#">
 						<div class="account-logo">
-                            <a href="index.html"><img src="assets/img/icon.jpg" alt="" style="border-radius: 50% !important;"></a>
+                            <a href="index.php"><img src="assets/img/icon.jpg" alt="" style="border-radius: 50% !important;"></a>
                         </div>
                         <div class="form-group">
                             <label>Current Password</label>
@@ -32,7 +32,7 @@
                             <button class="btn btn-primary account-btn" type="submit">Reset Password</button>
                         </div>
                         <div class="text-center register-link">
-                            <a href="login.html">Back to Login</a>
+                            <a href="login.php">Back to Login</a>
                         </div>
                     </form>
                 </div>
@@ -46,7 +46,7 @@
                 <div class="account-box">
                     <div class="account-wrapper">
                         <div class="account-logo">
-                            <a href="index.html"><img src="assets/img/icon.jpg" alt=""></a>
+                            <a href="index.php"><img src="assets/img/icon.jpg" alt=""></a>
                         </div>
                         <form action="#">
                             <div class="form-group form-focus">

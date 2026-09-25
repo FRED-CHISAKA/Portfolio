@@ -29,12 +29,8 @@
     }
 
     mysqli_stmt_bind_param(
-        $stmt,
-        "ssss",
-        $icon,
-        $title,
-        $pre,
-        $post
+        $stmt, "ssss",
+        $icon, $title, $pre, $post
     );
 
     if (mysqli_stmt_execute($stmt)) {

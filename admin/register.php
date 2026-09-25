@@ -20,9 +20,9 @@
         <div class="account-page">
             <div class="account-center">
                 <div class="account-box">
-                    <form action="index.html" class="form-signin">
+                    <form action="index.php" class="form-signin">
 						<div class="account-logo">
-                            <a href="index.html"><img src="assets/img/icon.jpg" alt="" style="border-radius: 50% !important;"></a>
+                            <a href="index.php"><img src="assets/img/icon.jpg" alt="" style="border-radius: 50% !important;"></a>
                         </div>
                         <div class="form-group">
                             <label>Username</label>
@@ -49,7 +49,7 @@
                             <button class="btn btn-primary account-btn" type="submit">Signup</button>
                         </div>
                         <div class="text-center login-link">
-                            Already have an account? <a href="login.html">Login</a>
+                            Already have an account? <a href="login.php">Login</a>
                         </div>
                     </form>
                 </div>

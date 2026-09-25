@@ -155,9 +155,7 @@
             if ($error == "") {
                 $sql = "UPDATE certifications SET
                             title = ?, description = ?, issuer = ?, issue_date = ?, credential_id = ?,
-                            url = ?,
-                            img = ?,
-                            status = ?
+                            url = ?, img = ?, status = ?
                         WHERE id = ?";
 
                 $stmt = mysqli_prepare($conn, $sql);
@@ -165,17 +163,9 @@
                 if ($stmt) {
 
                     mysqli_stmt_bind_param(
-                        $stmt,
-                        "sssssssii",
-                        $title,
-                        $description,
-                        $issuer,
-                        $issue_date,
-                        $credential_id,
-                        $url,
-                        $file_path,
-                        $status,
-                        $id
+                        $stmt, "sssssssii",
+                        $title, $description, $issuer, $issue_date, $credential_id, 
+                        $url, $file_path, $status, $id
                     );
 
                     if (mysqli_stmt_execute($stmt)) {
@@ -189,12 +179,10 @@
 
                     } else {
                         mysqli_stmt_close($stmt);
-
                         $error = "Failed to update certification.";
                     }
 
                 } else {
-
                     $error = "Database error: Unable to prepare the update query.";
                 }
             }

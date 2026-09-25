@@ -1,29 +1,15 @@
 <?php
 
-include "../include/config.php";
+    include "../include/config.php";
 
-$media_query = "
-    SELECT *
-    FROM media
-    ORDER BY uploaded_at DESC
-";
-
-$media_result = mysqli_query(
-    $conn,
-    $media_query
-);
-
+    $media_query = "SELECT * FROM media ORDER BY uploaded_at DESC";
+    $media_result = mysqli_query($conn, $media_query);
 ?>
-
-
 
 <?php
-
-include "header.php";
-include "sidebar.php";
-
+    include "header.php";
+    include "sidebar.php";
 ?>
-        
         
         <div class="page-wrapper">
             <div class="content">
@@ -44,66 +30,29 @@ include "sidebar.php";
 
                 <?php
 
-                    $total_images_query = "
-                        SELECT COUNT(*) AS total
-                        FROM media
-                        WHERE media_type = 'image'
-                    ";
-
-                    $total_images_result = mysqli_query(
-                        $conn,
-                        $total_images_query
-                    );
+                    $total_images_query = "SELECT COUNT(*) AS total FROM media WHERE media_type = 'image'";
+                    $total_images_result = mysqli_query($conn, $total_images_query);
 
                     $total_images = mysqli_fetch_assoc(
                         $total_images_result
                     )['total'];
 
-
-
-                    $total_videos_query = "
-                        SELECT COUNT(*) AS total
-                        FROM media
-                        WHERE media_type = 'video'
-                    ";
-
-                    $total_videos_result = mysqli_query(
-                        $conn,
-                        $total_videos_query
-                    );
+                    $total_videos_query = "SELECT COUNT(*) AS total FROM media WHERE media_type = 'video'";
+                    $total_videos_result = mysqli_query($conn, $total_videos_query);
 
                     $total_videos = mysqli_fetch_assoc(
                         $total_videos_result
                     )['total'];
 
-
-
-                    $total_documents_query = "
-                        SELECT COUNT(*) AS total
-                        FROM media
-                        WHERE media_type = 'document'
-                    ";
-
-                    $total_documents_result = mysqli_query(
-                        $conn,
-                        $total_documents_query
-                    );
+                    $total_documents_query = "SELECT COUNT(*) AS total FROM media WHERE media_type = 'document'";
+                    $total_documents_result = mysqli_query($conn, $total_documents_query);
 
                     $total_documents = mysqli_fetch_assoc(
                         $total_documents_result
                     )['total'];
 
-
-
-                    $storage_query = "
-                        SELECT SUM(file_size) AS total_size
-                        FROM media
-                    ";
-
-                    $storage_result = mysqli_query(
-                        $conn,
-                        $storage_query
-                    );
+                    $storage_query = "SELECT SUM(file_size) AS total_size FROM media";
+                    $storage_result = mysqli_query($conn, $storage_query);
 
                     $storage_data = mysqli_fetch_assoc(
                         $storage_result
@@ -115,7 +64,6 @@ include "sidebar.php";
                         $total_storage / 1024 / 1024,
                         2
                     );
-
                 ?>
 
                 <!-- Statistics -->
@@ -166,9 +114,7 @@ include "sidebar.php";
                 <!-- Filters -->
                 <div class="card mt-4">
                     <div class="card-body">
-
                         <div class="row">
-
                             <div class="col-md-4">
                                 <input type="text" class="form-control"
                                     placeholder="Search media files...">
@@ -197,9 +143,7 @@ include "sidebar.php";
                                     <i class="fa fa-search"></i> Search
                                 </button>
                             </div>
-
                         </div>
-
                     </div>
                 </div>
 
@@ -216,49 +160,28 @@ include "sidebar.php";
 
                                     <!-- IMAGE -->
                                     <?php if($media['media_type'] == 'image'){ ?>
-                                        <img
-                                            src="../<?=$media['file_path']?>"
+                                        <img src="../<?=$media['file_path']?>"
                                             class="card-img-top"
                                             alt="<?=$media['title']?>"
-                                            style="
-                                                height: 200px;
-                                                object-fit: cover;
-                                            "
+                                            style="height: 200px; object-fit: cover;"
                                         >
                                     <?php } ?>
 
                                     <!-- VIDEO -->
                                     <?php if($media['media_type'] == 'video'){ ?>
-                                        <video
-                                            class="card-img-top"
-                                            style="
-                                                height: 200px;
-                                                object-fit: cover;
-                                            "
-                                            controls
-                                        >
-                                            <source
-                                                src="../<?=$media['file_path']?>"
-                                                type="<?=$media['file_type']?>"
-                                            >
+                                        <video class="card-img-top" style="height: 200px; object-fit: cover;" controls>
+                                            <source src="../<?=$media['file_path']?>" type="<?=$media['file_type']?>">
                                         </video>
                                     <?php } ?>
 
                                     <!-- DOCUMENT -->
                                     <?php if($media['media_type'] == 'document'){ ?>
-                                        <div
-                                            class="text-center p-5"
-                                        >
-                                            <i class="
-                                                fa fa-file-pdf-o
-                                                fa-5x
-                                                text-danger
-                                            "></i>
+                                        <div class="text-center p-5">
+                                            <i class="fa fa-file-pdf-o fa-5x text-danger"></i>
                                         </div>
                                     <?php } ?>
 
                                     <div class="card-body">
-
                                         <!-- Title -->
                                         <h6 class="mb-1">
                                             <?=$media['title']?>
@@ -280,39 +203,24 @@ include "sidebar.php";
                                         <div class="mt-3 text-center">
 
                                             <!-- VIEW -->
-                                            <a
-                                                href="../<?=$media['file_path']?>"
-                                                target="_blank"
-                                                class="btn btn-sm btn-info"
-                                            >
+                                            <a href="../<?=$media['file_path']?>" target="_blank" class="btn btn-sm btn-info">
                                                 <i class="fa fa-eye"></i>
                                             </a>
 
                                             <!-- DOWNLOAD -->
-                                            <a
-                                                href="../<?=$media['file_path']?>"
-                                                download
-                                                class="btn btn-sm btn-success"
-                                            >
+                                            <a href="../<?=$media['file_path']?>" download class="btn btn-sm btn-success">
                                                 <i class="fa fa-download"></i>
                                             </a>
 
                                             <!-- EDIT -->
-                                            <a
-                                                href="edit-media.php?id=<?=$media['id']?>"
-                                                class="btn btn-sm btn-warning"
-                                            >
+                                            <a href="edit-media.php?id=<?=$media['id']?>" class="btn btn-sm btn-warning">
                                                 <i class="fa fa-pencil"></i>
                                             </a>
 
                                             <!-- DELETE -->
-                                            <a
-                                                href="delete-media.php?id=<?=$media['id']?>"
-                                                class="btn btn-sm btn-danger"
+                                            <a href="delete-media.php?id=<?=$media['id']?>" class="btn btn-sm btn-danger"
                                                 onclick="
-                                                    return confirm(
-                                                        'Are you sure you want to delete this media?'
-                                                    )
+                                                return confirm('Are you sure you want to delete this media?')
                                                 "
                                             >
                                                 <i class="fa fa-trash"></i>
@@ -333,11 +241,9 @@ include "sidebar.php";
                             </div>
                         </div>
                     <?php
-
                     }
 
                     ?>
-
                 </div>
 
                 <!-- Media Table -->
@@ -347,11 +253,8 @@ include "sidebar.php";
                     </div>
 
                     <div class="card-body">
-
                         <div class="table-responsive">
-
                             <table class="table table-striped table-hover">
-
                                 <thead>
                                     <tr>
                                         <th>Preview</th>
@@ -364,53 +267,31 @@ include "sidebar.php";
                                 </thead>
 
                                 <tbody>
-
                                     <?php
-                                    $table_query = "
-                                        SELECT *
-                                        FROM media
-                                        ORDER BY uploaded_at DESC
-                                    ";
-
-                                    $table_result = mysqli_query(
-                                        $conn,
-                                        $table_query
-                                    );
-
+                                    $table_query = "SELECT * FROM media ORDER BY uploaded_at DESC";
+                                    $table_result = mysqli_query($conn, $table_query);
 
                                     if(
-                                        mysqli_num_rows(
-                                            $table_result
-                                        ) > 0
+                                        mysqli_num_rows($table_result ) > 0
                                     ){
-
                                         while(
-                                            $media =
-                                            mysqli_fetch_assoc(
-                                                $table_result
-                                            )
+                                            $media = mysqli_fetch_assoc($table_result)
                                         ){
 
                                     ?>
 
                                     <tr>
-
                                         <!-- Preview -->
                                         <td>
-
                                             <?php
                                             if(
                                                 $media['media_type']
                                                 == 'image'
                                             ){
                                             ?>
-                                                <img
-                                                    src="../<?=$media['file_path']?>"
-                                                    width="60"
-                                                    height="50"
-                                                    style="object-fit:cover;"
+                                                <img src="../<?=$media['file_path']?>"
+                                                    width="60" height="50" style="object-fit:cover;"
                                                 >
-
                                             <?php
                                             }
                                             elseif(
@@ -418,28 +299,16 @@ include "sidebar.php";
                                                 == 'video'
                                             ){
                                             ?>
-                                                <i
-                                                    class="
-                                                        fa fa-video-camera
-                                                        fa-2x
-                                                    "
-                                                ></i>
+                                                <i class="fa fa-video-camera fa-2x"></i>
                                             <?php
                                             }
                                             else{
                                             ?>
-                                                <i
-                                                    class="
-                                                        fa fa-file
-                                                        fa-2x
-                                                        text-danger
-                                                    "
-                                                ></i>
+                                                <i class="fa fa-file fa-2x text-danger"></i>
 
                                             <?php
                                             }
                                             ?>
-
                                         </td>
 
                                         <!-- File Name -->
@@ -448,7 +317,6 @@ include "sidebar.php";
                                         </td>
 
                                         <!-- Type -->
-
                                         <td>
                                             <?=ucfirst(
                                                 $media['media_type']
@@ -456,7 +324,6 @@ include "sidebar.php";
                                         </td>
 
                                         <!-- Size -->
-
                                         <td>
                                             <?=round(
                                                 $media['file_size']
@@ -478,40 +345,22 @@ include "sidebar.php";
 
                                         <!-- Actions -->
                                         <td>
-                                            <a
-                                                href="../<?=$media['file_path']?>"
-                                                target="_blank"
-                                                class="
-                                                    btn
-                                                    btn-sm
-                                                    btn-info
-                                                "
+                                            <a href="../<?=$media['file_path']?>"
+                                                target="_blank" class="btn btn-sm btn-info"
                                             >
                                                 <i class="fa fa-eye"></i>
                                             </a>
 
-                                            <a
-                                                href="edit-media.php?id=<?=$media['id']?>"
-                                                class="
-                                                    btn
-                                                    btn-sm
-                                                    btn-warning
-                                                "
+                                            <a href="edit-media.php?id=<?=$media['id']?>"
+                                                class="btn btn-sm btn-warning"
                                             >
                                                 <i class="fa fa-pencil"></i>
                                             </a>
 
-                                            <a
-                                                href="delete-media.php?id=<?=$media['id']?>"
-                                                class="
-                                                    btn
-                                                    btn-sm
-                                                    btn-danger
-                                                "
+                                            <a href="delete-media.php?id=<?=$media['id']?>"
+                                                class="btn btn-sm btn-danger"
                                                 onclick="
-                                                    return confirm(
-                                                        'Delete this file?'
-                                                    )
+                                                    return confirm('Delete this file?')
                                                 "
                                             >
                                                 <i class="fa fa-trash"></i>
@@ -528,10 +377,7 @@ include "sidebar.php";
                                     ?>
 
                                     <tr>
-                                        <td
-                                            colspan="6"
-                                            class="text-center"
-                                        >
+                                        <td colspan="6" class="text-center">
                                             No media files found.
                                         </td>
                                     </tr>
@@ -541,16 +387,12 @@ include "sidebar.php";
                                     }
 
                                     ?>
-
                                 </tbody>
-
                             </table>
 
                         </div>
-
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -764,30 +606,18 @@ include "sidebar.php";
             </div>
         </div>
 
-            <?php
-
-            include "footer.php";
-
-            ?>
-
-
-
+        <?php include "footer.php"; ?>
 
     <script>
-        
         document.addEventListener("DOMContentLoaded", function () {
-
             const activeItem = document.querySelector('#sidebar-menu li.active');
-
             if (activeItem) {
                 activeItem.scrollIntoView({
                     behavior: 'smooth',
                     block: 'center'
                 });
             }
-
         });
-
     </script>
 
 </body>

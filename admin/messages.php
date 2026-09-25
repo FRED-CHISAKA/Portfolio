@@ -19,7 +19,7 @@
     <div class="main-wrapper">
         <div class="header">
 			<div class="header-left">
-				<a href="index.html" class="logo">
+				<a href="index.php" class="logo">
 					<img src="assets/img/icon.jpg" width="35" height="35" alt="" style="border-radius: 50% !important;"><span>TechDive</span>
 				</a>
 			</div>
@@ -34,7 +34,7 @@
                         <div class="drop-scroll">
                             <ul class="notification-list">
                                 <li class="notification-message">
-                                    <a href="activities.html">
+                                    <a href="activities.php">
                                         <div class="media">
 											<span class="avatar">
 												<img alt="Chisaka Fred" src="assets/img/user.jpg" class="img-fluid">
@@ -47,7 +47,7 @@
                                     </a>
                                 </li>
                                 <li class="notification-message">
-                                    <a href="activities.html">
+                                    <a href="activities.php">
                                         <div class="media">
 											<span class="avatar">V</span>
 											<div class="media-body">
@@ -58,7 +58,7 @@
                                     </a>
                                 </li>
                                 <li class="notification-message">
-                                    <a href="activities.html">
+                                    <a href="activities.php">
                                         <div class="media">
 											<span class="avatar">L</span>
 											<div class="media-body">
@@ -69,7 +69,7 @@
                                     </a>
                                 </li>
                                 <li class="notification-message">
-                                    <a href="activities.html">
+                                    <a href="activities.php">
                                         <div class="media">
 											<span class="avatar">G</span>
 											<div class="media-body">
@@ -80,7 +80,7 @@
                                     </a>
                                 </li>
                                 <li class="notification-message">
-                                    <a href="activities.html">
+                                    <a href="activities.php">
                                         <div class="media">
 											<span class="avatar">V</span>
 											<div class="media-body">
@@ -93,7 +93,7 @@
                             </ul>
                         </div>
                         <div class="topnav-dropdown-footer">
-                            <a href="activities.html">View all Notifications</a>
+                            <a href="activities.php">View all Notifications</a>
                         </div>
                     </div>
                 </li>
@@ -107,20 +107,20 @@
                         <span>TechDive Admin</span>
                     </a>
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="profile.html">My Profile</a>
-						<a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
-						<a class="dropdown-item" href="settings.html">Settings</a>
-						<a class="dropdown-item" href="login.html">Logout</a>
+						<a class="dropdown-item" href="profile.php">My Profile</a>
+						<a class="dropdown-item" href="edit-profile.php">Edit Profile</a>
+						<a class="dropdown-item" href="settings.php">Settings</a>
+						<a class="dropdown-item" href="login.php">Logout</a>
 					</div>
                 </li>
             </ul>
             <div class="dropdown mobile-user-menu float-right">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="profile.html">My Profile</a>
-                    <a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
-                    <a class="dropdown-item" href="settings.html">Settings</a>
-                    <a class="dropdown-item" href="login.html">Logout</a>
+                    <a class="dropdown-item" href="profile.php">My Profile</a>
+                    <a class="dropdown-item" href="edit-profile.php">Edit Profile</a>
+                    <a class="dropdown-item" href="settings.php">Settings</a>
+                    <a class="dropdown-item" href="login.php">Logout</a>
                 </div>
             </div>
         </div>
@@ -129,33 +129,33 @@
                 <div class="sidebar-menu">
                     <ul>
                         <li>
-                            <a href="index.html"><i class="fa fa-home back-icon"></i> <span>Back to Home</span></a>
+                            <a href="index.php"><i class="fa fa-home back-icon"></i> <span>Back to Home</span></a>
                         </li>
                         <li class="menu-title">Chat Groups <a href="#" class="add-user-icon" data-toggle="modal" data-target="#add_group"><i class="fa fa-plus"></i></a></li>
                         <li>
-                            <a href="messages.html">#General</a>
+                            <a href="messages.php">#General</a>
                         </li>
                         <li>
-                            <a href="messages.html">#Video Responsive Survey</a>
+                            <a href="messages.php">#Video Responsive Survey</a>
                         </li>
                         <li>
-                            <a href="messages.html">#500rs</a>
+                            <a href="messages.php">#500rs</a>
                         </li>
                         <li>
-                            <a href="messages.html">#warehouse</a>
+                            <a href="messages.php">#warehouse</a>
                         </li>
                         <li class="menu-title">Direct Chats <a href="#" class="add-user-icon" data-toggle="modal" data-target="#add_chat_user"><i class="fa fa-plus"></i></a></li>
                         <li>
-                            <a href="messages.html"><span class="chat-avatar-sm user-img"><img src="../assets/img/testimonial-4.png" alt="" class="rounded-circle"><span class="status online"></span></span> Brian Otieno <span class="badge badge-pill bg-danger float-right">1</span></a>
+                            <a href="messages.php"><span class="chat-avatar-sm user-img"><img src="../assets/img/testimonial-4.png" alt="" class="rounded-circle"><span class="status online"></span></span> Brian Otieno <span class="badge badge-pill bg-danger float-right">1</span></a>
                         </li>
                         <li>
-                            <a href="messages.html"><span class="chat-avatar-sm user-img"><img src="../assets/img/testimonial-1.jpg" alt="" class="rounded-circle"><span class="status offline"></span></span> Sharon Wanjiku <span class="badge badge-pill bg-danger float-right">18</span></a>
+                            <a href="messages.php"><span class="chat-avatar-sm user-img"><img src="../assets/img/testimonial-1.jpg" alt="" class="rounded-circle"><span class="status offline"></span></span> Sharon Wanjiku <span class="badge badge-pill bg-danger float-right">18</span></a>
                         </li>
                         <li>
-                            <a href="messages.html"><span class="chat-avatar-sm user-img"><img src="../assets/img/testimonial-2.png" alt="" class="rounded-circle"><span class="status away"></span></span> Kevin Mwangi</a>
+                            <a href="messages.php"><span class="chat-avatar-sm user-img"><img src="../assets/img/testimonial-2.png" alt="" class="rounded-circle"><span class="status away"></span></span> Kevin Mwangi</a>
                         </li>
                         <li class="active">
-                            <a href="messages.html"><span class="chat-avatar-sm user-img"><img src="../assets/img/testimonial-1.jpg" alt="" class="rounded-circle"><span class="status online"></span></span> Joy Ashley <span class="badge badge-pill bg-danger float-right">108</span></a>
+                            <a href="messages.php"><span class="chat-avatar-sm user-img"><img src="../assets/img/testimonial-1.jpg" alt="" class="rounded-circle"><span class="status online"></span></span> Joy Ashley <span class="badge badge-pill bg-danger float-right">108</span></a>
                         </li>
                     </ul>
                 </div>
@@ -170,10 +170,10 @@
                                 <div class="navbar">
                                     <div class="user-details mr-auto">
                                         <div class="float-left user-img m-r-10">
-                                            <a href="profile.html" title="Joy Ashley"><img src="../assets/img/testimonial-1.jpg" alt="" class="w-40 rounded-circle"><span class="status online"></span></a>
+                                            <a href="profile.php" title="Joy Ashley"><img src="../assets/img/testimonial-1.jpg" alt="" class="w-40 rounded-circle"><span class="status online"></span></a>
                                         </div>
                                         <div class="user-info float-left">
-                                            <a href="profile.html"><span class="font-bold">Joy Ashley</span> <i class="typing-text">Typing...</i></a>
+                                            <a href="profile.php"><span class="font-bold">Joy Ashley</span> <i class="typing-text">Typing...</i></a>
                                             <span class="last-seen">Last seen today at 7:50 AM</span>
                                         </div>
                                     </div>
@@ -190,10 +190,10 @@
                                             <a href="#chat_sidebar" class="nav-link task-chat profile-rightbar float-right" id="task_chat"><i class="fa fa-user"></i></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="voice-call.html"><i class="fa fa-phone"></i></a>
+                                            <a class="nav-link" href="voice-call.php"><i class="fa fa-phone"></i></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="video-call.html"><i class="fa fa-video-camera"></i></a>
+                                            <a class="nav-link" href="video-call.php"><i class="fa fa-video-camera"></i></a>
                                         </li>
                                         <li class="nav-item dropdown dropdown-action">
                                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-cog"></i></a>
@@ -225,7 +225,7 @@
                                                 </div>
                                                 <div class="chat chat-left">
                                                     <div class="chat-avatar">
-                                                        <a href="profile.html" class="avatar">
+                                                        <a href="profile.php" class="avatar">
                                                             <img alt="Jennifer Robinson" src="../assets/img/testimonial-1.jpg" class="img-fluid rounded-circle">
                                                         </a>
                                                     </div>
@@ -263,7 +263,7 @@
                                                 </div>
                                                 <div class="chat chat-left">
                                                     <div class="chat-avatar">
-                                                        <a href="profile.html" class="avatar">
+                                                        <a href="profile.php" class="avatar">
                                                             <img alt="Joy Ashley" src="../assets/img/testimonial-1.jpg" class="img-fluid rounded-circle">
                                                         </a>
                                                     </div>
@@ -328,7 +328,7 @@
                                                 </div>
                                                 <div class="chat chat-left">
                                                     <div class="chat-avatar">
-                                                        <a href="profile.html" class="avatar">
+                                                        <a href="profile.php" class="avatar">
                                                             <img alt="Joy Ashley" src="../assets/img/testimonial-1.jpg" class="img-fluid rounded-circle">
                                                         </a>
                                                     </div>
@@ -413,7 +413,7 @@
                                                 </div>
                                                 <div class="chat chat-left">
                                                     <div class="chat-avatar">
-                                                        <a href="profile.html" class="avatar">
+                                                        <a href="profile.php" class="avatar">
                                                             <img alt="Joy Ashley" src="../assets/img/testimonial-1.jpg" class="img-fluid rounded-circle">
                                                         </a>
                                                     </div>
@@ -442,7 +442,7 @@
                                                 </div>
                                                 <div class="chat chat-left">
                                                     <div class="chat-avatar">
-                                                        <a href="profile.html" class="avatar">
+                                                        <a href="profile.php" class="avatar">
                                                             <img alt="Joy Ashley" src="../assets/img/testimonial-1.jpg" class="img-fluid rounded-circle">
                                                         </a>
                                                     </div>
@@ -491,7 +491,7 @@
                                             <div class="chats">
                                                 <div class="chat chat-left">
                                                     <div class="chat-avatar">
-                                                        <a href="profile.html" class="avatar">
+                                                        <a href="profile.php" class="avatar">
                                                             <img alt="Chisaka Fred" src="assets/img/user.jpg" class="img-fluid rounded-circle">
                                                         </a>
                                                     </div>
@@ -513,7 +513,7 @@
                                                 </div>
                                                 <div class="chat chat-left">
                                                     <div class="chat-avatar">
-                                                        <a href="profile.html" class="avatar">
+                                                        <a href="profile.php" class="avatar">
                                                             <img alt="Joy Ashley" src="../assets/img/testimonial-1.jpg" class="img-fluid rounded-circle">
                                                         </a>
                                                     </div>
@@ -537,7 +537,7 @@
                                                 </div>
                                                 <div class="chat chat-left">
                                                     <div class="chat-avatar">
-                                                        <a href="profile.html" class="avatar">
+                                                        <a href="profile.php" class="avatar">
                                                             <img alt="Chisaka Fred" src="assets/img/user.jpg" class="img-fluid rounded-circle">
                                                         </a>
                                                     </div>
@@ -573,7 +573,7 @@
                                                         </div>
                                                         <h3 class="user-name m-t-10 mb-0">Chisaka Fred</h3>
                                                         <small class="text-muted">Chief Technology Officer</small>
-                                                        <a href="edit-profile.html" class="btn btn-primary edit-btn"><i class="fa fa-pencil"></i></a>
+                                                        <a href="edit-profile.php" class="btn btn-primary edit-btn"><i class="fa fa-pencil"></i></a>
                                                     </div>
                                                     <div class="chat-profile-info">
                                                         <ul class="user-det-list">
@@ -856,11 +856,7 @@
                 </div>
             </div>
 
-			<?php
-
-            include "footer.php";
-
-            ?>
+			<?php include "footer.php"; ?>
 </body>
 
 </html>

@@ -43,18 +43,7 @@
     /* Insert */
     $sql = "INSERT INTO users
     (
-        name,
-        title,
-        slogan,
-        email,
-        phone,
-        website,
-        city,
-        birthday,
-        age,
-        degree,
-        certification,
-        freelance
+        name, title, slogan, email, phone, website, city, birthday, age, degree, certification, freelance
     )
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -63,18 +52,7 @@
     mysqli_stmt_bind_param(
         $stmt,
         "ssssssssissi",
-        $name,
-        $title,
-        $slogan,
-        $email,
-        $phone,
-        $website,
-        $city,
-        $birthday,
-        $age,
-        $degree,
-        $certification,
-        $freelance
+        $name, $title, $slogan, $email, $phone, $website, $city, $birthday, $age, $degree, $certification, $freelance
     );
 
     if (mysqli_stmt_execute($stmt)) {

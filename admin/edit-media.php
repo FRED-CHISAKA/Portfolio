@@ -133,9 +133,7 @@
 
         exit();
     }
-
 ?>
-
 
 <div class="page-wrapper">
     <div class="content">
@@ -169,13 +167,7 @@
                     ?>
 
                         <div class="text-center mb-4">
-
-                            <img src="../<?=$media['file_path']?>"
-                                style="
-                                    max-height:250px;
-                                    max-width:100%;
-                                "
-                            >
+                            <img src="../<?=$media['file_path']?>" style="max-height:250px; max-width:100%;">
                         </div>
 
                     <?php } ?>
@@ -189,7 +181,6 @@
                         <input type="text" name="title" class="form-control"
                             value="<?=$media['title']?>" required
                         >
-
                     </div>
 
                     <!-- Replace File -->

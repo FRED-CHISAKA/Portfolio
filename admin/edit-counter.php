@@ -11,7 +11,6 @@
     $id = (int) $_GET["id"];
 
     /* Fetch Statistic */
-
     $sql = "SELECT * FROM counter WHERE id = ?";
     $stmt = mysqli_prepare($conn, $sql);
 
