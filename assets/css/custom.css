@@ -723,6 +723,30 @@ article .icon{
     }
 }
 
+#hero > img {
+    object-fit: cover;
+    object-position: right center;
+}
+
+@media (max-width: 991px) {
+    #hero > img {
+        object-fit: cover;
+        object-position: 80% center;
+    }
+}
+
+@media (max-width: 767px) {
+    #hero > img {
+        object-fit: cover;
+        object-position: 85% center;
+    }
+}
+
+@media (max-width: 480px) {
+    #hero > img {
+        object-position: 87% center;
+    }
+}
 
 
 
