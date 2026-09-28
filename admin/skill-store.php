@@ -29,11 +29,7 @@
     }
 
     mysqli_stmt_bind_param(
-        $stmt,
-        "sss",
-        $icon,
-        $title,
-        $color
+        $stmt, "sss", $icon, $title, $color
     );
 
     if (mysqli_stmt_execute($stmt)) {

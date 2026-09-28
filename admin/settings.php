@@ -156,6 +156,4 @@ include "header.php";
             ?>
 </body>
 
-
-<!-- settings23:11-->
 </html>

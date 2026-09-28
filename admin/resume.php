@@ -1,70 +1,70 @@
 <?php
 
-include "../include/config.php";
-include "header.php";
-include "sidebar.php";
+    include "../include/config.php";
+    include "header.php";
+    include "sidebar.php";
 
-// USER / PROFILE
-$sql = "SELECT * FROM users WHERE id = 1";
-$result = mysqli_query($conn, $sql);
-$data = mysqli_fetch_assoc($result);
+    // USER / PROFILE
+    $sql = "SELECT * FROM users WHERE id = 1";
+    $result = mysqli_query($conn, $sql);
+    $data = mysqli_fetch_assoc($result);
 
-// EDUCATION
-$education = mysqli_query($conn,
-    "SELECT * FROM education
-     WHERE user_id = 1
-     ORDER BY end_year DESC"
-);
+    // EDUCATION
+    $education = mysqli_query($conn,
+        "SELECT * FROM education
+        WHERE user_id = 1
+        ORDER BY end_year DESC"
+    );
 
-// EXPERIENCE
-$experience = mysqli_query($conn,
-    "SELECT * FROM experience
-     WHERE user_id = 1
-     ORDER BY start_year DESC"
-);
+    // EXPERIENCE
+    $experience = mysqli_query($conn,
+        "SELECT * FROM experience
+        WHERE user_id = 1
+        ORDER BY start_year DESC"
+    );
 
-// SKILLS
-$skills = mysqli_query($conn,
-    "SELECT * FROM skills
-     WHERE id = 1
-     ORDER BY id DESC"
-);
+    // SKILLS
+    $skills = mysqli_query($conn,
+        "SELECT * FROM skills
+        WHERE id = 1
+        ORDER BY id DESC"
+    );
 
-// CERTIFICATIONS
-$certifications = mysqli_query($conn,
-    "SELECT * FROM certifications
-     WHERE id = 1"
-     
-    //  ORDER BY year DESC
-);
+    // CERTIFICATIONS
+    $certifications = mysqli_query($conn,
+        "SELECT * FROM certifications
+        WHERE id = 1"
+        
+        //  ORDER BY year DESC
+    );
 
-// INTERESTS
-$interests = mysqli_query($conn,
-    "SELECT * FROM interests
-     WHERE id = 1
-     ORDER BY id DESC"
-);
+    // INTERESTS
+    $interests = mysqli_query($conn,
+        "SELECT * FROM interests
+        WHERE id = 1
+        ORDER BY id DESC"
+    );
 
-// LANGUAGES
-$languages = mysqli_query($conn,
-    "SELECT * FROM languages
-     WHERE id = 1
-     ORDER BY id DESC"
-);
+    // LANGUAGES
+    $languages = mysqli_query($conn,
+        "SELECT * FROM languages
+        WHERE id = 1
+        ORDER BY id DESC"
+    );
 
-// REFEREES
-$referees = mysqli_query($conn,
-    "SELECT * FROM referees
-     WHERE id = 1
-     ORDER BY id DESC"
-);
+    // REFEREES
+    $referees = mysqli_query($conn,
+        "SELECT * FROM referees
+        WHERE id = 1
+        ORDER BY id DESC"
+    );
 
-// AWARDS / ACHIEVEMENTS
-$awards = mysqli_query($conn,
-    "SELECT * FROM awards
-     WHERE id = 1
-     ORDER BY id DESC"
-);
+    // AWARDS / ACHIEVEMENTS
+    $awards = mysqli_query($conn,
+        "SELECT * FROM awards
+        WHERE id = 1
+        ORDER BY id DESC"
+    );
 
 ?>
 
@@ -104,11 +104,6 @@ $awards = mysqli_query($conn,
                         <?= htmlspecialchars($data['slogan'] ?? '') ?>
                     </p>
                 </div>
-
-                <!-- <button type="submit" class="btn btn-primary">
-                    <i class="bi bi-check-lg me-1"></i>
-                    Save Objective
-                </button> -->
             </form>
         </div>
     </div>
@@ -153,16 +148,10 @@ $awards = mysqli_query($conn,
                             <?php while ($edu = mysqli_fetch_assoc($education)) { ?>
                                 <tr>
                                     <td>
-                                        <strong>
-                                            <?= htmlspecialchars($edu['degree']) ?>
-                                        </strong>
+                                        <strong><?= htmlspecialchars($edu['degree']) ?></strong>
                                     </td>
-                                    <td>
-                                        <?= htmlspecialchars($edu['institution']) ?>
-                                    </td>
-                                    <td>
-                                        <?= htmlspecialchars($edu['location']) ?>
-                                    </td>
+                                    <td><?= htmlspecialchars($edu['institution']) ?></td>
+                                    <td><?= htmlspecialchars($edu['location']) ?></td>
                                     <td>
                                         <?= htmlspecialchars($edu['start_year']) ?>
                                         -
@@ -251,16 +240,10 @@ $awards = mysqli_query($conn,
                             <?php while ($exp = mysqli_fetch_assoc($experience)) { ?>
                                 <tr>
                                     <td>
-                                        <strong>
-                                            <?= htmlspecialchars($exp['job_title']) ?>
-                                        </strong>
+                                        <strong><?= htmlspecialchars($exp['job_title']) ?></strong>
                                     </td>
-                                    <td>
-                                        <?= htmlspecialchars($exp['company']) ?>
-                                    </td>
-                                    <td>
-                                        <?= htmlspecialchars($exp['location']) ?>
-                                    </td>
+                                    <td><?= htmlspecialchars($exp['company']) ?></td>
+                                    <td><?= htmlspecialchars($exp['location']) ?></td>
                                     <td>
                                         <?= htmlspecialchars($exp['start_year']) ?>
                                         -
@@ -420,16 +403,10 @@ $awards = mysqli_query($conn,
                             <?php while ($cert = mysqli_fetch_assoc($certifications)) { ?>
                                 <tr>
                                     <td>
-                                        <strong>
-                                            <?= htmlspecialchars($cert['title']) ?>
-                                        </strong>
+                                        <strong><?= htmlspecialchars($cert['title']) ?></strong>
                                     </td>
-                                    <td>
-                                        <?= htmlspecialchars($cert['issuer']) ?>
-                                    </td>
-                                    <td>
-                                        <?= htmlspecialchars($cert['issue_date']) ?>
-                                    </td>
+                                    <td><?= htmlspecialchars($cert['issuer']) ?></td>
+                                    <td><?= htmlspecialchars($cert['issue_date']) ?></td>
                                     <td>
                                         <a href="certification-edit.php?id=<?= $cert['id'] ?>" class="btn btn-sm btn-outline-primary">
                                             <i class="bi bi-pencil"></i>
@@ -618,19 +595,11 @@ $awards = mysqli_query($conn,
                             <?php while ($award = mysqli_fetch_assoc($awards)) { ?>
                                 <tr>
                                     <td>
-                                        <strong>
-                                            <?= htmlspecialchars($award['title']) ?>
-                                        </strong>
+                                        <strong><?= htmlspecialchars($award['title']) ?></strong>
                                     </td>
-                                    <td>
-                                        <?= htmlspecialchars($award['organization']) ?>
-                                    </td>
-                                    <td>
-                                        <?= htmlspecialchars($award['year']) ?>
-                                    </td>
-                                    <td>
-                                        <?= htmlspecialchars($award['description']) ?>
-                                    </td>
+                                    <td><?= htmlspecialchars($award['organization']) ?></td>
+                                    <td><?= htmlspecialchars($award['year']) ?></td>
+                                    <td><?= htmlspecialchars($award['description']) ?></td>
                                     <td>
                                         <a href="award-edit.php?id=<?= $award['id'] ?>" class="btn btn-sm btn-outline-primary">
                                             <i class="bi bi-pencil"></i>

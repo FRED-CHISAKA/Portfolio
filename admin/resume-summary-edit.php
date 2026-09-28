@@ -1,65 +1,54 @@
 <?php
-include "../include/config.php";
-include "header.php";
-include "sidebar.php";
+    include "../include/config.php";
+    include "header.php";
+    include "sidebar.php";
 
-/*
- * Resume Summary Update
- * -----------------------------------------
- * The resume.php page stores the professional
- * summary / career objective in users.slogan.
- *
- * This page updates the profile belonging to
- * user ID 1, matching the existing resume.php
- * implementation.
- */
+    /* Resume Summary Update */
+    $user_id = 1;
+    $message = "";
+    $message_type = "success";
 
-$user_id = 1;
-$message = "";
-$message_type = "success";
+    /* Fetch current user/profile data */
+    $stmt = mysqli_prepare($conn, "SELECT id, slogan FROM users WHERE id = ?");
+    mysqli_stmt_bind_param($stmt, "i", $user_id);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    $user = mysqli_fetch_assoc($result);
+    mysqli_stmt_close($stmt);
 
-/* Fetch current user/profile data */
-$stmt = mysqli_prepare($conn, "SELECT id, slogan FROM users WHERE id = ?");
-mysqli_stmt_bind_param($stmt, "i", $user_id);
-mysqli_stmt_execute($stmt);
-$result = mysqli_stmt_get_result($stmt);
-$user = mysqli_fetch_assoc($result);
-mysqli_stmt_close($stmt);
-
-if (!$user) {
-    $message = "User profile was not found.";
-    $message_type = "danger";
-}
-
-/* Handle update */
-if ($_SERVER["REQUEST_METHOD"] === "POST" && $user) {
-
-    $slogan = trim($_POST["slogan"] ?? "");
-
-    $stmt = mysqli_prepare(
-        $conn,
-        "UPDATE users SET slogan = ? WHERE id = ?"
-    );
-
-    if ($stmt) {
-        mysqli_stmt_bind_param($stmt, "si", $slogan, $user_id);
-
-        if (mysqli_stmt_execute($stmt)) {
-            $message = "Resume summary updated successfully.";
-
-            /* Keep the textarea showing the saved value */
-            $user["slogan"] = $slogan;
-        } else {
-            $message = "Failed to update the resume summary: " . mysqli_error($conn);
-            $message_type = "danger";
-        }
-
-        mysqli_stmt_close($stmt);
-    } else {
-        $message = "Unable to prepare the update query: " . mysqli_error($conn);
+    if (!$user) {
+        $message = "User profile was not found.";
         $message_type = "danger";
     }
-}
+
+    /* Handle update */
+    if ($_SERVER["REQUEST_METHOD"] === "POST" && $user) {
+
+        $slogan = trim($_POST["slogan"] ?? "");
+
+        $stmt = mysqli_prepare($conn,
+            "UPDATE users SET slogan = ? WHERE id = ?"
+        );
+
+        if ($stmt) {
+            mysqli_stmt_bind_param($stmt, "si", $slogan, $user_id);
+
+            if (mysqli_stmt_execute($stmt)) {
+                $message = "Resume summary updated successfully.";
+
+                /* Keep the textarea showing the saved value */
+                $user["slogan"] = $slogan;
+            } else {
+                $message = "Failed to update the resume summary: " . mysqli_error($conn);
+                $message_type = "danger";
+            }
+
+            mysqli_stmt_close($stmt);
+        } else {
+            $message = "Unable to prepare the update query: " . mysqli_error($conn);
+            $message_type = "danger";
+        }
+    }
 ?>
 
 <div class="page-wrapper">
@@ -92,10 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && $user) {
                     <div class="col-lg-12">
                         <div class="alert alert-<?= htmlspecialchars($message_type, ENT_QUOTES, "UTF-8") ?> alert-dismissible fade show" role="alert">
                             <?= htmlspecialchars($message, ENT_QUOTES, "UTF-8") ?>
-                            <button type="button"
-                                    class="btn-close"
-                                    data-bs-dismiss="alert"
-                                    aria-label="Close"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     </div>
                 </div>
@@ -115,25 +101,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && $user) {
                         <div class="card-body">
 
                             <?php if ($user): ?>
-
                                 <form method="POST" action="resume-summary-update.php">
-
                                     <div class="mb-3">
                                         <label for="slogan" class="form-label">
                                             Resume Summary
                                         </label>
 
-                                        <textarea
-                                            name="slogan"
-                                            id="slogan"
-                                            class="form-control"
-                                            rows="8"
+                                        <textarea name="slogan" id="slogan" class="form-control" rows="8"
                                             placeholder="Enter your professional summary or career objective..."
                                             required><?= htmlspecialchars((string)($user["slogan"] ?? ""), ENT_QUOTES, "UTF-8") ?></textarea>
 
                                         <div class="form-text">
-                                            Write a concise professional summary describing
-                                            your background, skills, experience and career
+                                            Write a concise professional summary describing your background, skills, experience and career
                                             direction.
                                         </div>
                                     </div>
@@ -149,15 +128,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && $user) {
                                             Back to Resume
                                         </a>
                                     </div>
-
                                 </form>
 
                             <?php else: ?>
-
                                 <div class="alert alert-danger mb-0">
                                     Unable to load the resume profile.
                                 </div>
-
                             <?php endif; ?>
 
                         </div>

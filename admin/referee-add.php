@@ -1,30 +1,30 @@
 <?php
-require_once "crud-helper.php";
+    require_once "crud-helper.php";
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $v0 = post_string('name');
-    $v1 = post_string('position');
-    $v2 = post_string('organization');
-    $v3 = post_string('phone');
-    $v4 = post_string('email');
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $v0 = post_string('name');
+        $v1 = post_string('position');
+        $v2 = post_string('organization');
+        $v3 = post_string('phone');
+        $v4 = post_string('email');
 
-    $sql = "INSERT INTO referees (name, position, organization, phone, email) VALUES (?,?,?,?,?)";
-    $stmt = mysqli_prepare($conn, $sql);
+        $sql = "INSERT INTO referees (name, position, organization, phone, email) VALUES (?,?,?,?,?)";
+        $stmt = mysqli_prepare($conn, $sql);
 
-    if (!$stmt) {
-        redirect_resume("Unable to prepare the referee record.", "danger");
-    }
+        if (!$stmt) {
+            redirect_resume("Unable to prepare the referee record.", "danger");
+        }
 
-    mysqli_stmt_bind_param($stmt, "sssss", $v0, $v1, $v2, $v3, $v4);
+        mysqli_stmt_bind_param($stmt, "sssss", $v0, $v1, $v2, $v3, $v4);
 
-    if (mysqli_stmt_execute($stmt)) {
+        if (mysqli_stmt_execute($stmt)) {
+            mysqli_stmt_close($stmt);
+            redirect_resume("Add Referee added successfully.");
+        }
+
+        $error = mysqli_stmt_error($stmt);
         mysqli_stmt_close($stmt);
-        redirect_resume("Add Referee added successfully.");
     }
-
-    $error = mysqli_stmt_error($stmt);
-    mysqli_stmt_close($stmt);
-}
 ?>
 <?php include "header.php"; ?>
 <?php include "sidebar.php"; ?>
@@ -55,25 +55,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <form method="POST">
                     <div class="mb-3">
-    <label class="form-label">Full Name</label>
-    <input type="text" name="name" class="form-control" required>
-</div>
-<div class="mb-3">
-    <label class="form-label">Position</label>
-    <input type="text" name="position" class="form-control" required>
-</div>
-<div class="mb-3">
-    <label class="form-label">Organization</label>
-    <input type="text" name="organization" class="form-control" required>
-</div>
-<div class="mb-3">
-    <label class="form-label">Phone</label>
-    <input type="text" name="phone" class="form-control">
-</div>
-<div class="mb-3">
-    <label class="form-label">Email</label>
-    <input type="email" name="email" class="form-control">
-</div>
+                        <label class="form-label">Full Name</label>
+                        <input type="text" name="name" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Position</label>
+                        <input type="text" name="position" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Organization</label>
+                        <input type="text" name="organization" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Phone</label>
+                        <input type="text" name="phone" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control">
+                    </div>
 
                     <div class="d-flex gap-2">
                         <button type="submit" class="btn btn-primary">

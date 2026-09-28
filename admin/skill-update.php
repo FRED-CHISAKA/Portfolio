@@ -28,9 +28,7 @@
 
     /* Update Skill */
     $sql = "UPDATE skills
-            SET icon = ?,
-                title = ?,
-                color = ?
+            SET icon = ?, title = ?, color = ?
             WHERE id = ?";
 
     $stmt = mysqli_prepare($conn, $sql);
@@ -41,12 +39,8 @@
     }
 
     mysqli_stmt_bind_param(
-        $stmt,
-        "sssi",
-        $icon,
-        $title,
-        $color,
-        $id
+        $stmt, "sssi",
+        $icon, $title, $color, $id
     );
 
     if (mysqli_stmt_execute($stmt)) {
