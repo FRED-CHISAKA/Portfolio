@@ -12,7 +12,7 @@
 ?>
 
 
-  <main class="main">
+<main class="main">
 
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
@@ -220,96 +220,81 @@
       </section>
 
       <!-- Projects Section -->
-<section id="projects">
+        <section id="projects">
+            <p class="section_text_p1">Browse My Recent</p>
+            <h1 class="title">Projects</h1>
 
-    <p class="section_text_p1">Browse My Recent</p>
-    <h1 class="title">Projects</h1>
+            <div class="experience-details-container">
+                <div class="about-containers">
 
-    <div class="experience-details-container">
+                    <?php
+                    // Fetch projects from portfolio table
+                    $projects_sql = "SELECT * FROM `portfolio` ORDER BY id DESC LIMIT 6";
+                    $projects_result = mysqli_query($conn, $projects_sql);
 
-        <div class="about-containers">
+                    if ($projects_result && mysqli_num_rows($projects_result) > 0) {
+                        while ($project = mysqli_fetch_assoc($projects_result)) {
 
-            <?php
+                            ?>
 
-            // Fetch projects from portfolio table
-            $projects_sql = "SELECT * FROM `portfolio` ORDER BY id DESC LIMIT 6";
-            $projects_result = mysqli_query($conn, $projects_sql);
+                            <div class="details-container color-container">
 
-            if ($projects_result && mysqli_num_rows($projects_result) > 0) {
+                                <div class="article-container">
+                                    <img src="<?=$project['img']?>" style="height: 270px;"
+                                        alt="<?=htmlspecialchars($project['title'])?>"
+                                        class="project-img"
+                                    >
+                                </div>
 
-                while ($project = mysqli_fetch_assoc($projects_result)) {
+                                <h2 class="experience-sub-title project-title">
+                                    <?=htmlspecialchars($project['title'])?>
+                                </h2>
+
+                                <div class="btn-container">
+
+                                    <!-- Project Link -->
+                                    <button class="btn btn-color-2 project-btn"
+                                        onclick="window.open('<?=$project['url']?>', '_blank')">
+                                        Project Link
+                                    </button>
+
+                                    <!-- Live Demo -->
+                                    <button class="btn btn-color-2 project-btn"
+                                        onclick="window.open('<?=$project['url']?>', '_blank')">
+                                        Live Demo
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                            <?php
+
+                        }
+
+                    } else {
+
+                        ?>
+                        <div class="details-container color-container">
+                            <h2 class="experience-sub-title project-title">
+                                No Projects Available
+                            </h2>
+
+                            <p>
+                                Projects will appear here once they are added through the admin panel.
+                            </p>
+
+                        </div>
+
+                        <?php
+
+                    }
 
                     ?>
 
-                    <div class="details-container color-container">
-
-                        <div class="article-container">
-
-                            <img
-                                src="<?=$project['img']?>"
-                                style="height: 270px;"
-                                alt="<?=htmlspecialchars($project['title'])?>"
-                                class="project-img"
-                            >
-
-                        </div>
-
-                        <h2 class="experience-sub-title project-title">
-                            <?=htmlspecialchars($project['title'])?>
-                        </h2>
-
-                        <div class="btn-container">
-
-                            <!-- Project Link -->
-                            <button
-                                class="btn btn-color-2 project-btn"
-                                onclick="window.open('<?=$project['url']?>', '_blank')">
-                                Project Link
-                            </button>
-
-                            <!-- Live Demo -->
-                            <button
-                                class="btn btn-color-2 project-btn"
-                                onclick="window.open('<?=$project['url']?>', '_blank')">
-                                Live Demo
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                    <?php
-
-                }
-
-            } else {
-
-                ?>
-
-                <div class="details-container color-container">
-
-                    <h2 class="experience-sub-title project-title">
-                        No Projects Available
-                    </h2>
-
-                    <p>
-                        Projects will appear here once they are added
-                        through the admin panel.
-                    </p>
-
                 </div>
-
-                <?php
-
-            }
-
-            ?>
-
-        </div>
-
-    </div>
-
-</section>
+            </div>
+        </section>
 
 
       <section id="contact">
@@ -326,58 +311,7 @@
       </section>
     </div>
 
-  </main>
+</main>
 
-  <footer id="footer" class="footer dark-background">
-    <div class="container">
-      <h3 class="sitename"><?=$data['name']?></h3>
-      <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
-      <div class="social-links d-flex justify-content-center">
-        <a href=""><i class="bi bi-twitter-x"></i></a>
-        <a href=""><i class="bi bi-facebook"></i></a>
-        <a href=""><i class="bi bi-instagram"></i></a>
-        <a href=""><i class="bi bi-skype"></i></a>
-        <a href=""><i class="bi bi-linkedin"></i></a>
-      </div>
-      <div class="container">
-        <div class="copyright">
-          <span>Copyright</span> <strong class="px-1 sitename">Chisaka Fred Portfolio</strong> <span>All Rights Reserved</span>
-        </div>
-        <div class="credits">
-          <?php 
-          $details = "SELECT * FROM `details` WHERE `details`.`id` = 1";
-          $details_results = mysqli_query($conn, $details);
-          $details_data = mysqli_fetch_assoc($details_results);
-          
-          ?>
-
-          Designed by <a href="https://techdive.com/"><?=$data['name']?></a> | <a href="<?=$details_data['url'] ?>" target="_blank"><?= $details_data['company'] ?></a>  
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-
-</body>
-
-</html>
+  <!-- FOOTER -->
+  <?php include 'include/footer.php'; ?>

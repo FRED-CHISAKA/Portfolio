@@ -1,10 +1,10 @@
 <?php
 
-// Get current page
-$current_page = basename($_SERVER['PHP_SELF']);
+  // Get current page
+  $current_page = basename($_SERVER['PHP_SELF']);
 
-// Set page title
-$page_title = $data['name'] . " - " . $data['title'];
+  // Set page title
+  $page_title = $data['name'] . " - " . $data['title'];
 
 ?>
 
@@ -50,17 +50,11 @@ $page_title = $data['name'] . " - " . $data['title'];
 
   <!-- Header -->
   <header id="header" class="header d-flex align-items-center fixed-top">
-
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
       <a href="index.php" class="logo d-flex align-items-center">
-
         <img src="assets/img/logo.png" alt="">
-
-        <h1 class="sitename">
-          <?=$data['name']?>
-        </h1>
-
+        <h1 class="sitename"><?=$data['name']?></h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -121,7 +115,5 @@ $page_title = $data['name'] . " - " . $data['title'];
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
 
       </nav>
-
     </div>
-
   </header>

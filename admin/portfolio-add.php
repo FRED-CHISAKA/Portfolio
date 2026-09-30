@@ -14,23 +14,11 @@
     /* ADD PORTFOLIO PROJECT */
     if (isset($_POST['add_portfolio'])) {
 
-        $title = mysqli_real_escape_string( 
-            $conn, trim($_POST['title'])
-        );
-
-        $description = mysqli_real_escape_string(
-            $conn, trim($_POST['description'])
-        );
-
+        $title = mysqli_real_escape_string($conn, trim($_POST['title']));
+        $description = mysqli_real_escape_string($conn, trim($_POST['description']));
         $category = intval($_POST['category']);
-
-        $technology = mysqli_real_escape_string(
-            $conn, trim($_POST['technology'])
-        );
-
-        $url = mysqli_real_escape_string(
-            $conn, trim($_POST['url'])
-        );
+        $technology = mysqli_real_escape_string($conn, trim($_POST['technology']));
+        $url = mysqli_real_escape_string($conn, trim($_POST['url']));
 
         /* VALIDATION */
         if (empty($title)) {
