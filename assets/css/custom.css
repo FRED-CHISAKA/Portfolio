@@ -377,7 +377,6 @@ article .icon{
 
 
 /* ============== CONTACT PAGE - CUSTOM OVERRIDES ========= */
-/* Main contact section */
 #contact.contact {
     position: relative;
     display: block;
@@ -388,7 +387,6 @@ article .icon{
     padding: 80px 0 100px 0 !important;
 }
 
-/* Contact container */
 #contact.contact > .container {
     position: relative;
     width: 100%;
@@ -493,5 +491,48 @@ article .icon{
         text-align: justify;
     }
 }
+
+
+
+
+
+
+/* Certification Card Button Position Fix */
+.certifications-item .service-item {
+    position: relative;
+    height: 100%;
+    padding-bottom: 75px;
+}
+
+/* Keep the buttons at the bottom of every card */
+.certifications-item .service-item > .mt-3 {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    margin-top: 0 !important;
+}
+
+/* Keep buttons neatly aligned */
+.certifications-item .service-item > .mt-3 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Prevent Bootstrap margins from affecting alignment */
+.certifications-item .service-item > .mt-3 .btn {
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
 
 
