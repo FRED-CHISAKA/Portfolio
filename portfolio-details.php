@@ -64,19 +64,19 @@ include 'include/header.php';
               <div class="swiper-wrapper align-items-center">
 
                 <div class="swiper-slide">
-                  <img src="assets/img/portfolio/portfolio-1.webp" alt="">
+                  <img src="assets/img/projects/3.jpg" alt="">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="assets/img/portfolio/portfolio-10.webp" alt="">
+                  <img src="assets/img/projects/4.jpg" alt="">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="assets/img/portfolio/portfolio-7.webp" alt="">
+                  <img src="assets/img/projects/5.jpg" alt="">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="assets/img/portfolio/portfolio-4.webp" alt="">
+                  <img src="assets/img/projects/6.jpg" alt="">
                 </div>
 
               </div>

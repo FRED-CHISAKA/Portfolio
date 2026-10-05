@@ -49,13 +49,10 @@
             </div>
 
             <div class="col-sm-4 text-right m-b-20">
-
-                <a href="contact.php"
-                   class="btn btn-secondary btn-rounded">
+                <a href="contact.php" class="btn btn-info btn-rounded">
                     <i class="fa fa-arrow-left"></i>
                     Back to Messages
                 </a>
-
             </div>
         </div>
 

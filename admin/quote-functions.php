@@ -21,10 +21,8 @@
         return '../' . $image;
     }
 
-
     /* Check whether an image belongs to the testimonial upload directory.
-    * to avoid deleting an image being used elsewhere on the website.
-    */
+    * to avoid deleting an image being used elsewhere on the website. */
     function isQuoteUploadedImage($image)
     {
         if (empty($image)) {

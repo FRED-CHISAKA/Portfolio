@@ -89,16 +89,11 @@ include 'include/header.php';
             }
             
             ?>
-            <!-- End Portfolio Item -->
 
-          </div><!-- End Portfolio Container -->
-
+          </div>
         </div>
-
       </div>
-
     </section>
-
   </main>
 
 <!-- FOOTER -->

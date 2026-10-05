@@ -37,44 +37,28 @@
     /* UPDATE PROJECT */
     if (isset($_POST['update_portfolio'])) {
 
-        $title = mysqli_real_escape_string(
-            $conn, trim($_POST['title'])
-        );
-
-        $description = mysqli_real_escape_string(
-            $conn, trim($_POST['description'])
-        );
-
+        $title = mysqli_real_escape_string($conn, trim($_POST['title']) );
+        $description = mysqli_real_escape_string($conn, trim($_POST['description']) );
         $category = intval($_POST['category']);
-
-        $technology = mysqli_real_escape_string(
-            $conn, trim($_POST['technology'])
-        );
-
-        $url = mysqli_real_escape_string(
-            $conn, trim($_POST['url'])
-        );
+        $technology = mysqli_real_escape_string($conn, trim($_POST['technology']) );
+        $url = mysqli_real_escape_string($conn, trim($_POST['url']) );
 
         /* VALIDATION */
         if (empty($title)) {
             $error = "Project title is required.";
 
         } elseif (empty($description)) {
-
             $error = "Project description is required.";
 
         } elseif ($category <= 0) {
-
             $error = "Please select a category.";
 
         } elseif (empty($technology)) {
-
             $error = "Technology is required.";
 
         } else {
 
             /* KEEP EXISTING IMAGE */
-
             $database_image_path = $project['img'];
             $old_image_path = "../" . $project['img'];
             $new_uploaded_image = false;
@@ -93,11 +77,8 @@
                 }
 
                 $image_name = $_FILES['img']['name'];
-
                 $image_tmp = $_FILES['img']['tmp_name'];
-
                 $image_size = $_FILES['img']['size'];
-
                 $image_error = $_FILES['img']['error'];
 
                 $image_extension =
@@ -116,15 +97,12 @@
                         $image_extension, $allowed_extensions
                     )
                 ) {
-
                     $error = "Invalid image format. Allowed: JPG, JPEG, PNG, GIF and WEBP.";
 
                 } elseif ($image_size > 5 * 1024 * 1024) {
-
                     $error = "Image size must not exceed 5MB.";
 
                 } elseif ($image_error !== UPLOAD_ERR_OK) {
-
                     $error = "There was an error uploading the image.";
 
                 } else {
@@ -220,7 +198,7 @@
             </div>
 
             <div class="col-sm-4 col-4 text-right">
-                <a href="portfolio.php" class="btn btn-secondary btn-rounded">
+                <a href="portfolio.php" class="btn btn-info btn-rounded">
                     <i class="fa fa-arrow-left"></i>
                     Back to Portfolio
                 </a>

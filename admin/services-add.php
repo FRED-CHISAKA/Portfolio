@@ -52,21 +52,16 @@
                             Service Title
                         </label>
 
-                        <input type="text" name="title" id="title" class="form-control"
-                            placeholder="e.g. Web Development" required
-                        >
+                        <input type="text" name="title" id="title" class="form-control" placeholder="e.g. Web Development" required>
                     </div>
 
                     <!-- Icon -->
                     <div class="col-md-6">
-
                         <label for="icon" class="form-label">
                             Bootstrap Icon Class
                         </label>
 
-                        <input type="text" name="icon" id="icon" class="form-control"
-                            placeholder="e.g. bi bi-code-slash" required
-                        >
+                        <input type="text" name="icon" id="icon" class="form-control" placeholder="e.g. bi bi-code-slash" required>
 
                         <div class="form-text">
                             Example: <code>bi bi-code-slash</code>
@@ -79,9 +74,7 @@
                             Service URL
                         </label>
 
-                        <input type="text" name="url" id="url" class="form-control"
-                            placeholder="e.g. web-development.php" required
-                        >
+                        <input type="text" name="url" id="url" class="form-control" placeholder="e.g. web-development.php" required>
                     </div>
 
                     <!-- Description -->

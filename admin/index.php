@@ -1,14 +1,7 @@
 <?php
-
-include "header.php";
-
+    include "header.php";
+    include "sidebar.php";
 ?>
-<body>
-    <div class="main-wrapper">
-        
-        <?php
-        include "sidebar.php";
-        ?>
 
         <div class="page-wrapper">
             <div class="content">

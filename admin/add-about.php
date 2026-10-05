@@ -17,7 +17,7 @@
             </div>
 
             <div class="col-sm-8 col-9 text-right m-b-20">
-                <a href="about.php" class="btn btn-secondary btn-rounded float-right">
+                <a href="about.php" class="btn btn-info btn-rounded float-right">
                     <i class="fa fa-arrow-left"></i> Back
                 </a>
             </div>

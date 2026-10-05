@@ -218,7 +218,7 @@
             </div>
 
             <div class="col-sm-4 text-right">
-                <a href="certifications.php" class="btn btn-secondary btn-rounded">
+                <a href="certifications.php" class="btn btn-info btn-rounded">
                     <i class="fa fa-arrow-left"></i>
                     Back to Certifications
                 </a>

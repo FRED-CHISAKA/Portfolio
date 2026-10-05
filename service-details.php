@@ -1,12 +1,12 @@
 <?php 
 
-include 'include/config.php';
+  include 'include/config.php';
 
-$sql = "SELECT * FROM `users` WHERE `users`.`id` = 1";
-$result = mysqli_query($conn, $sql);
-$data = mysqli_fetch_assoc($result);
+  $sql = "SELECT * FROM `users` WHERE `users`.`id` = 1";
+  $result = mysqli_query($conn, $sql);
+  $data = mysqli_fetch_assoc($result);
 
-include 'include/header.php';
+  include 'include/header.php';
 
 ?>
 
@@ -77,7 +77,7 @@ include 'include/header.php';
 
       </div>
 
-    </section><!-- /Service Details Section -->
+    </section>
 
   </main>
 

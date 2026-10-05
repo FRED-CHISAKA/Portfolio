@@ -1,12 +1,13 @@
 <?php 
     include "../include/config.php"; 
-    include "header.php"; 
-    include "sidebar.php"; 
-
+     
     // Get current user information
     $sql = "SELECT * FROM users WHERE id = 1"; 
     $result = mysqli_query($conn, $sql); 
     $data = mysqli_fetch_assoc($result); 
+
+    include "header.php"; 
+    include "sidebar.php";
 ?>
 
 <!-- Main Content -->

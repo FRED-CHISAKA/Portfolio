@@ -1,29 +1,29 @@
 <?php
-require_once "crud-helper.php";
+    require_once "crud-helper.php";
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $v0 = post_string('title');
-    $v1 = post_string('organization');
-    $v2 = post_int('year');
-    $v3 = post_string('description');
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $v0 = post_string('title');
+        $v1 = post_string('organization');
+        $v2 = post_int('year');
+        $v3 = post_string('description');
 
-    $sql = "INSERT INTO awards (title, organization, year, description) VALUES (?,?,?,?)";
-    $stmt = mysqli_prepare($conn, $sql);
+        $sql = "INSERT INTO awards (title, organization, year, description) VALUES (?,?,?,?)";
+        $stmt = mysqli_prepare($conn, $sql);
 
-    if (!$stmt) {
-        redirect_resume("Unable to prepare the award record.", "danger");
-    }
+        if (!$stmt) {
+            redirect_resume("Unable to prepare the award record.", "danger");
+        }
 
-    mysqli_stmt_bind_param($stmt, "ssis", $v0, $v1, $v2, $v3);
+        mysqli_stmt_bind_param($stmt, "ssis", $v0, $v1, $v2, $v3);
 
-    if (mysqli_stmt_execute($stmt)) {
+        if (mysqli_stmt_execute($stmt)) {
+            mysqli_stmt_close($stmt);
+            redirect_resume("Add Achievement added successfully.");
+        }
+
+        $error = mysqli_stmt_error($stmt);
         mysqli_stmt_close($stmt);
-        redirect_resume("Add Achievement added successfully.");
     }
-
-    $error = mysqli_stmt_error($stmt);
-    mysqli_stmt_close($stmt);
-}
 ?>
 <?php include "header.php"; ?>
 <?php include "sidebar.php"; ?>
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <h4 class="page-title">Add Achievement</h4>
             </div>
             <div class="col-sm-4 text-right">
-                <a href="resume.php" class="btn btn-secondary btn-rounded">
+                <a href="resume.php" class="btn btn-info btn-rounded">
                     <i class="bi bi-arrow-left me-1"></i> Back to Resume
                 </a>
             </div>

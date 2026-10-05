@@ -36,7 +36,7 @@
                 <h4 class="page-title">Add Referee</h4>
             </div>
             <div class="col-sm-4 text-right">
-                <a href="resume.php" class="btn btn-secondary btn-rounded">
+                <a href="resume.php" class="btn btn-info btn-rounded">
                     <i class="bi bi-arrow-left me-1"></i> Back to Resume
                 </a>
             </div>

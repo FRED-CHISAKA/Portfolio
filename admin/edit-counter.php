@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="col-auto">
-                    <a href="about.php" class="btn btn-secondary">
+                    <a href="about.php" class="btn btn-info btn-rounded">
                         <i class="fa fa-arrow-left"></i> Back
                     </a>
                 </div>

@@ -149,7 +149,7 @@
             </div>
 
             <div class="col-sm-4 col-4 text-right">
-                <a href="portfolio.php" class="btn btn-secondary btn-rounded">
+                <a href="portfolio.php" class="btn btn-info btn-rounded">
                     <i class="fa fa-arrow-left"></i>
                     Back to Portfolio
                 </a>

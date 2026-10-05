@@ -33,17 +33,10 @@
             &&
             $_FILES['media_file']['name'] != ""
         ){
-            $file_name =
-                $_FILES['media_file']['name'];
-
-            $file_tmp =
-                $_FILES['media_file']['tmp_name'];
-
-            $file_size =
-                $_FILES['media_file']['size'];
-
-            $file_type =
-                $_FILES['media_file']['type'];
+            $file_name = $_FILES['media_file']['name'];
+            $file_tmp = $_FILES['media_file']['tmp_name'];
+            $file_size = $_FILES['media_file']['size'];
+            $file_type = $_FILES['media_file']['type'];
 
             $extension = strtolower(
                 pathinfo(
@@ -147,7 +140,7 @@
             </div>
 
             <div class="col-sm-6 text-right">
-                <a href="media.php" class="btn btn-secondary">
+                <a href="media.php" class="btn btn-info btn-rounded">
                     <i class="fa fa-arrow-left"></i>
                     Back
                 </a>

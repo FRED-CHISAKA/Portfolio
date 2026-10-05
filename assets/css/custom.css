@@ -1,7 +1,4 @@
-/* ===============================
-   Contact Form
-================================= */
-
+/* ============= Contact Form =========== */
 .contact-form {
     width: 100%;
     margin-top: 40px;
@@ -192,10 +189,6 @@
     gap: 1rem;
 }
 
-
-
-
-
 .certifications-item:hover .btn-verify{
     background: #000 !important;
     color: #18d26e !important;
@@ -222,10 +215,6 @@
     border-radius: 30px !important;
     padding: 6px 8px !important;
 }
-
-
-
-
 
 /*============= SECTION ABOUT =============*/
 #about{
@@ -375,7 +364,6 @@ article .icon{
     height: 2.5rem;
 }
 
-
 /* ============== CONTACT PAGE - CUSTOM OVERRIDES ========= */
 #contact.contact {
     position: relative;
@@ -492,11 +480,6 @@ article .icon{
     }
 }
 
-
-
-
-
-
 /* Certification Card Button Position Fix */
 .certifications-item .service-item {
     position: relative;
@@ -513,26 +496,16 @@ article .icon{
     margin-top: 0 !important;
 }
 
-/* Keep buttons neatly aligned */
 .certifications-item .service-item > .mt-3 {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
 }
 
-/* Prevent Bootstrap margins from affecting alignment */
 .certifications-item .service-item > .mt-3 .btn {
     margin: 0;
 }
 
-
-
-
-
-
-
-
-
-
-
-
+.swiper-slide img{
+    max-height: 540px !important;
+}
