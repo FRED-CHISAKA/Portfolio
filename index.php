@@ -76,7 +76,6 @@
       </div>  
 
     </section>
-    <!-- /Hero Section -->
 
     <div class="more-sections">
       <section id="about">
@@ -229,7 +228,7 @@
 
                     <?php
                     // Fetch projects from portfolio table
-                    $projects_sql = "SELECT * FROM `portfolio` ORDER BY id DESC LIMIT 6";
+                    $projects_sql = "SELECT * FROM `portfolio` ORDER BY id DESC LIMIT 3";
                     $projects_result = mysqli_query($conn, $projects_sql);
 
                     if ($projects_result && mysqli_num_rows($projects_result) > 0) {
@@ -293,6 +292,75 @@
                     ?>
 
                 </div>
+                <div class="about-containers">
+
+                    <?php
+                    // Fetch projects from portfolio table
+                    $projects_sql = "SELECT * FROM `portfolio` ORDER BY id ASC LIMIT 3";
+                    $projects_result = mysqli_query($conn, $projects_sql);
+
+                    if ($projects_result && mysqli_num_rows($projects_result) > 0) {
+                        while ($project = mysqli_fetch_assoc($projects_result)) {
+
+                            ?>
+
+                            <div class="details-container color-container">
+
+                                <div class="article-container">
+                                    <img src="<?=$project['img']?>" style="height: 270px;"
+                                        alt="<?=htmlspecialchars($project['title'])?>"
+                                        class="project-img"
+                                    >
+                                </div>
+
+                                <h2 class="experience-sub-title project-title">
+                                    <?=htmlspecialchars($project['title'])?>
+                                </h2>
+
+                                <div class="btn-container">
+
+                                    <!-- Project Link -->
+                                    <button class="btn btn-color-2 project-btn"
+                                        onclick="window.open('<?=$project['url']?>', '_blank')">
+                                        Project Link
+                                    </button>
+
+                                    <!-- Live Demo -->
+                                    <button class="btn btn-color-2 project-btn"
+                                        onclick="window.open('<?=$project['url']?>', '_blank')">
+                                        Live Demo
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                            <?php
+
+                        }
+
+                    } else {
+
+                        ?>
+                        <div class="details-container color-container">
+                            <h2 class="experience-sub-title project-title">
+                                No Projects Available
+                            </h2>
+
+                            <p>
+                                Projects will appear here once they are added through the admin panel.
+                            </p>
+
+                        </div>
+
+                        <?php
+
+                    }
+
+                    ?>
+
+                </div>
+                
             </div>
         </section>
 

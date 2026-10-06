@@ -1,113 +1,268 @@
 <?php
 
-    include "../include/config.php";
-    include "header.php";
-    include "sidebar.php";
+include "../include/config.php";
+include "header.php";
+include "sidebar.php";
 
-    $error = "";
-    $message = "";
 
-    /*  GET PROJECT ID */
-    if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+$error = "";
+$message = "";
 
-        header("Location: portfolio.php");
-        exit();
-    }
 
-    $id = intval($_GET['id']);
+/* =========================================================
+   GET PROJECT ID
+========================================================= */
 
-    /* GET EXISTING PROJECT */
-    $project_sql = " SELECT * FROM portfolio WHERE id = '$id' LIMIT 1";
+if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 
-    $project_result = mysqli_query($conn, $project_sql);
+    header("Location: portfolio.php");
+    exit();
 
-    if (!$project_result || mysqli_num_rows($project_result) == 0) {
+}
 
-        header("Location: portfolio.php");
-        exit();
-    }
+$id = intval($_GET['id']);
 
-    $project = mysqli_fetch_assoc($project_result);
 
-    /* GET CATEGORIES */
-    $category_sql = "SELECT * FROM portfolio ORDER BY title ASC";
+/* =========================================================
+   GET EXISTING PROJECT
+========================================================= */
 
-    $category_result = mysqli_query($conn, $category_sql);
+$project_sql = "
+    SELECT *
+    FROM portfolio
+    WHERE id = '$id'
+    LIMIT 1
+";
 
-    /* UPDATE PROJECT */
-    if (isset($_POST['update_portfolio'])) {
+$project_result = mysqli_query($conn, $project_sql);
 
-        $title = mysqli_real_escape_string($conn, trim($_POST['title']) );
-        $description = mysqli_real_escape_string($conn, trim($_POST['description']) );
-        $category = intval($_POST['category']);
-        $technology = mysqli_real_escape_string($conn, trim($_POST['technology']) );
-        $url = mysqli_real_escape_string($conn, trim($_POST['url']) );
+if (
+    !$project_result ||
+    mysqli_num_rows($project_result) == 0
+) {
 
-        /* VALIDATION */
-        if (empty($title)) {
-            $error = "Project title is required.";
+    header("Location: portfolio.php");
+    exit();
 
-        } elseif (empty($description)) {
-            $error = "Project description is required.";
+}
 
-        } elseif ($category <= 0) {
-            $error = "Please select a category.";
+$project = mysqli_fetch_assoc($project_result);
 
-        } elseif (empty($technology)) {
-            $error = "Technology is required.";
+
+/* =========================================================
+   GET PORTFOLIO CATEGORIES
+========================================================= */
+
+$category_sql = "
+    SELECT id, class, name
+    FROM category
+    ORDER BY id ASC
+";
+
+$category_result = mysqli_query($conn, $category_sql);
+
+
+/* =========================================================
+   UPDATE PROJECT
+========================================================= */
+
+if (isset($_POST['update_portfolio'])) {
+
+
+    /* -----------------------------------------------------
+       GET FORM DATA
+    ----------------------------------------------------- */
+
+    $title = mysqli_real_escape_string(
+        $conn,
+        trim($_POST['title'] ?? '')
+    );
+
+    $description = mysqli_real_escape_string(
+        $conn,
+        trim($_POST['description'] ?? '')
+    );
+
+    $category = intval($_POST['category'] ?? 0);
+
+    $technology = mysqli_real_escape_string(
+        $conn,
+        trim($_POST['technology'] ?? '')
+    );
+
+    $url = mysqli_real_escape_string(
+        $conn,
+        trim($_POST['url'] ?? '')
+    );
+
+
+    /* =====================================================
+       VALIDATION
+    ===================================================== */
+
+    if (empty($title)) {
+
+        $error = "Project title is required.";
+
+    } elseif (empty($description)) {
+
+        $error = "Project description is required.";
+
+    } elseif ($category <= 0) {
+
+        $error = "Please select a category.";
+
+    } elseif (empty($technology)) {
+
+        $error = "Technology is required.";
+
+    } else {
+
+
+        /* =================================================
+           VERIFY CATEGORY EXISTS
+        ================================================= */
+
+        $category_check_sql = "
+            SELECT id
+            FROM category
+            WHERE id = '$category'
+            LIMIT 1
+        ";
+
+        $category_check_result =
+            mysqli_query(
+                $conn,
+                $category_check_sql
+            );
+
+
+        if (
+            !$category_check_result ||
+            mysqli_num_rows(
+                $category_check_result
+            ) == 0
+        ) {
+
+            $error =
+                "The selected category does not exist.";
 
         } else {
 
-            /* KEEP EXISTING IMAGE */
+
+            /* =============================================
+               KEEP EXISTING IMAGE
+            ============================================= */
+
             $database_image_path = $project['img'];
-            $old_image_path = "../" . $project['img'];
+
+            $old_image_path =
+                "../" . $project['img'];
+
             $new_uploaded_image = false;
+
             $new_image_full_path = "";
 
-            /*  CHECK FOR NEW IMAGE */
+
+            /* =============================================
+               CHECK FOR NEW IMAGE
+            ============================================= */
+
             if (
                 isset($_FILES['img']) &&
                 $_FILES['img']['error'] != UPLOAD_ERR_NO_FILE
             ) {
 
-                $upload_directory = "../assets/img/portfolio/";
+
+                $upload_directory =
+                    "../assets/img/portfolio/";
+
+
+                /* Create directory if necessary */
 
                 if (!is_dir($upload_directory)) {
-                    mkdir($upload_directory, 0777, true);
+
+                    mkdir(
+                        $upload_directory,
+                        0777,
+                        true
+                    );
+
                 }
 
-                $image_name = $_FILES['img']['name'];
-                $image_tmp = $_FILES['img']['tmp_name'];
-                $image_size = $_FILES['img']['size'];
-                $image_error = $_FILES['img']['error'];
+
+                /* Get uploaded file information */
+
+                $image_name =
+                    $_FILES['img']['name'];
+
+                $image_tmp =
+                    $_FILES['img']['tmp_name'];
+
+                $image_size =
+                    $_FILES['img']['size'];
+
+                $image_error =
+                    $_FILES['img']['error'];
+
+
+                /* Get extension */
 
                 $image_extension =
                     strtolower(
                         pathinfo(
-                            $image_name, PATHINFO_EXTENSION
+                            $image_name,
+                            PATHINFO_EXTENSION
                         )
                     );
 
+
+                /* Allowed image types */
+
                 $allowed_extensions = [
-                    'jpg', 'jpeg', 'png', 'gif', 'webp'
+                    'jpg',
+                    'jpeg',
+                    'png',
+                    'gif',
+                    'webp'
                 ];
+
+
+                /* =========================================
+                   IMAGE VALIDATION
+                ========================================== */
 
                 if (
                     !in_array(
-                        $image_extension, $allowed_extensions
+                        $image_extension,
+                        $allowed_extensions
                     )
                 ) {
-                    $error = "Invalid image format. Allowed: JPG, JPEG, PNG, GIF and WEBP.";
 
-                } elseif ($image_size > 5 * 1024 * 1024) {
-                    $error = "Image size must not exceed 5MB.";
+                    $error =
+                        "Invalid image format. Allowed: JPG, JPEG, PNG, GIF and WEBP.";
 
-                } elseif ($image_error !== UPLOAD_ERR_OK) {
-                    $error = "There was an error uploading the image.";
+                } elseif (
+                    $image_size > 5 * 1024 * 1024
+                ) {
+
+                    $error =
+                        "Image size must not exceed 5MB.";
+
+                } elseif (
+                    $image_error !== UPLOAD_ERR_OK
+                ) {
+
+                    $error =
+                        "There was an error uploading the image.";
 
                 } else {
 
-                    /* Generate new filename */
+
+                    /* =====================================
+                       GENERATE UNIQUE IMAGE NAME
+                    ====================================== */
+
                     $new_image_name =
                         "portfolio_" .
                         time() .
@@ -116,41 +271,79 @@
                         "." .
                         $image_extension;
 
+
                     $new_image_full_path =
                         $upload_directory .
                         $new_image_name;
 
+
+                    /* =====================================
+                       MOVE NEW IMAGE
+                    ====================================== */
+
                     if (
                         move_uploaded_file(
-                            $image_tmp, $new_image_full_path
+                            $image_tmp,
+                            $new_image_full_path
                         )
                     ) {
+
+
+                        /* Path stored in database */
 
                         $database_image_path =
                             "assets/img/portfolio/" .
                             $new_image_name;
 
+
                         $new_uploaded_image = true;
+
 
                     } else {
 
-                        $error = "Failed to upload the new image.";
+                        $error =
+                            "Failed to upload the new image.";
+
                     }
+
                 }
+
             }
 
-            /* UPDATE DATABASE */
+
+            /* =============================================
+               UPDATE DATABASE
+            ============================================= */
+
             if (empty($error)) {
 
-                $update_sql = " UPDATE portfolio
-                    SET title = '$title', description = '$description', category = '$category',
-                        technology = '$technology', url = '$url', img = '$database_image_path'
+
+                $update_sql = "
+                    UPDATE portfolio
+                    SET
+                        title = '$title',
+                        description = '$description',
+                        category = '$category',
+                        technology = '$technology',
+                        url = '$url',
+                        img = '$database_image_path'
                     WHERE id = '$id'
                 ";
 
-                if (mysqli_query($conn, $update_sql)) {
 
-                    /* DELETE OLD IMAGE */
+                if (
+                    mysqli_query(
+                        $conn,
+                        $update_sql
+                    )
+                ) {
+
+
+                    /* =====================================
+                       DELETE OLD IMAGE
+                       Only after successful update
+                    ====================================== */
+
                     if (
                         $new_uploaded_image &&
                         !empty($project['img']) &&
@@ -158,253 +351,548 @@
                     ) {
 
                         unlink($old_image_path);
+
                     }
 
-                    $message = "Portfolio project updated successfully.";
 
-                    /* Reload updated project */
-                    $project_result = mysqli_query($conn, $project_sql);
-                    $project = mysqli_fetch_assoc($project_result);
+                    $message =
+                        "Portfolio project updated successfully.";
+
+
+                    /* =====================================
+                       RELOAD UPDATED PROJECT
+                    ====================================== */
+
+                    $project_result =
+                        mysqli_query(
+                            $conn,
+                            $project_sql
+                        );
+
+                    $project =
+                        mysqli_fetch_assoc(
+                            $project_result
+                        );
+
 
                 } else {
 
-                    /* Delete newly uploaded image if update fails */
+
+                    /* =====================================
+                       DELETE NEW IMAGE IF DB UPDATE FAILS
+                    ====================================== */
+
                     if (
                         $new_uploaded_image &&
-                        file_exists($new_image_full_path)
+                        file_exists(
+                            $new_image_full_path
+                        )
                     ) {
-                        unlink($new_image_full_path);
+
+                        unlink(
+                            $new_image_full_path
+                        );
+
                     }
 
-                    $error = "Failed to update project: " .
+
+                    $error =
+                        "Failed to update project: " .
                         mysqli_error($conn);
+
                 }
+
             }
+
         }
+
     }
+
+}
 
 ?>
 
-<!-- Main Content -->
+
+<!-- =========================================================
+     MAIN CONTENT
+========================================================= -->
+
 <div class="page-wrapper">
+
     <div class="content">
 
-        <!-- Page Header -->
+
+        <!-- =================================================
+             PAGE HEADER
+        ================================================== -->
+
         <div class="row">
+
             <div class="col-sm-8 col-8">
+
                 <h4 class="page-title">
+
                     Edit Portfolio Project
+
                 </h4>
+
             </div>
+
 
             <div class="col-sm-4 col-4 text-right">
-                <a href="portfolio.php" class="btn btn-info btn-rounded">
+
+                <a
+                    href="portfolio.php"
+                    class="btn btn-info btn-rounded"
+                >
+
                     <i class="fa fa-arrow-left"></i>
+
                     Back to Portfolio
+
                 </a>
+
             </div>
+
         </div>
 
-        <!-- Success -->
+
+        <!-- =================================================
+             SUCCESS MESSAGE
+        ================================================== -->
+
         <?php if (!empty($message)) { ?>
+
             <div class="alert alert-success alert-dismissible fade show">
-                <strong>Success!</strong>
+
+                <strong>
+                    Success!
+                </strong>
+
                 <?= htmlspecialchars($message) ?>
 
-                <button type="button" class="close" data-dismiss="alert">
-                    <span>&times;</span>
+
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="alert"
+                >
+
+                    <span>
+                        &times;
+                    </span>
+
                 </button>
+
             </div>
+
         <?php } ?>
 
-        <!-- Error -->
+
+        <!-- =================================================
+             ERROR MESSAGE
+        ================================================== -->
+
         <?php if (!empty($error)) { ?>
+
             <div class="alert alert-danger alert-dismissible fade show">
 
-                <strong>Error!</strong>
+                <strong>
+                    Error!
+                </strong>
+
                 <?= htmlspecialchars($error) ?>
 
-                <button type="button" class="close" data-dismiss="alert">
-                    <span>&times;</span>
+
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="alert"
+                >
+
+                    <span>
+                        &times;
+                    </span>
+
                 </button>
+
             </div>
+
         <?php } ?>
 
-        <!-- Form -->
+
+        <!-- =================================================
+             FORM
+        ================================================== -->
+
         <div class="card shadow-sm border-0">
+
             <div class="card-header bg-white">
+
                 <h5 class="mb-0">
+
                     <i class="bi bi-pencil-square me-2"></i>
+
                     Edit Project Information
+
                 </h5>
+
             </div>
 
+
             <div class="card-body">
-                <form method="POST" enctype="multipart/form-data">
+
+                <form
+                    method="POST"
+                    enctype="multipart/form-data"
+                >
+
                     <div class="row">
 
-                        <!-- Title -->
+
+                        <!-- =================================
+                             PROJECT TITLE
+                        ================================== -->
+
                         <div class="col-md-6">
+
                             <div class="form-group">
+
                                 <label>
+
                                     Project Title
-                                    <span class="text-danger">*</span>
+
+                                    <span class="text-danger">
+                                        *
+                                    </span>
+
                                 </label>
 
-                                <input type="text" name="title" class="form-control"
+
+                                <input
+                                    type="text"
+                                    name="title"
+                                    class="form-control"
                                     value="<?= htmlspecialchars($project['title']) ?>"
                                     required
                                 >
+
                             </div>
+
                         </div>
 
-                        <!-- Category -->
+
+                        <!-- =================================
+                             CATEGORY
+                        ================================== -->
+
                         <div class="col-md-6">
+
                             <div class="form-group">
 
                                 <label>
+
                                     Category
-                                    <span class="text-danger">*</span>
+
+                                    <span class="text-danger">
+                                        *
+                                    </span>
+
                                 </label>
 
-                                <select name="category" class="form-control" required>
-                                    <option value="">Select Category</option>
+
+                                <select
+                                    name="category"
+                                    class="form-control"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Select Category
+                                    </option>
+
 
                                     <?php
+
                                     if (
                                         $category_result &&
-                                        mysqli_num_rows($category_result) > 0
+                                        mysqli_num_rows(
+                                            $category_result
+                                        ) > 0
                                     ) {
 
                                         while (
-                                            $category = mysqli_fetch_assoc($category_result)
+                                            $category =
+                                            mysqli_fetch_assoc(
+                                                $category_result
+                                            )
                                         ) {
+
                                     ?>
 
                                         <option
                                             value="<?= $category['id'] ?>"
                                             <?= (
-                                                $project['category']
-                                                == $category['id']
+                                                $project['category'] ==
+                                                $category['id']
                                             )
                                                 ? 'selected'
                                                 : ''
                                             ?>
                                         >
-                                            <?= htmlspecialchars($category['title']) ?>
+
+                                            <?= htmlspecialchars(
+                                                $category['name']
+                                            ) ?>
+
                                         </option>
 
                                     <?php
+
                                         }
+
                                     }
+
                                     ?>
+
                                 </select>
+
+
+                                <small class="text-muted">
+
+                                    Select the category that best describes
+                                    this project.
+
+                                </small>
+
                             </div>
+
                         </div>
 
-                        <!-- Technology -->
+
+                        <!-- =================================
+                             TECHNOLOGY
+                        ================================== -->
+
                         <div class="col-md-6">
+
                             <div class="form-group">
+
                                 <label>
+
                                     Technology
-                                    <span class="text-danger">*</span>
+
+                                    <span class="text-danger">
+                                        *
+                                    </span>
+
                                 </label>
 
-                                <input type="text" name="technology" class="form-control"
+
+                                <input
+                                    type="text"
+                                    name="technology"
+                                    class="form-control"
                                     value="<?= htmlspecialchars($project['technology']) ?>"
+                                    placeholder="e.g. PHP, MySQL, Bootstrap"
                                     required
                                 >
+
                             </div>
+
                         </div>
 
-                        <!-- URL -->
+
+                        <!-- =================================
+                             PROJECT URL
+                        ================================== -->
+
                         <div class="col-md-6">
+
                             <div class="form-group">
+
                                 <label>
                                     Project URL
                                 </label>
 
-                                <input type="url" name="url" class="form-control"
+
+                                <input
+                                    type="url"
+                                    name="url"
+                                    class="form-control"
                                     value="<?= htmlspecialchars($project['url']) ?>"
                                     placeholder="https://example.com"
                                 >
+
+
+                                <small class="text-muted">
+
+                                    Leave blank if the project has no live URL.
+
+                                </small>
+
                             </div>
+
                         </div>
 
-                        <!-- Description -->
+
+                        <!-- =================================
+                             DESCRIPTION
+                        ================================== -->
+
                         <div class="col-md-12">
+
                             <div class="form-group">
+
                                 <label>
+
                                     Project Description
-                                    <span class="text-danger">*</span>
+
+                                    <span class="text-danger">
+                                        *
+                                    </span>
+
                                 </label>
 
-                                <textarea name="description" rows="5" class="form-control" required
+
+                                <textarea
+                                    name="description"
+                                    rows="5"
+                                    class="form-control"
+                                    required
                                 ><?= htmlspecialchars($project['description']) ?></textarea>
+
                             </div>
+
                         </div>
 
-                        <!-- Existing Image -->
+
+                        <!-- =================================
+                             CURRENT IMAGE
+                        ================================== -->
+
                         <div class="col-md-6">
+
                             <div class="form-group">
+
                                 <label>
                                     Current Image
                                 </label>
 
+
                                 <div class="border rounded p-3">
+
                                     <?php if (!empty($project['img'])) { ?>
-                                        <img src="../<?= htmlspecialchars($project['img']) ?>"
+
+                                        <img
+                                            src="../<?= htmlspecialchars($project['img']) ?>"
                                             alt="<?= htmlspecialchars($project['title']) ?>"
-                                            class="img-fluid rounded" style="max-height: 220px;"
+                                            class="img-fluid rounded"
+                                            style="max-height: 220px;"
                                         >
 
                                     <?php } else { ?>
+
                                         <div class="text-muted py-4 text-center">
+
                                             <i class="bi bi-image fs-1"></i>
-                                            <p class="mb-0">No image available </p>
+
+                                            <p class="mb-0">
+                                                No image available
+                                            </p>
+
                                         </div>
+
                                     <?php } ?>
+
                                 </div>
+
                             </div>
+
                         </div>
 
-                        <!-- New Image -->
+
+                        <!-- =================================
+                             REPLACE IMAGE
+                        ================================== -->
+
                         <div class="col-md-6">
+
                             <div class="form-group">
+
                                 <label>
                                     Replace Image
                                 </label>
 
-                                <input type="file" name="img" class="form-control"
+
+                                <input
+                                    type="file"
+                                    name="img"
+                                    class="form-control"
                                     accept="image/jpeg,image/png,image/gif,image/webp"
                                 >
 
+
                                 <small class="text-muted">
+
                                     Leave empty to keep the current image.
+
                                     <br>
+
                                     JPG, JPEG, PNG, GIF or WEBP.
+
                                     Maximum 5MB.
+
                                 </small>
+
                             </div>
+
                         </div>
+
+
                     </div>
 
-                    <!-- Buttons -->
+
+                    <!-- =====================================
+                         BUTTONS
+                    ====================================== -->
+
                     <div class="text-right mt-4">
 
-                        <a href="portfolio.php" class="btn btn-secondary">
+                        <a
+                            href="portfolio.php"
+                            class="btn btn-secondary"
+                        >
+
                             Cancel
+
                         </a>
 
-                        <button type="submit" name="update_portfolio" class="btn btn-primary">
+
+                        <button
+                            type="submit"
+                            name="update_portfolio"
+                            class="btn btn-primary"
+                        >
+
                             <i class="bi bi-save me-1"></i>
+
                             Update Portfolio
+
                         </button>
+
                     </div>
+
+
                 </form>
+
             </div>
+
         </div>
+
     </div>
+
 </div>
+
 
 <?php include "footer.php"; ?>
