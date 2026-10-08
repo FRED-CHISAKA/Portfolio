@@ -2,62 +2,32 @@
 
 include "../include/config.php";
 
-
-/* =========================================================
-   CHECK PROJECT ID
-========================================================= */
-
+/* ===== CHECK PROJECT ID ========= */
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
-
     header("Location: portfolio.php");
     exit();
-
 }
 
 $id = intval($_GET['id']);
 
-
-/* =========================================================
-   GET PROJECT
-========================================================= */
-
-$project_sql = "
-    SELECT *
-    FROM portfolio
-    WHERE id = '$id'
-    LIMIT 1
-";
-
-$project_result = mysqli_query(
-    $conn,
-    $project_sql
-);
-
+/* =========== GET PROJECT ================ */
+$project_sql = "SELECT * FROM portfolio WHERE id = '$id' LIMIT 1";
+$project_result = mysqli_query($conn, $project_sql);
 
 if (
-    !$project_result ||
-    mysqli_num_rows($project_result) == 0
+    !$project_result || mysqli_num_rows($project_result) == 0
 ) {
-
     header("Location: portfolio.php?deleted=notfound");
     exit();
-
 }
-
 
 $project = mysqli_fetch_assoc($project_result);
 
-
-/* =========================================================
-   SAVE IMAGE PATH BEFORE DELETING DATABASE RECORD
-========================================================= */
-
+/* =================== SAVE IMAGE PATH BEFORE DELETING DATABASE RECORD ============== */
 $image_path = "";
 
 if (!empty($project['img'])) {
-
     $image_path = "../" . $project['img'];
-
 }
 
 
