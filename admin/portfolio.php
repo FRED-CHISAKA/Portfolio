@@ -18,8 +18,7 @@
     }
 
     /* ================ GET ALL PORTFOLIO PROJECTS ============ */
-    $portfolio_sql = "SELECT 
-            portfolio.*,
+    $portfolio_sql = "SELECT portfolio.*,
             category.name AS category_name,
             category.class AS category_class
         FROM portfolio LEFT JOIN category 

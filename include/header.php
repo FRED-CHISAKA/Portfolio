@@ -110,6 +110,16 @@
             </a>
           </li>
 
+        <!-- Light/Dark Mode Toggle -->
+        <!-- <button type="button" id="theme-toggle" class="theme-toggle"
+            aria-label="Switch to dark mode"
+            aria-pressed="false"
+            title="Switch theme"
+        >
+            <span class="theme-icon" aria-hidden="true">☾</span>
+            <span class="theme-label">Dark mode</span>
+        </button> -->
+
         </ul>
 
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
