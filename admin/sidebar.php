@@ -1,4 +1,6 @@
 <?php
+    require_once __DIR__ . '/auth.php';
+
     $currentPage = basename($_SERVER['PHP_SELF']);
 
     /* Website Management */
@@ -222,7 +224,21 @@
                 <li>
                     <a href="logout.php">
                         <i class="fa fa-sign-out"></i>
-                        <span>Logout</span>
+                        <form action="logout.php" method="POST">
+                            <input
+                                type="hidden"
+                                name="logout_token"
+                                value="<?= htmlspecialchars(
+                                    $_SESSION['logout_token'],
+                                    ENT_QUOTES,
+                                    'UTF-8'
+                                ) ?>"
+                            >
+
+                        <button type="submit" class="btn btn-primary">
+                                Logout
+                            </button>
+                        </form>
                     </a>
                 </li>
             </ul>

@@ -1,3 +1,27 @@
+
+<?php
+
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+
+// Already logged in? Go to the dashboard.
+if (isset($_SESSION['admin_id'])) {
+    header('Location: index.php');
+    exit;
+}
+
+// Preserve login error messages.
+$error = $_SESSION['login_error'] ?? '';
+unset($_SESSION['login_error']);
+
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,26 +44,29 @@
         <div class="account-page">
 			<div class="account-center">
 				<div class="account-box">
-                    <form action="index.php" class="form-signin">
+                    <form action="login-action.php" method="POST" class="form-signin">
+                        <?php if ($error !== ''): ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?>
+                            </div>
+                        <?php endif; ?>
+
 						<div class="account-logo">
                             <a href="index.php"><img src="assets/img/icon.jpg" alt="" style="border-radius: 50% !important;"></a>
                         </div>
+                        
                         <div class="form-group">
-                            <label>Username or Email</label>
-                            <input type="text" autofocus="" class="form-control">
+                            <label>Email Address</label>
+                            <input type="email" name="email" class="form-control" autocomplete="username" required autofocus>
                         </div>
+
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control">
+                            <input type="password" name="password" class="form-control" autocomplete="current-password" required>
                         </div>
-                        <div class="form-group text-right">
-                            <a href="forgot-password.php">Forgot your password?</a>
-                        </div>
+
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-primary account-btn">Login</button>
-                        </div>
-                        <div class="text-center register-link">
-                            Don’t have an account? <a href="register.php">Register Now</a>
                         </div>
                     </form>
                 </div>

@@ -1,3 +1,8 @@
+<?php
+require_once __DIR__ . '/auth.php';
+
+?>
+
 <!-- ======== MESSAGE SIDEBAR ============ -->
         <div class="notification-box">
             <div class="msg-sidebar notifications msg-noti">

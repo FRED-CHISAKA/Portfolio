@@ -11,7 +11,7 @@
 |
 |--------------------------------------------------------------------------
 */
-
+require_once __DIR__ . '/auth.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -448,9 +448,24 @@ function timeAgo($datetime)
 
                     <a
                         class="dropdown-item"
-                        href="login.php"
                     >
-                        Logout
+                        
+<form action="logout.php" method="POST">
+    <input
+        type="hidden"
+        name="logout_token"
+        value="<?= htmlspecialchars(
+            $_SESSION['logout_token'],
+            ENT_QUOTES,
+            'UTF-8'
+        ) ?>"
+    >
+
+    <button type="submit" class="btn btn-primary">
+        <i class="fa fa-sign-out"></i> Logout
+    </button>
+</form>
+
                     </a>
 
                 </div>

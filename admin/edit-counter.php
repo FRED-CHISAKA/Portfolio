@@ -1,5 +1,5 @@
 <?php
-
+    require_once __DIR__ . '/auth.php';
     include "../include/config.php";
 
     /* Validate ID BEFORE including header.php */

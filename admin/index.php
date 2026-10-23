@@ -1,7 +1,11 @@
 <?php
+
+	require_once __DIR__ . '/auth.php';
     include "header.php";
     include "sidebar.php";
 ?>
+
+
 
         <div class="page-wrapper">
             <div class="content">

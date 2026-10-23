@@ -1,4 +1,5 @@
 <?php
+    require_once __DIR__ . '/auth.php';
     include "../include/config.php";
     include "header.php";
     include "sidebar.php";

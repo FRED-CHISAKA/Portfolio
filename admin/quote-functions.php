@@ -1,5 +1,6 @@
 <?php
-
+    require_once __DIR__ . '/auth.php';
+    
     /* Convert database image path into a path that can be displayed from an admin page. */
     function quoteImagePath($image)
     {
