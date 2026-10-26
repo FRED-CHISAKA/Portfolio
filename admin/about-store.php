@@ -50,8 +50,7 @@
     $stmt = mysqli_prepare($conn, $sql);
 
     mysqli_stmt_bind_param(
-        $stmt,
-        "ssssssssissi",
+        $stmt, "ssssssssissi",
         $name, $title, $slogan, $email, $phone, $website, $city, $birthday, $age, $degree, $certification, $freelance
     );
 

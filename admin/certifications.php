@@ -143,7 +143,6 @@
     </div>
 
     <!-- CERTIFICATIONS CARD -->
-
     <div class="card shadow-sm border-0">
 
         <!-- Card Header -->
@@ -202,15 +201,12 @@
                                         <?php if (!empty($certification['img'])) { ?>
 
                                             <?php
-                                                $certificate_path =
-                                                    "../" .
-                                                    $certification['img'];
+                                                $certificate_path = "../" . $certification['img'];
 
                                                 $extension =
                                                     strtolower(
                                                         pathinfo(
-                                                            $certification['img'],
-                                                            PATHINFO_EXTENSION
+                                                            $certification['img'], PATHINFO_EXTENSION
                                                         )
                                                     );
 
@@ -234,8 +230,7 @@
 
                                                 <!-- DOCUMENT -->
                                                 <a href="<?= htmlspecialchars($certificate_path) ?>" target="_blank"
-                                                class="text-decoration-none"
-                                                title="Open Certificate Document">
+                                                class="text-decoration-none" title="Open Certificate Document">
 
                                                     <div class="bg-light rounded border d-flex align-items-center justify-content-center"
                                                         style="width: 70px; height: 50px;"
@@ -267,16 +262,12 @@
                                     <!-- Certification -->
                                     <td>
                                         <strong>
-                                            <?= htmlspecialchars(
-                                                $certification['title']
-                                            ) ?>
+                                            <?= htmlspecialchars($certification['title']) ?>
                                         </strong>
 
                                         <?php if (!empty($certification['description'])) { ?>
                                             <div class="small text-muted mt-1">
-                                                <?= htmlspecialchars(
-                                                    $certification['description']
-                                                ) ?>
+                                                <?= htmlspecialchars($certification['description']) ?>
                                             </div>
                                         <?php } ?>
                                     </td>
@@ -284,9 +275,7 @@
                                     <!-- Issuer -->
                                     <td>
                                         <span>
-                                            <?= htmlspecialchars(
-                                                $certification['issuer']
-                                            ) ?>
+                                            <?= htmlspecialchars($certification['issuer']) ?>
                                         </span>
                                     </td>
 
@@ -295,9 +284,7 @@
                                         <?php if (!empty($certification['issue_date'])) { ?>
                                             <?= date(
                                                 'M Y',
-                                                strtotime(
-                                                    $certification['issue_date']
-                                                )
+                                                strtotime($certification['issue_date'])
                                             ) ?>
 
                                         <?php } else { ?>
@@ -311,9 +298,7 @@
                                     <td>
                                         <?php if (!empty($certification['credential_id'])) { ?>
                                             <code>
-                                                <?= htmlspecialchars(
-                                                    $certification['credential_id']
-                                                ) ?>
+                                                <?= htmlspecialchars($certification['credential_id']) ?>
                                             </code>
 
                                         <?php } else { ?>
@@ -345,11 +330,8 @@
                                             <!-- View / Verify -->
                                             <?php if (!empty($certification['url'])) { ?>
                                                 <a
-                                                    href="<?= htmlspecialchars(
-                                                        $certification['url']
-                                                    ) ?>"
-                                                    target="_blank"
-                                                    class="btn btn-sm btn-outline-success"
+                                                    href="<?= htmlspecialchars($certification['url']) ?>"
+                                                    target="_blank" class="btn btn-sm btn-outline-success"
                                                     title="Verify Certificate"
                                                 >
                                                     <i class="bi bi-box-arrow-up-right"></i>
@@ -359,8 +341,7 @@
                                             <!-- Edit -->
                                             <a
                                                 href="certification-edit.php?id=<?= $certification['id'] ?>"
-                                                class="btn btn-sm btn-outline-primary"
-                                                title="Edit Certification"
+                                                class="btn btn-sm btn-outline-primary" title="Edit Certification"
                                             >
                                                 <i class="bi bi-pencil"></i>
                                             </a>
@@ -368,8 +349,7 @@
                                             <!-- Delete -->
                                             <a
                                                 href="certification-delete.php?id=<?= $certification['id'] ?>"
-                                                class="btn btn-sm btn-outline-danger"
-                                                title="Delete Certification"
+                                                class="btn btn-sm btn-outline-danger" title="Delete Certification"
                                                 onclick="return confirm('Are you sure you want to delete this certification?')"
                                             >
                                                 <i class="bi bi-trash"></i>

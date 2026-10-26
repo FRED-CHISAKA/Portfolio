@@ -23,9 +23,10 @@
         $error = mysqli_stmt_error($stmt);
         mysqli_stmt_close($stmt);
     }
+
+    include "header.php";
+    include "sidebar.php";
 ?>
-<?php include "header.php"; ?>
-<?php include "sidebar.php"; ?>
 
 <div class="page-wrapper">
     <div class="content">

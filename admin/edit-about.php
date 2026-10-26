@@ -10,7 +10,6 @@
 
     $id = (int) $_GET['id'];
 
-
     /* Get About information */
     $sql = "SELECT * FROM users WHERE id = ?";
     $stmt = mysqli_prepare($conn, $sql);

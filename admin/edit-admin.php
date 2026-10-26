@@ -1,158 +1,158 @@
 
 <?php
-require_once __DIR__ . '/auth.php';
-require_once __DIR__ . '/../include/config.php';
+    require_once __DIR__ . '/auth.php';
+    require_once __DIR__ . '/../include/config.php';
 
-if (session_status() !== PHP_SESSION_ACTIVE) {
-    session_start();
-}
-
-if (empty($_SESSION['admin_csrf_token'])) {
-    $_SESSION['admin_csrf_token'] = bin2hex(random_bytes(32));
-}
-
-function editAdminEscape($value): string
-{
-    return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
-}
-
-$errors = [];
-$id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
-}
-
-if (!$id || $id < 1) {
-    header('Location: admins.php?message=invalid');
-    exit;
-}
-
-// Load the existing account.
-$stmt = $conn->prepare(
-    'SELECT id, name, email, role, status
-     FROM admins WHERE id = ? LIMIT 1'
-);
-$stmt->bind_param('i', $id);
-$stmt->execute();
-$admin = $stmt->get_result()->fetch_assoc();
-$stmt->close();
-
-if (!$admin) {
-    header('Location: admins.php?message=not_found');
-    exit;
-}
-
-$name = $admin['name'];
-$email = $admin['email'];
-$role = $admin['role'];
-$status = $admin['status'];
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = trim($_POST['name'] ?? '');
-    $email = trim($_POST['email'] ?? '');
-    $newPassword = $_POST['password'] ?? '';
-    $role = $_POST['role'] ?? '';
-    $status = $_POST['status'] ?? '';
-    $token = $_POST['csrf_token'] ?? '';
-
-    if (
-        !is_string($token) ||
-        !hash_equals($_SESSION['admin_csrf_token'], $token)
-    ) {
-        $errors[] = 'Invalid request token. Please refresh and try again.';
+    if (session_status() !== PHP_SESSION_ACTIVE) {
+        session_start();
     }
 
-    if ($name === '' || strlen($name) > 100) {
-        $errors[] = 'Enter a name of up to 100 characters.';
+    if (empty($_SESSION['admin_csrf_token'])) {
+        $_SESSION['admin_csrf_token'] = bin2hex(random_bytes(32));
     }
 
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($email) > 255) {
-        $errors[] = 'Enter a valid email address.';
+    function editAdminEscape($value): string
+    {
+        return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
     }
 
-    if ($newPassword !== '' && strlen($newPassword) < 8) {
-        $errors[] = 'A new password must contain at least 8 characters.';
+    $errors = [];
+    $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
     }
 
-    if (!in_array($role, ['admin', 'super_admin'], true)) {
-        $errors[] = 'Select a valid administrator role.';
+    if (!$id || $id < 1) {
+        header('Location: admins.php?message=invalid');
+        exit;
     }
 
-    if (!in_array($status, ['active', 'inactive'], true)) {
-        $errors[] = 'Select a valid account status.';
+    // Load the existing account.
+    $stmt = $conn->prepare(
+        'SELECT id, name, email, role, status
+        FROM admins WHERE id = ? LIMIT 1'
+    );
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
+    $admin = $stmt->get_result()->fetch_assoc();
+    $stmt->close();
+
+    if (!$admin) {
+        header('Location: admins.php?message=not_found');
+        exit;
     }
 
-    if (!$errors) {
-        $check = $conn->prepare(
-            'SELECT id FROM admins WHERE email = ? AND id <> ? LIMIT 1'
-        );
-        $check->bind_param('si', $email, $id);
-        $check->execute();
-        $check->store_result();
+    $name = $admin['name'];
+    $email = $admin['email'];
+    $role = $admin['role'];
+    $status = $admin['status'];
 
-        if ($check->num_rows > 0) {
-            $errors[] = 'Another administrator already uses this email.';
-        }
-        $check->close();
-    }
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $name = trim($_POST['name'] ?? '');
+        $email = trim($_POST['email'] ?? '');
+        $newPassword = $_POST['password'] ?? '';
+        $role = $_POST['role'] ?? '';
+        $status = $_POST['status'] ?? '';
+        $token = $_POST['csrf_token'] ?? '';
 
-    if (!$errors) {
-        if ($newPassword !== '') {
-            $passwordHash = password_hash($newPassword, PASSWORD_DEFAULT);
-
-            $update = $conn->prepare(
-                'UPDATE admins
-                 SET name = ?, email = ?, password = ?, role = ?, status = ?
-                 WHERE id = ?'
-            );
-            $update->bind_param(
-                'sssssi',
-                $name,
-                $email,
-                $passwordHash,
-                $role,
-                $status,
-                $id
-            );
-        } else {
-            $update = $conn->prepare(
-                'UPDATE admins
-                 SET name = ?, email = ?, role = ?, status = ?
-                 WHERE id = ?'
-            );
-            $update->bind_param(
-                'ssssi',
-                $name,
-                $email,
-                $role,
-                $status,
-                $id
-            );
+        if (
+            !is_string($token) ||
+            !hash_equals($_SESSION['admin_csrf_token'], $token)
+        ) {
+            $errors[] = 'Invalid request token. Please refresh and try again.';
         }
 
-        if ($update->execute()) {
-            $update->close();
+        if ($name === '' || strlen($name) > 100) {
+            $errors[] = 'Enter a name of up to 100 characters.';
+        }
 
-            // If editing the current account, refresh its session details.
-            if ((int) $_SESSION['admin_id'] === (int) $id) {
-                $_SESSION['admin_name'] = $name;
-                $_SESSION['admin_email'] = $email;
-                $_SESSION['admin_role'] = $role;
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($email) > 255) {
+            $errors[] = 'Enter a valid email address.';
+        }
+
+        if ($newPassword !== '' && strlen($newPassword) < 8) {
+            $errors[] = 'A new password must contain at least 8 characters.';
+        }
+
+        if (!in_array($role, ['admin', 'super_admin'], true)) {
+            $errors[] = 'Select a valid administrator role.';
+        }
+
+        if (!in_array($status, ['active', 'inactive'], true)) {
+            $errors[] = 'Select a valid account status.';
+        }
+
+        if (!$errors) {
+            $check = $conn->prepare(
+                'SELECT id FROM admins WHERE email = ? AND id <> ? LIMIT 1'
+            );
+            $check->bind_param('si', $email, $id);
+            $check->execute();
+            $check->store_result();
+
+            if ($check->num_rows > 0) {
+                $errors[] = 'Another administrator already uses this email.';
+            }
+            $check->close();
+        }
+
+        if (!$errors) {
+            if ($newPassword !== '') {
+                $passwordHash = password_hash($newPassword, PASSWORD_DEFAULT);
+
+                $update = $conn->prepare(
+                    'UPDATE admins
+                    SET name = ?, email = ?, password = ?, role = ?, status = ?
+                    WHERE id = ?'
+                );
+                $update->bind_param(
+                    'sssssi',
+                    $name,
+                    $email,
+                    $passwordHash,
+                    $role,
+                    $status,
+                    $id
+                );
+            } else {
+                $update = $conn->prepare(
+                    'UPDATE admins
+                    SET name = ?, email = ?, role = ?, status = ?
+                    WHERE id = ?'
+                );
+                $update->bind_param(
+                    'ssssi',
+                    $name,
+                    $email,
+                    $role,
+                    $status,
+                    $id
+                );
             }
 
-            header('Location: admins.php?message=updated');
-            exit;
+            if ($update->execute()) {
+                $update->close();
+
+                // If editing the current account, refresh its session details.
+                if ((int) $_SESSION['admin_id'] === (int) $id) {
+                    $_SESSION['admin_name'] = $name;
+                    $_SESSION['admin_email'] = $email;
+                    $_SESSION['admin_role'] = $role;
+                }
+
+                header('Location: admins.php?message=updated');
+                exit;
+            }
+
+            error_log('Failed to update administrator: ' . $update->error);
+            $errors[] = 'Unable to update this administrator. Please try again.';
+            $update->close();
         }
-
-        error_log('Failed to update administrator: ' . $update->error);
-        $errors[] = 'Unable to update this administrator. Please try again.';
-        $update->close();
     }
-}
 
-include __DIR__ . '/header.php';
-include __DIR__ . '/sidebar.php';
+    include __DIR__ . '/header.php';
+    include __DIR__ . '/sidebar.php';
 ?>
 
 <div class="page-wrapper">

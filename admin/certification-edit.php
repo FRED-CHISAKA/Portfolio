@@ -83,8 +83,7 @@
 
                     $extension = strtolower(
                         pathinfo(
-                            $file['name'],
-                            PATHINFO_EXTENSION
+                            $file['name'], PATHINFO_EXTENSION
                         )
                     );
 
@@ -102,40 +101,24 @@
                         } else {
 
                             /* Generate New File Name */
-                            $new_file_name =
-                                'cert_' .
-                                time() .
-                                '_' .
-                                bin2hex(random_bytes(5)) .
-                                '.' .
-                                $extension;
-
-                            $target_file =
-                                $upload_dir .
-                                $new_file_name;
+                            $new_file_name = 'cert_' . time() . '_' . bin2hex(random_bytes(5)) . '.' . $extension;
+                            $target_file = $upload_dir . $new_file_name;
 
                             /* Upload New File */
                             if (move_uploaded_file(
-                                $file['tmp_name'],
-                                $target_file
+                                $file['tmp_name'], $target_file
                             )) {
 
-                                $new_file_path =
-                                    $db_upload_dir .
-                                    $new_file_name;
+                                $new_file_path = $db_upload_dir . $new_file_name;
 
                                 /* Delete Previous Local File */
                                 if (!empty($certification['img'])) {
-                                    $old_file =
-                                        "../" .
-                                        $certification['img'];
-                                    /* Only Delete Local Files */
+                                    $old_file = "../" . $certification['img'];
 
                                     if (
                                         file_exists($old_file) &&
                                         is_file($old_file)
                                     ) {
-
                                         unlink($old_file);
                                     }
                                 }
@@ -169,7 +152,6 @@
                     );
 
                     if (mysqli_stmt_execute($stmt)) {
-
                         mysqli_stmt_close($stmt);
 
                         header(
@@ -181,7 +163,6 @@
                         mysqli_stmt_close($stmt);
                         $error = "Failed to update certification.";
                     }
-
                 } else {
                     $error = "Database error: Unable to prepare the update query.";
                 }
@@ -340,37 +321,30 @@
 
                             <?php if (!empty($certification['img'])) { ?>
                                 <?php
-                                    $current_file =
-                                        "../" .
-                                        $certification['img'];
+                                    $current_file = "../" . $certification['img'];
 
                                     $extension =
                                         strtolower(
                                             pathinfo(
-                                                $certification['img'],
-                                                PATHINFO_EXTENSION
+                                                $certification['img'], PATHINFO_EXTENSION
                                             )
                                         );
 
-                                    $image_extensions = [
-                                        'jpg', 'jpeg', 'png', 'gif', 'webp'
-                                    ];
+                                    $image_extensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
                                 ?>
 
                                 <div class="border rounded p-3 mb-3">
 
                                     <?php if (
                                         in_array(
-                                            $extension,
-                                            $image_extensions
+                                            $extension, $image_extensions
                                         )
                                     ) { ?>
 
                                         <!-- Image Preview -->
                                         <div class="mb-3">
                                             <img src="<?= htmlspecialchars($current_file) ?>"
-                                                 alt="<?= htmlspecialchars($certification['title']) ?>"
-                                                 class="img-thumbnail"
+                                                 alt="<?= htmlspecialchars($certification['title']) ?>" class="img-thumbnail"
                                                  style="max-width: 300px; max-height: 220px; object-fit: contain;">
                                         </div>
 
@@ -390,8 +364,7 @@
 
                                                     <br>
 
-                                                    <a href="<?= htmlspecialchars($current_file) ?>"
-                                                       target="_blank" class="btn btn-sm btn-outline-primary mt-2">
+                                                    <a href="<?= htmlspecialchars($current_file) ?>" target="_blank" class="btn btn-sm btn-outline-primary mt-2">
                                                         <i class="bi bi-box-arrow-up-right"></i>
                                                         Open Document
                                                     </a>
@@ -403,9 +376,7 @@
 
                                     <small class="text-muted">
                                         Current file:
-                                        <?= htmlspecialchars(
-                                            basename($certification['img'])
-                                        ) ?>
+                                        <?= htmlspecialchars(basename($certification['img']) ) ?>
                                     </small>
                                 </div>
 

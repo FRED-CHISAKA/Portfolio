@@ -1,6 +1,5 @@
 
 
-
 <?php  
     require_once __DIR__ . '/auth.php';
 ?>
@@ -78,10 +77,4 @@
         </div>
     </div>
     
-    <?php
-    include "footer.php";
-    ?>
-    
-</body>
-
-</html>
+<?php include "footer.php"; ?>

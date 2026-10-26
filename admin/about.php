@@ -82,8 +82,7 @@
                         </label>
 
                         <input type="text" id="title" name="title" class="form-control"
-                            value="<?= htmlspecialchars($data['title']) ?>" 
-                            placeholder="e.g. Software Engineer" required
+                            value="<?= htmlspecialchars($data['title']) ?>" placeholder="e.g. Software Engineer" required
                         >
                     </div>
 
@@ -118,9 +117,7 @@
                             Email Address
                         </label>
 
-                        <input type="email" id="email" name="email" class="form-control"
-                            value="<?= htmlspecialchars($data['email']) ?>"
-                        >
+                        <input type="email" id="email" name="email" class="form-control" value="<?= htmlspecialchars($data['email']) ?>">
                     </div>
 
                     <!-- Phone -->
@@ -129,9 +126,7 @@
                             Phone Number
                         </label>
 
-                        <input type="text" id="phone" name="phone" class="form-control"
-                            value="<?= htmlspecialchars($data['phone']) ?>"
-                        >
+                        <input type="text" id="phone" name="phone" class="form-control" value="<?= htmlspecialchars($data['phone']) ?>">
                     </div>
 
                     <!-- Website -->
@@ -141,8 +136,7 @@
                         </label>
 
                         <input type="url" id="website" name="website" class="form-control"
-                            value="<?= htmlspecialchars($data['website']) ?>"
-                            placeholder="https://example.com"
+                            value="<?= htmlspecialchars($data['website']) ?>" placeholder="https://example.com"
                         >
                     </div>
 
@@ -152,9 +146,7 @@
                             City
                         </label>
 
-                        <input type="text" id="city" name="city" class="form-control"
-                            value="<?= htmlspecialchars($data['city']) ?>"
-                        >
+                        <input type="text" id="city" name="city" class="form-control" value="<?= htmlspecialchars($data['city']) ?>">
                     </div>
                 </div>
 
@@ -173,9 +165,7 @@
                             Birthday
                         </label>
 
-                        <input type="date" id="birthday" name="birthday" class="form-control"
-                            value="<?= htmlspecialchars($data['birthday']) ?>"
-                        >
+                        <input type="date" id="birthday" name="birthday" class="form-control" value="<?= htmlspecialchars($data['birthday']) ?>">
                     </div>
 
                     <!-- Age -->
@@ -184,10 +174,7 @@
                             Age
                         </label>
 
-                        <input type="number" id="age" name="age" class="form-control"
-                            value="<?= htmlspecialchars($data['age']) ?>"
-                            min="1" max="120"
-                        >
+                        <input type="number" id="age" name="age" class="form-control" value="<?= htmlspecialchars($data['age']) ?>" min="1" max="120">
                     </div>
 
                     <!-- Degree -->
@@ -229,15 +216,11 @@
                         </label>
 
                         <select name="freelance" id="freelance" class="form-select">
-                            <option value="1"
-                                <?= ($data['freelance'] == 1) ? 'selected' : '' ?>
-                            >
+                            <option value="1" <?= ($data['freelance'] == 1) ? 'selected' : '' ?>>
                                 Available
                             </option>
 
-                            <option value="0"
-                                <?= ($data['freelance'] == 0) ? 'selected' : '' ?>
-                            >
+                            <option value="0" <?= ($data['freelance'] == 0) ? 'selected' : '' ?>>
                                 Not Available
                             </option>
                         </select>
@@ -327,16 +310,11 @@
                                                 </td>
 
                                                 <td class="text-right">
-
-                                                    <a href="edit-counter.php?id=<?= $counter['id'] ?>"
-                                                    class="btn btn-sm btn-info"
-                                                    title="Edit">
+                                                    <a href="edit-counter.php?id=<?= $counter['id'] ?>" class="btn btn-sm btn-info" title="Edit">
                                                         <i class="fa fa-pencil"></i>
                                                     </a>
 
-                                                    <a href="delete-counter.php?id=<?= $counter['id'] ?>"
-                                                    class="btn btn-sm btn-danger"
-                                                    title="Delete"
+                                                    <a href="delete-counter.php?id=<?= $counter['id'] ?>" class="btn btn-sm btn-danger" title="Delete"
                                                     onclick="return confirm('Are you sure you want to delete this statistic?');">
                                                         <i class="fa fa-trash"></i>
                                                     </a>
@@ -416,9 +394,7 @@
                                                 </td>
 
                                                 <td>
-                                                    <i class="<?= htmlspecialchars($skill['icon']) ?>"
-                                                    style="color: <?= htmlspecialchars($skill['color']) ?>; font-size:20px;">
-                                                    </i>
+                                                    <i class="<?= htmlspecialchars($skill['icon']) ?>" style="color: <?= htmlspecialchars($skill['color']) ?>; font-size:20px;"> </i>
 
                                                     <small class="text-muted ml-2">
                                                         <?= htmlspecialchars($skill['icon']) ?>
@@ -439,9 +415,7 @@
 
                                                 <td>
                                                     <div class="d-flex align-items-center">
-                                                        <i class="<?= htmlspecialchars($skill['icon']) ?>"
-                                                        style="color: <?= htmlspecialchars($skill['color']) ?>; font-size:24px;">
-                                                        </i>
+                                                        <i class="<?= htmlspecialchars($skill['icon']) ?>" style="color: <?= htmlspecialchars($skill['color']) ?>; font-size:24px;"></i>
 
                                                         <span class="ml-2">
                                                             <?= htmlspecialchars($skill['title']) ?>
@@ -450,31 +424,24 @@
                                                 </td>
 
                                                 <td class="text-right">
-                                                    <a href="edit-skill.php?id=<?= $skill['id'] ?>"
-                                                    class="btn btn-sm btn-info"
-                                                    title="Edit">
+                                                    <a href="edit-skill.php?id=<?= $skill['id'] ?>" class="btn btn-sm btn-info" title="Edit">
                                                         <i class="fa fa-pencil"></i>
                                                     </a>
 
-                                                    <a href="delete-skill.php?id=<?= $skill['id'] ?>"
-                                                    class="btn btn-sm btn-danger"
-                                                    title="Delete"
+                                                    <a href="delete-skill.php?id=<?= $skill['id'] ?>" class="btn btn-sm btn-danger" title="Delete"
                                                     onclick="return confirm('Are you sure you want to delete this skill?');">
                                                         <i class="fa fa-trash"></i>
                                                     </a>
                                                 </td>
                                             </tr>
-
                                         <?php } ?>
 
                                     <?php } else { ?>
-
                                     <tr>
                                         <td colspan="6" class="text-center text-muted">
                                             No skills found.
                                         </td>
                                     </tr>
-
                                     <?php } ?>
 
                                 </tbody>
@@ -541,25 +508,20 @@
 
                                             <td>
                                                 <?php if (!empty($quote['img'])): ?>
-                                                    <img src="<?= htmlspecialchars(quoteImagePath($quote['img'])) ?>"
-                                                        alt="<?= htmlspecialchars($quote['name']) ?>"
+                                                    <img src="<?= htmlspecialchars(quoteImagePath($quote['img'])) ?>" alt="<?= htmlspecialchars($quote['name']) ?>"
                                                         style="width:45px; height:45px; object-fit:cover; border-radius:50%;"
                                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
                                                     >
 
-                                                    <div
-                                                        style="width:45px; height:45px; border-radius:50%; background:#f1f1f1; display:none;
-                                                            align-items:center; justify-content:center;
-                                                        "
+                                                    <div style="width:45px; height:45px; border-radius:50%; background:#f1f1f1; display:none;
+                                                            align-items:center; justify-content:center;"
                                                     >
                                                         <i class="fa fa-user text-muted"></i>
                                                     </div>
 
                                                 <?php else: ?>
-                                                    <div
-                                                        style="width:45px; height:45px; border-radius:50%; background:#f1f1f1;
-                                                            display:flex; align-items:center; justify-content:center;
-                                                        "
+                                                    <div style="width:45px; height:45px; border-radius:50%; background:#f1f1f1;
+                                                            display:flex; align-items:center; justify-content:center;"
                                                     >
                                                         <i class="fa fa-user text-muted"></i>
                                                     </div>

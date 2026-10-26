@@ -31,9 +31,7 @@ if ($email === '' || $password === '') {
 // Find the administrator by email.
 $stmt = $conn->prepare(
     "SELECT id, name, email, password, role, status
-     FROM admins
-     WHERE email = ?
-     LIMIT 1"
+     FROM admins WHERE email = ? LIMIT 1"
 );
 
 if (!$stmt) {

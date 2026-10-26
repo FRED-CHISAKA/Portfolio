@@ -1,13 +1,11 @@
 <?php
-require_once __DIR__ . '/auth.php';
-
+    require_once __DIR__ . '/auth.php';
 ?>
 
-<!-- ======== MESSAGE SIDEBAR ============ -->
+        <!-- ======== MESSAGE SIDEBAR ============ -->
         <div class="notification-box">
             <div class="msg-sidebar notifications msg-noti">
 
-                <!-- Header -->
                 <div class="topnav-dropdown-header">
                     <span>
                         Messages
@@ -41,8 +39,7 @@ require_once __DIR__ . '/auth.php';
 
                         <?php if (!empty($footer_messages)) { ?>
                             <?php foreach (
-                                $footer_messages
-                                as $footer_message
+                                $footer_messages as $footer_message
                             ) { ?>
 
                                 <li>

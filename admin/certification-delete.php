@@ -33,7 +33,6 @@
 
     /* Delete Certification */
     $sql = "DELETE FROM certifications WHERE id = ?";
-
     $stmt = mysqli_prepare($conn, $sql);
 
     mysqli_stmt_bind_param($stmt, "i", $id);
@@ -44,14 +43,11 @@
         /* Delete Associated File */
         if (!empty($certification['img'])) {
 
-            $file_path =
-                "../" .
-                $certification['img'];
+            $file_path = "../" . $certification['img'];
 
             /* Make Sure It Is A Local File */
             if (
-                file_exists($file_path) &&
-                is_file($file_path)
+                file_exists($file_path) && is_file($file_path)
             ) {
                 unlink($file_path);
             }

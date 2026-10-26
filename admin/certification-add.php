@@ -2,10 +2,8 @@
     require_once __DIR__ . '/auth.php';
     include "../include/config.php";
 
-    /* Upload Configuration
-
-    | Files will be stored inside: ../assets/uploads/certifications/
-    | The database will store: assets/uploads/certifications/filename.ext
+    /*  Files stored inside: ../assets/uploads/certifications/
+    | The database stores: assets/uploads/certifications/filename.ext
     */
 
     $upload_dir = "../assets/uploads/certifications/";
@@ -56,9 +54,7 @@
                     ];
 
                     $original_name = $file['name'];
-                    $extension = strtolower(
-                        pathinfo($original_name, PATHINFO_EXTENSION)
-                    );
+                    $extension = strtolower(pathinfo($original_name, PATHINFO_EXTENSION));
 
                     if (!in_array($extension, $allowed_extensions)) {
                         $error = "Invalid file type. Allowed files: JPG, JPEG, PNG, GIF, WEBP, PDF, DOC and DOCX.";
@@ -74,14 +70,7 @@
                         } else {
 
                             /* Generate Unique File Name */
-                            $new_file_name =
-                                'cert_' .
-                                time() .
-                                '_' .
-                                bin2hex(random_bytes(5)) .
-                                '.' .
-                                $extension;
-
+                            $new_file_name = 'cert_' . time() . '_' . bin2hex(random_bytes(5)) . '.' . $extension;
                             $target_file = $upload_dir . $new_file_name;
 
                             /* Move Uploaded File */
@@ -90,7 +79,6 @@
                                 $file_path = $db_upload_dir . $new_file_name;
 
                             } else {
-
                                 $error = "Failed to save the uploaded certificate file.";
                             }
                         }
@@ -112,8 +100,7 @@
                 if ($stmt) {
 
                     mysqli_stmt_bind_param(
-                        $stmt,
-                        "sssssssi",
+                        $stmt, "sssssssi",
                         $title, $description, $issuer, $issue_date, $credential_id, $url, $file_path, $status
                     );
 
@@ -202,8 +189,7 @@
                                 <span class="text-danger">*</span>
                             </label>
 
-                            <input type="text" name="title" class="form-control"
-                                   placeholder="e.g. Huawei Certified Storage Associate"
+                            <input type="text" name="title" class="form-control" placeholder="e.g. Huawei Certified Storage Associate"
                                    value="<?= htmlspecialchars($_POST['title'] ?? '') ?>"
                                    required>
                         </div>
@@ -224,8 +210,7 @@
                                 Issue Date
                             </label>
 
-                            <input type="date" name="issue_date" class="form-control"
-                                   value="<?= htmlspecialchars($_POST['issue_date'] ?? '') ?>">
+                            <input type="date" name="issue_date" class="form-control" value="<?= htmlspecialchars($_POST['issue_date'] ?? '') ?>">
                         </div>
 
                         <!-- Credential ID -->

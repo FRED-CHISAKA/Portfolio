@@ -1,66 +1,52 @@
 
 <?php
-require_once __DIR__ . '/auth.php';
-require_once __DIR__ . '/../include/config.php';
+    require_once __DIR__ . '/auth.php';
+    require_once __DIR__ . '/../include/config.php';
 
-// Only super administrators may manage administrator accounts.
-if (($_SESSION['admin_role'] ?? '') !== 'super_admin') {
-    http_response_code(403);
-    exit('Access denied. You are not authorized to manage administrators.');
-}
+    // Only super administrators may manage administrator accounts.
+    if (($_SESSION['admin_role'] ?? '') !== 'super_admin') {
+        http_response_code(403);
+        exit('Access denied. You are not authorized to manage administrators.');
+    }
 
-// Generate a CSRF token for admin-management actions.
-if (empty($_SESSION['admin_csrf_token'])) {
-    $_SESSION['admin_csrf_token'] = bin2hex(random_bytes(32));
-}
+    // Generate a CSRF token for admin-management actions.
+    if (empty($_SESSION['admin_csrf_token'])) {
+        $_SESSION['admin_csrf_token'] = bin2hex(random_bytes(32));
+    }
 
-$csrfToken = $_SESSION['admin_csrf_token'];
-$currentAdminId = (int) $_SESSION['admin_id'];
+    $csrfToken = $_SESSION['admin_csrf_token'];
+    $currentAdminId = (int) $_SESSION['admin_id'];
 
-// Fetch administrator accounts.
-$sql = "SELECT id, name, email, role, status, created_at
-        FROM admins
-        ORDER BY created_at DESC, id DESC";
+    // Fetch administrator accounts.
+    $sql = "SELECT id, name, email, role, status, created_at
+            FROM admins
+            ORDER BY created_at DESC, id DESC";
 
-$result = mysqli_query($conn, $sql);
+    $result = mysqli_query($conn, $sql);
 
-if (!$result) {
-    error_log('Failed to retrieve administrator accounts.');
-    http_response_code(500);
-    exit('Unable to load administrator accounts. Please try again later.');
-}
+    if (!$result) {
+        error_log('Failed to retrieve administrator accounts.');
+        http_response_code(500);
+        exit('Unable to load administrator accounts. Please try again later.');
+    }
 
-$admins = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $admins = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-// Helper to safely display database values.
-function adminEscape($value): string
-{
-    return htmlspecialchars(
-        (string) ($value ?? ''),
-        ENT_QUOTES,
-        'UTF-8'
-    );
-}
+    // Helper to safely display database values.
+    function adminEscape($value): string
+    {
+        return htmlspecialchars(
+            (string) ($value ?? ''), ENT_QUOTES, 'UTF-8'
+        );
+    }
 
-include __DIR__ . '/header.php';
-include __DIR__ . '/sidebar.php';
+    include __DIR__ . '/header.php';
+    include __DIR__ . '/sidebar.php';
 ?>
-
-
-
-
-
-
 
 
 <div class="page-wrapper">
     <div class="content">
-
-
-
-
-
-
     
 <?php
 $messages = [

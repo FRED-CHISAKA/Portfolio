@@ -18,11 +18,8 @@
     }
 
     /* ================ GET ALL PORTFOLIO PROJECTS ============ */
-    $portfolio_sql = "SELECT portfolio.*,
-            category.name AS category_name,
-            category.class AS category_class
-        FROM portfolio LEFT JOIN category 
-            ON portfolio.category = category.id
+    $portfolio_sql = "SELECT portfolio.*, category.name AS category_name, category.class AS category_class
+        FROM portfolio LEFT JOIN category ON portfolio.category = category.id
         ORDER BY portfolio.id DESC
     ";
 
@@ -60,8 +57,7 @@
 
     /* ========= IT INFRASTRUCTURE PROJECTS ============== */
     $systems_sql = "SELECT COUNT(*) AS total
-        FROM portfolio p INNER JOIN category c 
-            ON p.category = c.id
+        FROM portfolio p INNER JOIN category c ON p.category = c.id
         WHERE c.class = 'filter-infrastructure'
     ";
 

@@ -47,9 +47,10 @@
             }
         }
     }
-?>
-<?php include "header.php"; ?>
-<?php include "sidebar.php"; ?>
+
+    include "header.php";
+    include "sidebar.php";
+?> 
 
 <div class="page-wrapper">
     <div class="content">

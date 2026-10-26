@@ -194,40 +194,29 @@
                                     <!-- Sender -->
                                     <td>
                                         <strong>
-                                            <?= htmlspecialchars(
-                                                $message['name']
-                                            ) ?>
+                                            <?= htmlspecialchars($message['name']) ?>
                                         </strong>
 
                                         <br>
 
                                         <small class="text-muted">
-                                            <?= htmlspecialchars(
-                                                $message['email']
-                                            ) ?>
+                                            <?= htmlspecialchars($message['email']) ?>
                                         </small>
                                     </td>
 
                                     <!-- Subject -->
                                     <td>
                                         <strong>
-                                            <?= htmlspecialchars(
-                                                $message['subject']
-                                            ) ?>
+                                            <?= htmlspecialchars($message['subject']) ?>
                                         </strong>
                                     </td>
 
                                     <!-- Message -->
                                     <td>
                                         <div class="text-truncate" style="max-width: 300px;"
-                                            title="<?= htmlspecialchars(
-                                                $message['message']
-                                            ) ?>"
+                                            title="<?= htmlspecialchars($message['message']) ?>"
                                         >
-
-                                            <?= htmlspecialchars(
-                                                $message['message']
-                                            ) ?>
+                                            <?= htmlspecialchars($message['message']) ?>
                                         </div>
                                     </td>
 
@@ -236,9 +225,7 @@
                                         <span class="text-nowrap">
                                             <?= date(
                                                 'd M Y',
-                                                strtotime(
-                                                    $message['created_at']
-                                                )
+                                                strtotime($message['created_at'])
                                             ) ?>
                                         </span>
 
@@ -247,9 +234,7 @@
                                         <small class="text-muted">
                                             <?= date(
                                                 'H:i',
-                                                strtotime(
-                                                    $message['created_at']
-                                                )
+                                                strtotime($message['created_at'])
                                             ) ?>
                                         </small>
                                     </td>

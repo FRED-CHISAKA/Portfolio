@@ -1,9 +1,7 @@
 <?php
-require_once __DIR__ . '/auth.php';
+    require_once __DIR__ . '/auth.php';
 
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">

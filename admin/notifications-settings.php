@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/auth.php';
-include "header.php";
+    require_once __DIR__ . '/auth.php';
+    include "header.php";
 ?>
  
         <div class="sidebar" id="sidebar">
@@ -93,6 +93,4 @@ include "header.php";
                 </div>
             </div>
             
-            <?php
-            include "footer.php";
-            ?>
+<?php include "footer.php"; ?>

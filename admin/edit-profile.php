@@ -3,8 +3,6 @@
     include "header.php";
     include "sidebar.php";
 ?>
-
-        
         
         <div class="page-wrapper">
             <div class="content">

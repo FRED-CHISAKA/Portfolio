@@ -31,38 +31,22 @@
 
                     $total_images_query = "SELECT COUNT(*) AS total FROM media WHERE media_type = 'image'";
                     $total_images_result = mysqli_query($conn, $total_images_query);
-
-                    $total_images = mysqli_fetch_assoc(
-                        $total_images_result
-                    )['total'];
+                    $total_images = mysqli_fetch_assoc($total_images_result)['total'];
 
                     $total_videos_query = "SELECT COUNT(*) AS total FROM media WHERE media_type = 'video'";
                     $total_videos_result = mysqli_query($conn, $total_videos_query);
-
-                    $total_videos = mysqli_fetch_assoc(
-                        $total_videos_result
-                    )['total'];
+                    $total_videos = mysqli_fetch_assoc($total_videos_result)['total'];
 
                     $total_documents_query = "SELECT COUNT(*) AS total FROM media WHERE media_type = 'document'";
                     $total_documents_result = mysqli_query($conn, $total_documents_query);
-
-                    $total_documents = mysqli_fetch_assoc(
-                        $total_documents_result
-                    )['total'];
+                    $total_documents = mysqli_fetch_assoc($total_documents_result)['total'];
 
                     $storage_query = "SELECT SUM(file_size) AS total_size FROM media";
                     $storage_result = mysqli_query($conn, $storage_query);
-
-                    $storage_data = mysqli_fetch_assoc(
-                        $storage_result
-                    );
+                    $storage_data = mysqli_fetch_assoc($storage_result);
 
                     $total_storage = $storage_data['total_size'] ?? 0;
-
-                    $storage_mb = round(
-                        $total_storage / 1024 / 1024,
-                        2
-                    );
+                    $storage_mb = round($total_storage / 1024 / 1024, 2);
                 ?>
 
                 <!-- Statistics -->
@@ -350,17 +334,13 @@
                                                 <i class="fa fa-eye"></i>
                                             </a>
 
-                                            <a href="edit-media.php?id=<?=$media['id']?>"
-                                                class="btn btn-sm btn-warning"
-                                            >
+                                            <a href="edit-media.php?id=<?=$media['id']?>" class="btn btn-sm btn-warning">
                                                 <i class="fa fa-pencil"></i>
                                             </a>
 
                                             <a href="delete-media.php?id=<?=$media['id']?>"
                                                 class="btn btn-sm btn-danger"
-                                                onclick="
-                                                    return confirm('Delete this file?')
-                                                "
+                                                onclick="return confirm('Delete this file?')"
                                             >
                                                 <i class="fa fa-trash"></i>
                                             </a>

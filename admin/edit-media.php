@@ -40,8 +40,7 @@
 
             $extension = strtolower(
                 pathinfo(
-                    $file_name,
-                    PATHINFO_EXTENSION
+                    $file_name, PATHINFO_EXTENSION
                 )
             );
 
@@ -49,26 +48,13 @@
 
             if(in_array($extension, $allowed)){
 
-                $new_file_name =
-                    time()
-                    . "_"
-                    . uniqid()
-                    . "."
-                    . $extension;
+                $new_file_name = time() . "_" . uniqid() . "." . $extension;
 
-                $upload_folder =
-                    "../assets/uploads/media/";
-
-                $database_path =
-                    "assets/uploads/media/"
-                    . $new_file_name;
-
-                $upload_path =
-                    $upload_folder
-                    . $new_file_name;
+                $upload_folder = "../assets/uploads/media/";
+                $database_path = "assets/uploads/media/" . $new_file_name;
+                $upload_path = $upload_folder . $new_file_name;
 
                 /* Determine type */
-
                 if(
                     in_array($extension,
                         [
@@ -90,9 +76,7 @@
                 ){
 
                     /* Delete old physical file */
-                    $old_file =
-                        "../"
-                        . $media['file_path'];
+                    $old_file = "../" . $media['file_path'];
 
                     if(file_exists($old_file)){
                         unlink($old_file);
@@ -154,8 +138,7 @@
                     <!-- Preview -->
                     <?php
                         if(
-                            $media['media_type']
-                            == 'image'
+                            $media['media_type'] == 'image'
                         ){
                     ?>
 

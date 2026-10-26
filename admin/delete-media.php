@@ -18,9 +18,7 @@
     if($media){
 
         /* Delete physical file */
-        $file_path =
-            "../"
-            . $media['file_path'];
+        $file_path = "../" . $media['file_path'];
 
         if(file_exists($file_path)){
             unlink($file_path);
