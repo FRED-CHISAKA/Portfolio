@@ -26,44 +26,49 @@
     // SKILLS
     $skills = mysqli_query($conn,
         "SELECT * FROM skills
-        WHERE id = 1
-        ORDER BY id DESC"
+        
+        ORDER BY id DESC LIMIT 6"
+
+        //WHERE id = 1
     );
 
     // CERTIFICATIONS
     $certifications = mysqli_query($conn,
         "SELECT * FROM certifications
-        WHERE id = 1"
-        
+        LIMIT 6"
+        //WHERE id = 1
         //  ORDER BY year DESC
     );
 
     // INTERESTS
     $interests = mysqli_query($conn,
         "SELECT * FROM interests
-        WHERE id = 1
-        ORDER BY id DESC"
+        ORDER BY id DESC LIMIT 4"
+
+       // WHERE id = 1
     );
 
     // LANGUAGES
     $languages = mysqli_query($conn,
         "SELECT * FROM languages
-        WHERE id = 1
-        ORDER BY id DESC"
+        
+        ORDER BY id DESC LIMIT 4"
+        //WHERE id = 1
     );
 
     // REFEREES
     $referees = mysqli_query($conn,
         "SELECT * FROM referees
-        WHERE id = 1
-        ORDER BY id DESC"
+        ORDER BY id DESC LIMIT 2"
+        
+        //WHERE id = 1
     );
 
     // AWARDS / ACHIEVEMENTS
     $awards = mysqli_query($conn,
         "SELECT * FROM awards
-        WHERE id = 1
         ORDER BY id DESC"
+        //WHERE id = 1
     );
 
 ?>
@@ -314,7 +319,7 @@
                 </p>
             </div>
 
-            <a href="skill-add.php" class="btn btn-primary btn-sm">
+            <a href="add-skill.php" class="btn btn-primary btn-sm">
                 <i class="bi bi-plus-lg me-1"></i>
                 Add Skill
             </a>
@@ -338,11 +343,11 @@
                                     </div>
 
                                     <div>
-                                        <a href="skill-edit.php?id=<?= $skill['id'] ?>" class="btn btn-sm btn-outline-primary">
+                                        <a href="edit-skill.php?id=<?= $skill['id'] ?>" class="btn btn-sm btn-outline-primary">
                                             <i class="bi bi-pencil"></i>
                                         </a>
 
-                                        <a href="skill-delete.php?id=<?= $skill['id'] ?>"
+                                        <a href="delete-skill.php?id=<?= $skill['id'] ?>"
                                             class="btn btn-sm btn-outline-danger"
                                             onclick="return confirm('Delete this skill?')"
                                         >

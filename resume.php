@@ -196,6 +196,62 @@
               <?php } ?>
             <?php } ?>
 
+            <!-- INTERESTS -->
+            <h3 class="resume-title">Interests</h3>
+
+            <?php if ($interests && mysqli_num_rows($interests) > 0) { ?>
+              <?php while ($interest = mysqli_fetch_assoc($interests)) { ?>
+
+                <div class="resume-item">
+                  <h4>
+                    <i class="bi bi-star me-2"></i>
+                    <?= htmlspecialchars($interest['name']) ?>
+                  </h4>
+                </div>
+
+              <?php } ?>
+            <?php } ?>
+
+            <!-- REFEREES -->
+            <h3 class="resume-title">Referees</h3>
+
+            <?php if ($referees && mysqli_num_rows($referees) > 0) { ?>
+              <?php while ($ref = mysqli_fetch_assoc($referees)) { ?>
+
+                <div class="resume-item">
+                  <h4><?= htmlspecialchars($ref['name']) ?></h4>
+
+                  <?php if (!empty($ref['position'])) { ?>
+                    <p>
+                      <em><?= htmlspecialchars($ref['position']) ?></em>
+                    </p>
+                  <?php } ?>
+
+                  <?php if (!empty($ref['organization'])) { ?>
+                    <p>
+                      <i class="bi bi-building me-2"></i>
+                      <?= htmlspecialchars($ref['organization']) ?>
+                    </p>
+                  <?php } ?>
+
+                  <?php if (!empty($ref['phone'])) { ?>
+                    <p>
+                      <i class="bi bi-telephone me-2"></i>
+                      <?= htmlspecialchars($ref['phone']) ?>
+                    </p>
+                  <?php } ?>
+
+                  <?php if (!empty($ref['email'])) { ?>
+                    <p>
+                      <i class="bi bi-envelope me-2"></i>
+                      <?= htmlspecialchars($ref['email']) ?>
+                    </p>
+                  <?php } ?>
+                </div>
+
+              <?php } ?>
+            <?php } ?>
+
           </div>
 
           <!-- RIGHT COLUMN -->
@@ -248,21 +304,7 @@
               <?php } ?>
             <?php } ?>
 
-            <!-- INTERESTS -->
-            <h3 class="resume-title">Interests</h3>
-
-            <?php if ($interests && mysqli_num_rows($interests) > 0) { ?>
-              <?php while ($interest = mysqli_fetch_assoc($interests)) { ?>
-
-                <div class="resume-item">
-                  <h4>
-                    <i class="bi bi-star me-2"></i>
-                    <?= htmlspecialchars($interest['name']) ?>
-                  </h4>
-                </div>
-
-              <?php } ?>
-            <?php } ?>
+            
 
             <!-- AWARDS / ACHIEVEMENTS -->
             <h3 class="resume-title">Awards & Achievements</h3>
@@ -286,45 +328,7 @@
               <?php } ?>
             <?php } ?>
 
-            <!-- REFEREES -->
-            <h3 class="resume-title">Referees</h3>
-
-            <?php if ($referees && mysqli_num_rows($referees) > 0) { ?>
-              <?php while ($ref = mysqli_fetch_assoc($referees)) { ?>
-
-                <div class="resume-item">
-                  <h4><?= htmlspecialchars($ref['name']) ?></h4>
-
-                  <?php if (!empty($ref['position'])) { ?>
-                    <p>
-                      <em><?= htmlspecialchars($ref['position']) ?></em>
-                    </p>
-                  <?php } ?>
-
-                  <?php if (!empty($ref['organization'])) { ?>
-                    <p>
-                      <i class="bi bi-building me-2"></i>
-                      <?= htmlspecialchars($ref['organization']) ?>
-                    </p>
-                  <?php } ?>
-
-                  <?php if (!empty($ref['phone'])) { ?>
-                    <p>
-                      <i class="bi bi-telephone me-2"></i>
-                      <?= htmlspecialchars($ref['phone']) ?>
-                    </p>
-                  <?php } ?>
-
-                  <?php if (!empty($ref['email'])) { ?>
-                    <p>
-                      <i class="bi bi-envelope me-2"></i>
-                      <?= htmlspecialchars($ref['email']) ?>
-                    </p>
-                  <?php } ?>
-                </div>
-
-              <?php } ?>
-            <?php } ?>
+            
 
 
           </div>

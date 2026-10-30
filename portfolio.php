@@ -112,9 +112,9 @@ include 'include/header.php';
                         <?= htmlspecialchars($portfolio_data['title']) ?>
                       </h4>
 
-                      <p class="mb-5">
-                        <?= htmlspecialchars($portfolio_data['description']) ?>
-                      </p>
+                      <!-- <p class="mb-5"> -->
+                        <!-- ?= htmlspecialchars($portfolio_data['description']) ?> -->
+                      <!-- </p> -->
 
                       <p class="mt-2">
                         <?= htmlspecialchars($portfolio_data['technology']) ?>
